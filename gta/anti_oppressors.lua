@@ -49,9 +49,7 @@ end
 
 local next_time = 0
 function OnFeatureTick()
-    if not system or not system.ticks then return end -- Бронкс, пофикси, а
 	local now = system.ticks()
-	if not now then return end -- Бронкс, пофикси, а
 	if now >= next_time then
 		next_time = now + 1000
 		FindBannedVehicles()
