@@ -722,28 +722,28 @@ local CUTS = {
     ["PERICO"] = function(target, percentage)
         local global_id = CUTS_TBL["PERICO"][target]
         if not global_id then
-            return "Invalid receiver"
+            return "Invalid receiver (" .. target .. ")"
         end
         SET_INT_GLOBAL(global_id, percentage or 150)
     end,
     ["CASINO"] = function(target, percentage)
         local global_id = CUTS_TBL["CASINO"][target]
         if not global_id then
-            return "Invalid receiver"
+            return "Invalid receiver (" .. target .. ")"
         end
         SET_INT_GLOBAL(global_id, percentage or 150)
     end,
     ["HEIST"] = function(target, percentage)
         local global_id = CUTS_TBL["HEIST"][target]
         if not global_id then
-            return "Invalid receiver"
+            return "Invalid receiver (" .. target .. ")"
         end
         SET_INT_GLOBAL(global_id, percentage or 150)
     end,
     ["TUNNERS"] = function(target, percentage)
         local global_id = CUTS_TBL["TUNNERS"][target]
         if not global_id then
-            return "Invalid receiver"
+            return "Invalid receiver (" .. target .. ")"
         end
         SET_INT_GLOBAL(global_id, percentage or 150)
         SET_INT_GLOBAL(262145 + 30511, 0)
@@ -1072,18 +1072,26 @@ local function RunFeature(info)
     end)
 end
 
+local function split(s, delimiter)
+    local result = {}
+    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+        table.insert(result, match)
+    end
+    return result
+end
+
 local function RunCut(info)
     local need, data
     for name, func in pairs(CUTS) do
         if info:sub(1, #name) == name then
             need = func
-            data = info:sub(#name + 1)
+            data = info:sub(#name + 2)
             break
         end
     end
-    local args = data.split(" ")
+    local args = split(data, " ")
     system.fiber(function()
-        local problem = need(data)
+        local problem = need(tonumber(args[1]), tonumber(args[2]))
         if problem then
             console.log(con_color.Red, "HeistManager: " .. problem .. "\n")
         end
