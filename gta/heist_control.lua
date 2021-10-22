@@ -622,7 +622,7 @@ local PRESETS = {
         STAT_SET_INT("H3OPT_BITSET0", 0xFFFFFFF)
     end,
     -- HEISTS
-    ["H CPLANNING"] = function()
+    ["H_COMPLETEPLANNING"] = function()
         STAT_SET_INT("HEIST_PLANNING_STAGE", 0xFFFFFFF)
     end,
     -- DOOMSDAY
