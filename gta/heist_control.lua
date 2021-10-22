@@ -1,20 +1,20 @@
 local POSITIONS = {
     -- PERICO
-    ["P BOARD"] = Vector3(1561.224, 386.659, -49.685),
-    ["P DECK"] = Vector3(1563.218, 406.030, -49.667),
-    ["P FIRST TUNNEL"] = Vector3(5044.726, -5816.164, -11.213),
-    ["P SECOND TUNNEL"] = Vector3(5054.630, -5771.519, -4.807),
-    ["P MAIN TARGET"] = Vector3(5006.896, -5755.963, 15.487),
-    ["P SECONDARY TARGET"] = Vector3(5003.467, -5749.352, 14.840),
-    ["P VAULT"] = Vector3(5010.753, -5757.639, 28.845),
-    ["P REDUCT"] = Vector3(4992.854, -5718.537, 19.880),
-    ["P OCEAN"] = Vector3(4771.792, -6166.055, -40.266),
+    ["P_BOARD"] = Vector3(1561.224, 386.659, -49.685),
+    ["P_DECK"] = Vector3(1563.218, 406.030, -49.667),
+    ["P_FIRST_TUNNEL"] = Vector3(5044.726, -5816.164, -11.213),
+    ["P_SECOND_TUNNEL"] = Vector3(5054.630, -5771.519, -4.807),
+    ["P_MAIN_TARGET"] = Vector3(5006.896, -5755.963, 15.487),
+    ["P_SECONDARY_TARGET"] = Vector3(5003.467, -5749.352, 14.840),
+    ["P_VAULT"] = Vector3(5010.753, -5757.639, 28.845),
+    ["P_REDUCT"] = Vector3(4992.854, -5718.537, 19.880),
+    ["P_OCEAN"] = Vector3(4771.792, -6166.055, -40.266),
     -- Casino
-    ["C BOARD"] = Vector3(2711.773, -369.458, -54.781),
-    ["C GARAGE"] = Vector3(2677.237, -361.494, -55.187),
+    ["C_BOARD"] = Vector3(2711.773, -369.458, -54.781),
+    ["C_GARAGE"] = Vector3(2677.237, -361.494, -55.187),
     -- Doomsday
-    ["D SCREEN"] = Vector3(515.528, 4835.353, -62.587),
-    ["D CELL"] = Vector3(512.888, 4833.033, -68.989),
+    ["D_SCREEN"] = Vector3(515.528, 4835.353, -62.587),
+    ["D_CELL"] = Vector3(512.888, 4833.033, -68.989),
 }
 
 local function SET_INT_GLOBAL(global, value)
@@ -46,7 +46,7 @@ local function STAT_SET_BOOL(hash, value)
 end
 
 local PRESETS = {
-    ["P QUICK"] = function()
+    ["P_QUICK"] = function()
         STAT_SET_INT("H4CNF_BS_GEN", 262143)
         STAT_SET_INT("H4CNF_BS_ENTR", 63)
         STAT_SET_INT("H4CNF_BS_ABIL", 63)
@@ -94,7 +94,7 @@ local PRESETS = {
         SET_FLOAT_GLOBAL(262145+29471,0.0)
         SET_INT_GLOBAL(262145 + 29466,2455000)
     end,
-    ["P SOLO"] = function()
+    ["P_SOLO"] = function()
         STAT_SET_INT("H4CNF_BOLTCUT", 0xFFFFFFF)
         STAT_SET_INT("H4CNF_UNIFORM", 0xFFFFFFF)
         STAT_SET_INT("H4CNF_GRAPPEL", 0xFFFFFFF)
@@ -140,7 +140,7 @@ local PRESETS = {
         SET_INT_GLOBAL(262145+29227,1800)
         SET_INT_GLOBAL(1711169,100)
     end,
-    ["P SOLO2"] = function()
+    ["P_SOLO2"] = function()
         STAT_SET_INT("H4CNF_TARGET", 1)
         STAT_SET_INT("H4LOOT_CASH_I", 9208137)
         STAT_SET_INT("H4LOOT_CASH_I_SCOPED", 9208137)
@@ -186,7 +186,7 @@ local PRESETS = {
         SET_INT_GLOBAL(262145+29227,1800)
         SET_INT_GLOBAL(1711169,100)
     end,
-    ["P DUAL"] = function()
+    ["P_DUAL"] = function()
         STAT_SET_INT("H4CNF_BOLTCUT", 4424)
         STAT_SET_INT("H4CNF_UNIFORM", 5256)
         STAT_SET_INT("H4CNF_GRAPPEL", 5156)
@@ -233,7 +233,7 @@ local PRESETS = {
         SET_INT_GLOBAL(1711169,50)
         SET_INT_GLOBAL(1711170,50)
     end,
-    ["P DUAL2"] = function()
+    ["P_DUAL2"] = function()
         STAT_SET_INT("H4CNF_TARGET", 1)
         STAT_SET_INT("H4LOOT_CASH_I", 9208137)
         STAT_SET_INT("H4LOOT_CASH_I_SCOPED", 9208137)
@@ -280,7 +280,7 @@ local PRESETS = {
         SET_INT_GLOBAL(1711169,50)
         SET_INT_GLOBAL(1711170,50)
     end,
-    ["P TRIO"] = function()
+    ["P_TRIO"] = function()
         STAT_SET_INT("H4CNF_BOLTCUT", 4424)
         STAT_SET_INT("H4CNF_UNIFORM", 5256)
         STAT_SET_INT("H4CNF_GRAPPEL", 5156)
@@ -328,7 +328,7 @@ local PRESETS = {
         SET_INT_GLOBAL(1711170,35)
         SET_INT_GLOBAL(1711171,35)
     end,
-    ["P TRIO2"] = function()
+    ["P_TRIO2"] = function()
         STAT_SET_INT("H4CNF_TARGET", 1)
         STAT_SET_INT("H4LOOT_CASH_I", 9208137)
         STAT_SET_INT("H4LOOT_CASH_I_SCOPED", 9208137)
@@ -376,7 +376,7 @@ local PRESETS = {
         SET_INT_GLOBAL(1711170,35)
         SET_INT_GLOBAL(1711171,35)
     end,
-    ["P QUADRO"] = function()
+    ["P_QUADRO"] = function()
         STAT_SET_INT("H4CNF_TARGET", 5)
         STAT_SET_INT("H4LOOT_CASH_I", 2359448)
         STAT_SET_INT("H4LOOT_CASH_I_SCOPED", 2359448)
@@ -425,7 +425,7 @@ local PRESETS = {
         SET_INT_GLOBAL(1711171,25)
         SET_INT_GLOBAL(1711172,25)
     end,
-    ["P QUADRO2"] = function()
+    ["P_QUADRO2"] = function()
         STAT_SET_INT("H4CNF_TARGET", 1)
         STAT_SET_INT("H4LOOT_CASH_I", 9208137)
         STAT_SET_INT("H4LOOT_CASH_I_SCOPED", 9208137)
@@ -474,7 +474,7 @@ local PRESETS = {
         SET_INT_GLOBAL(1711171,25)
         SET_INT_GLOBAL(1711172,25)
     end,
-    ["P FULL"] = function()
+    ["P_FULL"] = function()
         STAT_SET_INT("H4CNF_BS_GEN", 262143)
         STAT_SET_INT("H4CNF_BS_ENTR", 63)
         STAT_SET_INT("H4CNF_BS_ABIL", 63)
@@ -516,7 +516,7 @@ local PRESETS = {
         STAT_SET_INT("H4CNF_WEAPONS", math.random(1, 5))
     end,
     -- CASINO
-    ["C SILENT_HARD"] = function()
+    ["C_SILENT_HARD"] = function()
         STAT_SET_INT("H3_COMPLETEDPOSIX", 0xFFFFFFF)
         STAT_SET_INT("CAS_HEIST_FLOW", 0xFFFFFFF)
         STAT_SET_INT("H3_LAST_APPROACH", 4)
@@ -537,7 +537,7 @@ local PRESETS = {
         STAT_SET_INT("H3OPT_MASKS", 2)
         STAT_SET_INT("H3OPT_BITSET0", 0xFFFFFFF)
     end,
-    ["C BIGCON"] = function()
+    ["C_BIGCON"] = function()
         STAT_SET_INT("H3_COMPLETEDPOSIX", 0xFFFFFFF)
         STAT_SET_INT("CAS_HEIST_FLOW", 0xFFFFFFF)
         STAT_SET_INT("H3_LAST_APPROACH", 4)
@@ -558,7 +558,7 @@ local PRESETS = {
         STAT_SET_INT("H3OPT_MASKS", 2)
         STAT_SET_INT("H3OPT_BITSET0", 0xFFFFFFF)
     end,
-    ["C BIGCON_HARD"] = function()
+    ["C_BIGCON_HARD"] = function()
         STAT_SET_INT("H3_COMPLETEDPOSIX", 0xFFFFFFF)
         STAT_SET_INT("CAS_HEIST_FLOW", 0xFFFFFFF)
         STAT_SET_INT("H3_LAST_APPROACH", 4)
@@ -579,7 +579,7 @@ local PRESETS = {
         STAT_SET_INT("H3OPT_MASKS", 2)
         STAT_SET_INT("H3OPT_BITSET0", 0xFFFFFFF)
     end,
-    ["C AGRESSIVE"] = function()
+    ["C_AGRESSIVE"] = function()
         STAT_SET_INT("H3_COMPLETEDPOSIX", 0xFFFFFFF)
         STAT_SET_INT("CAS_HEIST_FLOW", 0xFFFFFFF)
         STAT_SET_INT("H3_LAST_APPROACH", 4)
@@ -600,7 +600,7 @@ local PRESETS = {
         STAT_SET_INT("H3OPT_MASKS", 2)
         STAT_SET_INT("H3OPT_BITSET0", 0xFFFFFFF)
     end,
-    ["C AGRESSIVE_HARD"] = function()
+    ["C_AGRESSIVE_HARD"] = function()
         STAT_SET_INT("H3_COMPLETEDPOSIX", 0xFFFFFFF)
         STAT_SET_INT("CAS_HEIST_FLOW", 0xFFFFFFF)
         STAT_SET_INT("H3_LAST_APPROACH", 4)
@@ -626,54 +626,54 @@ local PRESETS = {
         STAT_SET_INT("HEIST_PLANNING_STAGE", 0xFFFFFFF)
     end,
     -- DOOMSDAY
-    ["D ACT1"] = function()
+    ["D_ACT1"] = function()
         STAT_SET_INT("GANGOPS_FLOW_MISSION_PROG", 503)
         STAT_SET_INT("GANGOPS_HEIST_STATUS", -229383)
         STAT_SET_INT("GANGOPS_FLOW_NotifyS", 1557)
     end,
-    ["D ACT2"] = function()
+    ["D_ACT2"] = function()
         STAT_SET_INT("GANGOPS_FLOW_MISSION_PROG", 240)
         STAT_SET_INT("GANGOPS_HEIST_STATUS", -229378)
         STAT_SET_INT("GANGOPS_FLOW_NotifyS", 1557)
     end,
-    ["D ACT3"] = function()
+    ["D_ACT3"] = function()
         STAT_SET_INT("GANGOPS_FLOW_MISSION_PROG", 16368)
         STAT_SET_INT("GANGOPS_HEIST_STATUS", -229380)
         STAT_SET_INT("GANGOPS_FLOW_NotifyS", 1557)
     end,
     -- TUNNER
-    ["T COMPLETE"] = function()
+    ["T_COMPLETE"] = function()
         STAT_SET_INT("TUNER_GEN_BS", 0xFFFFFFF)
     end,
-    ["T UNION"] = function()
+    ["T_UNION"] = function()
         STAT_SET_INT("TUNER_GEN_BS", 12543)
         STAT_SET_INT("TUNER_CURRENT", 0)
     end,
-    ["T SUPERDOLLAR"] = function()
+    ["T_SUPERDOLLAR"] = function()
         STAT_SET_INT("TUNER_GEN_BS", 4351)
         STAT_SET_INT("TUNER_CURRENT", 1)
     end,
-    ["T BANK"] = function()
+    ["T_BANK"] = function()
         STAT_SET_INT("TUNER_GEN_BS", 12543)
         STAT_SET_INT("TUNER_CURRENT", 2)
     end,
-    ["T ECU"] = function()
+    ["T_ECU"] = function()
         STAT_SET_INT("TUNER_GEN_BS", 12543)
         STAT_SET_INT("TUNER_CURRENT", 3)
     end,
-    ["T PRISON"] = function()
+    ["T_PRISON"] = function()
         STAT_SET_INT("TUNER_GEN_BS", 12543)
         STAT_SET_INT("TUNER_CURRENT", 4)
     end,
-    ["T AGENCY"] = function()
+    ["T_AGENCY"] = function()
         STAT_SET_INT("TUNER_GEN_BS", 12543)
         STAT_SET_INT("TUNER_CURRENT", 5)
     end,
-    ["T LOST"] = function()
+    ["T_LOST"] = function()
         STAT_SET_INT("TUNER_GEN_BS", 12543)
         STAT_SET_INT("TUNER_CURRENT", 6)
     end,
-    ["T DATA"] = function()
+    ["T_DATA"] = function()
         STAT_SET_INT("TUNER_GEN_BS", 12543)
         STAT_SET_INT("TUNER_CURRENT", 7)
     end,
@@ -704,7 +704,7 @@ local CUTS_TBL = {
         1671773 + 3008 + 3,
         1671773 + 3008 + 4,
     },
-    ["ROBBERY"] = {
+    ["TUNNERS"] = {
         262145 + 30514 + 0,
         262145 + 30514 + 1,
         262145 + 30514 + 2,
@@ -740,8 +740,8 @@ local CUTS = {
         end
         SET_INT_GLOBAL(global_id, percentage or 150)
     end,
-    ["ROBBERY"] = function(target, percentage)
-        local global_id = CUTS_TBL["ROBBERY"][target]
+    ["TUNNERS"] = function(target, percentage)
+        local global_id = CUTS_TBL["TUNNERS"][target]
         if not global_id then
             return "Invalid receiver"
         end
@@ -751,20 +751,20 @@ local CUTS = {
 }
 
 local FEATURES = {
-    ["P BAG"] = function(data)
+    ["P_BAG"] = function(data)
         local num = tonumber(data) or 1
         num = math.min(4, num)
         local bag_balue = 1800 * num
         SET_INT_GLOBAL(262145, bag_balue)
     end,
-    ["P FEE"] = function()
+    ["P_FEE"] = function()
         SET_FLOAT_GLOBAL(262145+29470,0)
         SET_FLOAT_GLOBAL(262145+29471,0)
     end,
-    ["P VEHICLE"] = function()
+    ["P_VEHICLE"] = function()
         STAT_SET_INT("H4_MISSIONS", 0xFFFFFFF)
     end,
-    ["P LOOT"] = function()
+    ["P_LOOT"] = function()
         STAT_SET_INT("H4LOOT_CASH_I", 1319624)
         STAT_SET_INT("H4LOOT_CASH_C", 18)
         STAT_SET_INT("H4LOOT_CASH_V", 89400)
@@ -789,7 +789,7 @@ local FEATURES = {
         STAT_SET_INT("H4LOOT_GOLD_C_SCOPED", 129)
         STAT_SET_INT("H4LOOT_PAINT_SCOPED", 127)
     end,
-    ["P COMPOUND"] = function()
+    ["P_COMPOUND"] = function()
         STAT_SET_INT("H4LOOT_CASH_C", 2)
         STAT_SET_INT("H4LOOT_CASH_V", 474431)
         STAT_SET_INT("H4LOOT_WEED_C", 17)
@@ -806,12 +806,12 @@ local FEATURES = {
         STAT_SET_INT("H4LOOT_GOLD_C_SCOPED", 104)
         STAT_SET_INT("H4LOOT_PAINT_SCOPED", 127)
     end,
-    ["P WEAPON"] = function(data)
+    ["P_WEAPON"] = function(data)
         local num = tonumber(data) or 1
         num = math.max(math.min(5, num), 1)
         STAT_SET_INT("H4CNF_WEAPONS", num)
     end,
-    ["P EQUIPMENT"] = function(data)
+    ["P_EQUIPMENT"] = function(data)
         local num = tonumber(data) or 1
         if num == 1 then
             STAT_SET_INT("H4CNF_GRAPPEL", 2022)
@@ -830,17 +830,17 @@ local FEATURES = {
             STAT_SET_INT("H4CNF_TROJAN", 5)
         end
     end,
-    ["P TRUCK"] = function(data)
+    ["P_TRUCK"] = function(data)
         local num = tonumber(data) or 1
         num = math.max(math.min(5, num), 1)
         STAT_SET_INT("H4CNF_TROJAN", num)
     end,
-    ["P DIFFICULTY"] = function(data)
+    ["P_DIFFICULTY"] = function(data)
         local num = tonumber(data) or 1
         local need = num == 1 and 126823 or 131055
         STAT_SET_INT("H4_PROGRESS", num)
     end,
-    ["P AWARD"] = function()
+    ["P_AWARD"] = function()
         STAT_SET_BOOL("AWD_INTELGATHER", true)
         STAT_SET_BOOL("AWD_COMPOUNDINFILT", true)
         STAT_SET_BOOL("AWD_LOOT_FINDER", true)
@@ -877,7 +877,7 @@ local FEATURES = {
         STAT_SET_INT("AWD_WELL_PREPARED", 80)
         STAT_SET_INT("H4_H4_DJ_MISSIONS", 0xFFFFFFF)
     end,
-    ["P COMPLETE"] = function()
+    ["P_COMPLETE"] = function()
         STAT_SET_INT("H4_MISSIONS", 0xFFFFFFF)
         STAT_SET_INT("H4CNF_APPROACH", 0xFFFFFFF)
         STAT_SET_INT("H4CNF_BS_ENTR", 63)
@@ -886,10 +886,10 @@ local FEATURES = {
         STAT_SET_INT("H4CNF_ARM_DISRP", 3)
         STAT_SET_INT("H4CNF_HEL_DISRP", 3)
     end,
-    ["P CUTSCENE"] = function()
+    ["P_CUTSCENE"] = function()
         STAT_SET_INT("H4_PLAYTHROUGH_STATUS", 0)
     end,
-    ["P RESET"] = function()
+    ["P_RESET"] = function()
         STAT_SET_INT("H4_MISSIONS", 0)
         STAT_SET_INT("H4_PROGRESS", 0)
         STAT_SET_INT("H4CNF_APPROACH", 0)
@@ -898,16 +898,16 @@ local FEATURES = {
         STAT_SET_INT("H4_PLAYTHROUGH_STATUS", 0)
     end,
     -- CASINO
-    ["C BOARD"] = function()
+    ["C_BOARD"] = function()
         STAT_SET_INT("H3OPT_POI", 0xFFFFFFF)
         STAT_SET_INT("H3OPT_ACCESSPOINTS", 2047)
     end,
-    ["C TARGET"] = function(data)
+    ["C_TARGET"] = function(data)
         local num = tonumber(data) or 0
         num = math.max(math.min(3, num), 0)
         STAT_SET_INT("H3OPT_TARGET", num)
     end,
-    ["C MODPAYOUT"] = function(data)
+    ["C_MODPAYOUT"] = function(data)
         STAT_SET_INT("H3OPT_TARGET", 3)
         STAT_SET_INT("H3_LAST_APPROACH", 0)
         STAT_SET_INT("H3_HARD_APPROACH", 0)
@@ -918,18 +918,18 @@ local FEATURES = {
         SET_INT_GLOBAL(1703513+2326+3,100)
         SET_INT_GLOBAL(262145+28306,1410065408)
     end,
-    ["C MODPOTENCIAL"] = function(data)
+    ["C_MODPOTENCIAL"] = function(data)
         SET_INT_GLOBAL(262145 + 28303, 1410065408)
         SET_INT_GLOBAL(262145 + 28304, 1410065408)
         SET_INT_GLOBAL(262145 + 28305, 1410065408)
         SET_INT_GLOBAL(262145 + 28306, 1410065408)
     end,
-    ["C ADVCREW"] = function(data)
+    ["C_ADVCREW"] = function(data)
         STAT_SET_INT("H3OPT_CREWWEAP", 6)
         STAT_SET_INT("H3OPT_CREWDRIVER", 6)
         STAT_SET_INT("H3OPT_CREWHACKER", 6)
     end,
-    ["C AWARD"] = function()
+    ["C_AWARD"] = function()
         STAT_SET_INT("CAS_HEIST_NOTS", 0xFFFFFFF)
         STAT_SET_INT("CH_ARC_CAB_CLAW_TROPHY", 0xFFFFFFF)
         STAT_SET_INT("CH_ARC_CAB_LOVE_TROPHY", 0xFFFFFFF)
@@ -1009,11 +1009,11 @@ local FEATURES = {
         STAT_SET_BOOL("HELP_FORMULA2", true)
         STAT_SET_BOOL("HELP_JB7002", true)
     end,
-    ["C REMOVECOOLDOWN"] = function()
+    ["C_REMOVECOOLDOWN"] = function()
         STAT_SET_INT("H3_COMPLETEDPOSIX", 0xFFFFFFF)
         STAT_SET_INT("MPPLY_H3_COOLDOWN", 0xFFFFFFF)
     end,
-    ["C SKIPAGATHA"] = function()
+    ["C_SKIPAGATHA"] = function()
         STAT_SET_INT("VCM_FLOW_PROGRESS", 0xFFFFFFF)
         STAT_SET_INT("VCM_STORY_PROGRESS", 5)
         -- INT
@@ -1025,14 +1025,14 @@ local FEATURES = {
         local num = tonumber(data) or 997430
         STAT_SET_INT("CAR_CLUB_REP", num)
     end,
-    ["T RESETMISSION"] = function(data)
+    ["T_RESETMISSION"] = function(data)
         STAT_SET_INT("TUNER_GEN_BS", 12467)
     end,
-    ["T RESETCONTRACT"] = function(data)
+    ["T_RESETCONTRACT"] = function(data)
         STAT_SET_INT("TUNER_GEN_BS", 8371)
         STAT_SET_INT("TUNER_CURRENT", 0xFFFFFFF)
     end,
-    ["T RESETGAIN"] = function(data)
+    ["T_RESETGAIN"] = function(data)
         STAT_SET_INT("TUNER_COUNT", 0)
         STAT_SET_INT("TUNER_EARNINGS", 0)
     end,
