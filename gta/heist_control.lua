@@ -18,10 +18,10 @@ local POSITIONS = {
 }
 
 local function SET_INT_GLOBAL(global, value)
-    memory.write_int(script_global:new(global):get_int64(), value)
+    script_global:new(global):set_int64(value)
 end
 local function SET_FLOAT_GLOBAL(global, value)
-    memory.write_float(script_global:new(global):get_float(), value)
+    script_global:new(global):set_float(value)
 end
 
 local formats = {
