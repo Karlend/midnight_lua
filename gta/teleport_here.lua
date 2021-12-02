@@ -80,11 +80,13 @@ local actions = {
 		local vehicle = player.get_vehicle_handle(target)
 		if vehicle < 1 then
 			TELEPORT_CURRENT = TELEPORT_DONE
+			utils.notify("Teleport.lua", "Target isn't in vehicle", gui_icon.warning, notify_type.fatal)
 			console.log(con_color.Red, "Target isn't in vehicle\n")
 			return
 		end
 		console.log(con_color.Yellow, "Requesting control for vehicle " .. tostring(vehicle) .. "\n")
-		local can = utils.request_control(vehicle, 1)
+		entity.request_control(vehicle)
+		local can = entity.is_controlled(vehicle)
 		if not can --[[and not NETWORK.NETWORK_HAS_CONTROL_OF_ENTITY(vehicle)]] then
 			console.log(con_color.Red, "Didn't get control\n")
 			return
@@ -105,6 +107,7 @@ local actions = {
 		TELEPORT_TARGET = nil
 		TELEPORT_LP_POS = nil
 		console.log(con_color.Yellow, "Teleport done\n")
+		utils.notify("Teleport.lua", "Teleport done", gui_icon.world, notify_type.default)
 	end,
 }
 
@@ -120,9 +123,11 @@ end
 local function StartTeleport(info)
 	local id, name = PLAYER.FindPlayer(info)
 	if not id then
+		utils.notify("Teleport.lua", "Target not found", gui_icon.warning, notify_type.fatal)
 		console.log(con_color.Red, "Target not found\n")
 		return
 	end
+	utils.notify("Teleport.lua", "Target - " .. name, gui_icon.players, notify_type.default)
 	console.log(con_color.Yellow, "Target - " .. name .. "\n")
 	TELEPORT_CURRENT = TELEPORT_START
 	TELEPORT_TARGET = id
@@ -141,11 +146,8 @@ end
 local next_time = 0
 function OnFeatureTick()
 	local now = system.ticks()
-	if not now then
-		return
-	end
 	if now >= next_time then
-		next_time = now + 255
+		next_time = now + 10
 		if not TELEPORT_CURRENT or not player.is_valid(TELEPORT_TARGET) or not player.is_connected(TELEPORT_TARGET) then
 			TELEPORT_CURRENT = nil
 			TELEPORT_TARGET = nil
