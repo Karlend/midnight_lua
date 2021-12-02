@@ -324,9 +324,7 @@ function OnChatMsg(index, text)
 end
 
 function OnModderDetected(ply, reason)
-
-    print("Modder detected. REASON: " .. tostring(reason))
-    local should = reason == 1 or reason == 5 or reason == 9 -- force host / malformed script / censor bypass
+    local should = --[[reason == 1 or reason == 5 or ]]reason == 9 -- force host / malformed script / censor bypass
     if player.is_friend(ply) then
         return
     end
