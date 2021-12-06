@@ -16,35 +16,35 @@ function PLAYER.GetPlayers(ignore)
 end
 
 local pidor_vehicles = {
-    [string.smart_joaat("OPPRESSOR2")] = "Oppressor MK2", -- летающая поебота
-    [string.smart_joaat("OPPRESSOR")] = "Oppressor MK1", -- такая же, но ездит
+	[string.smart_joaat("OPPRESSOR2")] = "Oppressor MK2", -- летающая поебота
+	[string.smart_joaat("OPPRESSOR")] = "Oppressor MK1", -- такая же, но ездит
 }
 
 local function DeleteVehicle(id, name, veh, veh_name)
-    print("Deleting " .. veh_name .." for " .. name)
-    script.send(id, 1229338575, id, id)
-    script.send(id, -1005623606, MISC.GET_FRAME_COUNT())
+	print("Deleting " .. veh_name .." for " .. name)
+	script.send(id, 1229338575, id, id)
+	script.send(id, -1005623606, MISC.GET_FRAME_COUNT())
 end
 
 local function CheckVehicle(id, name)
-    local veh = player.get_vehicle_handle(id)
-    if veh <= 0 then
-        return
-    end
-    local hash = ENTITY.GET_ENTITY_MODEL(veh)
-    local veh_name = pidor_vehicles[hash]
-    if not veh_name then
-        return
-    end
-    DeleteVehicle(id, name, veh, veh_name)
+	local veh = player.get_vehicle_handle(id)
+	if veh <= 0 then
+		return
+	end
+	local hash = ENTITY.GET_ENTITY_MODEL(veh)
+	local veh_name = pidor_vehicles[hash]
+	if not veh_name then
+		return
+	end
+	DeleteVehicle(id, name, veh, veh_name)
 end
 
 local function FindBannedVehicles()
-    local names, ids = PLAYER.GetPlayers(player.index())
+	local names, ids = PLAYER.GetPlayers(player.index())
 
-    for id, name in pairs(ids) do
-        CheckVehicle(id, name)
-    end
+	for id, name in pairs(ids) do
+		CheckVehicle(id, name)
+	end
 end
 
 local next_time = 0
