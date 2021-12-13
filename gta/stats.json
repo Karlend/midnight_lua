@@ -1,0 +1,7376 @@
+{
+	"Casino - Heist Control": {
+		"comments": [
+			"type wszName MP0 MP1 min max",
+			"These changes must be made outside of the submarine or in the moonpool"
+		],
+		"stats": [
+			[
+				"INT",
+				"Ignore Repeat Cooldown (-1)",
+				"MP0_H3_COMPLETEDPOSIX",
+				"MP1_H3_COMPLETEDPOSIX",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Last Approach Completed (1 2 3)",
+				"MP0_H3_LAST_APPROACH",
+				"MP1_H3_LAST_APPROACH",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Silent BigCon Aggressive (1 2 3)",
+				"MP0_H3OPT_APPROACH",
+				"MP1_H3OPT_APPROACH",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Hard Difficulty Approach (1 2 3)",
+				"MP0_H3_HARD_APPROACH",
+				"MP1_H3_HARD_APPROACH",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Money Gold Art Diamond (0 1 2 3)",
+				"MP0_H3OPT_TARGET",
+				"MP1_H3OPT_TARGET",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Unlock Points of Interests (1023)",
+				"MP0_H3OPT_POI",
+				"MP1_H3OPT_POI",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Unlock Access Points (2047)",
+				"MP0_H3OPT_ACCESSPOINTS",
+				"MP1_H3OPT_ACCESSPOINTS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Mark 1st Board as done (-1)",
+				"MP0_H3OPT_BITSET1",
+				"MP1_H3OPT_BITSET1",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Choose Gunman (1 2 3 4 5)",
+				"MP0_H3OPT_CREWWEAP",
+				"MP1_H3OPT_CREWWEAP",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Choose Driver (1 2 3 4 5)",
+				"MP0_H3OPT_CREWDRIVER",
+				"MP1_H3OPT_CREWDRIVER",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Choose Hacker (1 2 3 4 5)",
+				"MP0_H3OPT_CREWHACKER",
+				"MP1_H3OPT_CREWHACKER",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Weapon Variation (0 1)",
+				"MP0_H3OPT_WEAPS",
+				"MP1_H3OPT_WEAPS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Vehicle Variation (0 1 2 3)",
+				"MP0_H3OPT_VEHS",
+				"MP1_H3OPT_VEHS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Remove Duggan Heavy Guards (3)",
+				"MP0_H3OPT_DISRUPTSHIP",
+				"MP1_H3OPT_DISRUPTSHIP",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Equip Heavy Armor (3)",
+				"MP0_H3OPT_BODYARMORLVL",
+				"MP1_H3OPT_BODYARMORLVL",
+				"-2147483647",
+				"2147483647 "
+			],
+			[
+				"INT",
+				"Scan Card Level (2)",
+				"MP0_H3OPT_KEYLEVELS",
+				"MP1_H3OPT_KEYLEVELS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Mask Variation (0 till 12)",
+				"MP0_H3OPT_MASKS",
+				"MP1_H3OPT_MASKS",
+				"-2147483647",
+				"2147483647 "
+			],
+			[
+				"INT",
+				"Mark 2nd Board as done (-1)",
+				"MP0_H3OPT_BITSET0",
+				"MP1_H3OPT_BITSET0",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"No drill (-8849 or -8913)",
+				"MP0_H3OPT_BITSET0",
+				"MP1_H3OPT_BITSET0",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"No drill - BigCon (-186 or -58)",
+				"MP0_H3OPT_BITSET0",
+				"MP1_H3OPT_BITSET0",
+				"-2147483647",
+				"2147483647"
+			]
+		]
+	},
+	"Cayo Perico - Heist Control": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Points of Interest: 131071",
+				"MP0_H4CNF_BS_GEN",
+				"MP1_H4CNF_BS_GEN",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Redoubt Entry Points: 63",
+				"MP0_H4CNF_BS_ENTR",
+				"MP1_H4CNF_BS_ENTR",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Unlock Support Team: 63",
+				"MP0_H4CNF_BS_ABIL",
+				"MP1_H4CNF_BS_ABIL",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Weapon Variation: 1 'till 5",
+				"MP0_H4CNF_WEAPONS",
+				"MP1_H4CNF_WEAPONS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Disruption - Unmarked Weapon: 3",
+				"MP0_H4CNF_WEP_DISRP",
+				"MP1_H4CNF_WEP_DISRP",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Disruption - Armor Disruption: 3",
+				"MP0_H4CNF_ARM_DISRP",
+				"MP1_H4CNF_ARM_DISRP",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Disruption - Air Support: 3",
+				"MP0_H4CNF_HEL_DISRP",
+				"MP1_H4CNF_HEL_DISRP",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Primary Target: 0 'till 5",
+				"MP0_H4CNF_TARGET",
+				"MP1_H4CNF_TARGET",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Truck - Spawn Place: 1 'till 5",
+				"MP0_H4CNF_TROJAN",
+				"MP1_H4CNF_TROJAN",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Infiltration - Escape Points: -1",
+				"MP0_H4CNF_APPROACH",
+				"MP1_H4CNF_APPROACH",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Set Missions as completed: 65535",
+				"MP0_H4_MISSIONS",
+				"MP1_H4_MISSIONS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Set Normal Difficulty: 126823",
+				"MP0_H4_PROGRESS",
+				"MP1_H4_PROGRESS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Set Hard Difficulty: 130667",
+				"MP0_H4_PROGRESS",
+				"MP1_H4_PROGRESS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Quick final cutscene: 12",
+				"MP0_H4_PLAYTHROUGH_STATUS",
+				"MP1_H4_PLAYTHROUGH_STATUS",
+				"-2147483647",
+				"2147483647"
+			]
+		]
+	},
+	"Cayo Perico - Secondary Target - Loot Price]": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Cash_I Loot Price",
+				"MP0_H4LOOT_CASH_I",
+				"MP1_H4LOOT_CASH_I",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Cash_C Loot Price",
+				"MP0_H4LOOT_CASH_C",
+				"MP1_H4LOOT_CASH_C",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Cash_V Loot Price: 90000",
+				"MP0_H4LOOT_CASH_V",
+				"MP1_H4LOOT_CASH_V",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Weed_I Loot Price",
+				"MP0_H4LOOT_WEED_I",
+				"MP1_H4LOOT_WEED_I",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Weed_C Loot Price",
+				"MP0_H4LOOT_WEED_C",
+				"MP1_H4LOOT_WEED_C",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Weed_V Loot Price: 140000",
+				"MP0_H4LOOT_WEED_V",
+				"MP1_H4LOOT_WEED_V",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Coke_I Loot Price",
+				"MP0_H4LOOT_COKE_I",
+				"MP1_H4LOOT_COKE_I",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Coke_C Loot Price",
+				"MP0_H4LOOT_COKE_C",
+				"MP1_H4LOOT_COKE_C",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Coke_V Loot Price: 210000",
+				"MP0_H4LOOT_COKE_V",
+				"MP1_H4LOOT_COKE_V",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Gold_I Loot Price",
+				"MP0_H4LOOT_GOLD_I",
+				"MP1_H4LOOT_GOLD_I",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Gold_C Loot Price",
+				"MP0_H4LOOT_GOLD_C",
+				"MP1_H4LOOT_GOLD_C",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Gold_V Loot Price: 320000",
+				"MP0_H4LOOT_GOLD_V",
+				"MP1_H4LOOT_GOLD_V",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Paint Loot Price:",
+				"MP0_H4LOOT_PAINT",
+				"MP1_H4LOOT_PAINT",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Paint_V Loot Price: 190000",
+				"MP0_H4LOOT_PAINT_V",
+				"MP1_H4LOOT_PAINT_V",
+				"-2147483647",
+				"2147483647"
+			]
+		]
+	},
+	"Cayo Perico - Secondary Target - Loot Scooped": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Cash Outside Compound",
+				"MP0_H4LOOT_CASH_I_SCOPED",
+				"MP1_H4LOOT_CASH_I_SCOPED",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Cash Inside Compound",
+				"MP0_H4LOOT_CASH_C_SCOPED",
+				"MP1_H4LOOT_CASH_C_SCOPED",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Weed Outside Compound",
+				"MP0_H4LOOT_WEED_I_SCOPED",
+				"MP1_H4LOOT_WEED_I_SCOPED",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Weed Inside Compound",
+				"MP0_H4LOOT_WEED_C_SCOPED",
+				"MP1_H4LOOT_WEED_C_SCOPED",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Coke Outside Compound",
+				"MP0_H4LOOT_COKE_I_SCOPED",
+				"MP1_H4LOOT_COKE_I_SCOPED",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Coke Inside Compound",
+				"MP0_H4LOOT_COKE_C_SCOPED",
+				"MP1_H4LOOT_COKE_C_SCOPED",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Gold Outside Compound",
+				"MP0_H4LOOT_GOLD_I_SCOPED",
+				"MP1_H4LOOT_GOLD_I_SCOPED",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Gold Inside Compound",
+				"MP0_H4LOOT_GOLD_C_SCOPED",
+				"MP1_H4LOOT_GOLD_C_SCOPED",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Paint Inside Compound",
+				"MP0_H4LOOT_PAINT_SCOPED",
+				"MP1_H4LOOT_PAINT_SCOPED",
+				"-2147483647",
+				"2147483647"
+			]
+		]
+	},
+	"Cayo Perico Awards": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"LOSTANDFOUND: 500000",
+				"MP0_AWD_LOSTANDFOUND",
+				"MP1_AWD_LOSTANDFOUND",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"SUNSET: 1800000",
+				"MP0_AWD_SUNSET",
+				"MP1_AWD_SUNSET",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"TREASURE_HUNTER: 1000000",
+				"MP0_AWD_TREASURE_HUNTER",
+				"MP1_AWD_TREASURE_HUNTER",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"WRECK_DIVING: 1000000",
+				"MP0_AWD_WRECK_DIVING",
+				"MP1_AWD_WRECK_DIVING",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"KEINEMUSIK: 1800000",
+				"MP0_AWD_KEINEMUSIK",
+				"MP1_AWD_KEINEMUSIK",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"PALMS_TRAX: 1800000",
+				"MP0_AWD_PALMS_TRAX",
+				"MP1_AWD_PALMS_TRAX",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"MOODYMANN: 1800000",
+				"MP0_AWD_MOODYMANN",
+				"MP1_AWD_MOODYMANN",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"FILL_YOUR_BAGS: 10000000",
+				"MP0_AWD_FILL_YOUR_BAGS",
+				"MP1_AWD_FILL_YOUR_BAGS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"WELL_PREPARED: 50",
+				"MP0_AWD_WELL_PREPARED",
+				"MP1_AWD_WELL_PREPARED",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"DJ_MISSIONS: -1",
+				"MP0_H4_H4_DJ_MISSIONS",
+				"MP1_H4_H4_DJ_MISSIONS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"DJ_MISSIONS_CD: -1",
+				"MP0_H4_H4_DJ_MISSIONS_CD",
+				"MP1_H4_H4_DJ_MISSIONS_CD",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"BOOL",
+				"AWD_INTELGATHER",
+				"MP0_AWD_INTELGATHER",
+				"MP1_AWD_INTELGATHER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_COMPOUNDINFILT",
+				"MP0_AWD_COMPOUNDINFILT",
+				"MP1_AWD_COMPOUNDINFILT",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_LOOT_FINDER",
+				"MP0_AWD_LOOT_FINDER",
+				"MP1_AWD_LOOT_FINDER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_MAX_DISRUPT",
+				"MP0_AWD_MAX_DISRUPT",
+				"MP1_AWD_MAX_DISRUPT",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_THE_ISLAND_HEIST",
+				"MP0_AWD_THE_ISLAND_HEIST",
+				"MP1_AWD_THE_ISLAND_HEIST",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_GOING_ALONE",
+				"MP0_AWD_GOING_ALONE",
+				"MP1_AWD_GOING_ALONE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_TEAM_WORK",
+				"MP0_AWD_TEAM_WORK",
+				"MP1_AWD_TEAM_WORK",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_MIXING_UP",
+				"MP0_AWD_MIXING_UP",
+				"MP1_AWD_MIXING_UP",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_PRO_THIEF",
+				"MP0_AWD_PRO_THIEF",
+				"MP1_AWD_PRO_THIEF",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_CAT_BURGLAR",
+				"MP0_AWD_CAT_BURGLAR",
+				"MP1_AWD_CAT_BURGLAR",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_ONE_OF_THEM",
+				"MP0_AWD_ONE_OF_THEM",
+				"MP1_AWD_ONE_OF_THEM",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_GOLDEN_GUN",
+				"MP0_AWD_GOLDEN_GUN",
+				"MP1_AWD_GOLDEN_GUN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_ELITE_THIEF",
+				"MP0_AWD_ELITE_THIEF",
+				"MP1_AWD_ELITE_THIEF",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_PROFESSIONAL",
+				"MP0_AWD_PROFESSIONAL",
+				"MP1_AWD_PROFESSIONAL",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_HELPING_OUT",
+				"MP0_AWD_HELPING_OUT",
+				"MP1_AWD_HELPING_OUT ",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWDCOURIER",
+				"MP0_AWD_COURIER",
+				"MP1_AWD_COURIER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_PARTY_VIBES",
+				"MP0_AWD_PARTY_VIBES",
+				"MP1_AWD_PARTY_VIBES",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_HELPING_HAND",
+				"MP0_AWD_HELPING_HAND",
+				"MP1_AWD_HELPING_HAND",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_ELEVENELEVEN",
+				"MP0_AWD_ELEVENELEVEN",
+				"MP1_AWD_ELEVENELEVEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"COMPLETE_H4_F_USING_VETIR",
+				"MP0_COMPLETE_H4_F_USING_VETIR",
+				"MP1_COMPLETE_H4_F_USING_VETIR",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"COMPLETE_H4_F_USING_LONGFIN",
+				"MP0_COMPLETE_H4_F_USING_LONGFIN",
+				"MP1_COMPLETE_H4_F_USING_LONGFIN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"COMPLETE_H4_F_USING_ANNIH",
+				"MP0_COMPLETE_H4_F_USING_ANNIH",
+				"MP1_COMPLETE_H4_F_USING_ANNIH",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"COMPLETE_H4_F_USING_ALKONOS",
+				"MP0_COMPLETE_H4_F_USING_ALKONOS",
+				"MP1_COMPLETE_H4_F_USING_ALKONOS",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"COMPLETE_H4_F_USING_PATROLB",
+				"MP0_COMPLETE_H4_F_USING_PATROLB",
+				"MP1_COMPLETE_H4_F_USING_PATROLB",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Apartments Heist - Setups done": {
+		"comments": [
+			"type wszName MP0 MP1 min max "
+		],
+		"stats": [
+			[
+				"INT",
+				"Set all setups as done (-1)",
+				"MP0_HEIST_PLANNING_STAGE",
+				"MP1_HEIST_PLANNING_STAGE",
+				"-2147483647",
+				"2147483647"
+			]
+		]
+	},
+	"Doomsday ACT1 - Final Board": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"FLOW_MISSION_PROG (503)",
+				"MP0_GANGOPS_FLOW_MISSION_PROG",
+				"MP1_GANGOPS_FLOW_MISSION_PROG",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"HEIST_STATUS (-229383)",
+				"MP0_GANGOPS_HEIST_STATUS",
+				"MP1_GANGOPS_HEIST_STATUS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"FLOW_NOTIFICATIONS (1557)",
+				"MP0_GANGOPS_FLOW_NOTIFICATIONS",
+				"MP1_GANGOPS_FLOW_NOTIFICATIONS",
+				"-2147483647",
+				"2147483647"
+			]
+		]
+	},
+	"Doomsday ACT2 - Final Board": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"FLOW_MISSION_PROG (240)",
+				"MP0_GANGOPS_FLOW_MISSION_PROG",
+				"MP1_GANGOPS_FLOW_MISSION_PROG",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"(262602) OR (-229378)",
+				"MP0_GANGOPS_HEIST_STATUS",
+				"MP1_GANGOPS_HEIST_STATUS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"FLOW_NOTIFICATIONS (1557)",
+				"MP0_GANGOPS_FLOW_NOTIFICATIONS",
+				"MP1_GANGOPS_FLOW_NOTIFICATIONS",
+				"-2147483647",
+				"2147483647"
+			]
+		]
+	},
+	"Doomsday ACT3 - Final Board": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"FLOW_MISSION_PROG (16368)",
+				"MP0_GANGOPS_FLOW_MISSION_PROG",
+				"MP1_GANGOPS_FLOW_MISSION_PROG",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"HEIST_STATUS (-229380)",
+				"MP0_GANGOPS_HEIST_STATUS",
+				"MP1_GANGOPS_HEIST_STATUS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"FLOW_NOTIFICATIONS (1557)",
+				"MP0_GANGOPS_FLOW_NOTIFICATIONS",
+				"MP1_GANGOPS_FLOW_NOTIFICATIONS",
+				"-2147483647",
+				"2147483647"
+			]
+		]
+	},
+	"UFO Tatto": {
+		"comments": [
+			"You'll have to kill yourself or respawn for the tattoo to appear",
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"UFO Tatto (Male 32768)",
+				"MP0_TATTOO_FM_CURRENT_32",
+				"MP1_TATTOO_FM_CURRENT_32",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"UFO Tatto (Female 67108864)",
+				"MP0_TATTOO_FM_CURRENT_32",
+				"MP1_TATTOO_FM_CURRENT_32",
+				"-2147483647",
+				"2147483647"
+			]
+		]
+	},
+	"Casino Heists Awards WIP": {
+		"comments": [],
+		"stats": [
+			[
+				"INT",
+				"SIGNAL JAMMERS COLLECTED",
+				"MP0_SIGNAL_JAMMERS_COLLECTED",
+				"MP1_SIGNAL_JAMMERS_COLLECTED",
+				"0",
+				"50"
+			],
+			[
+				"BOOL",
+				"AWD_SCOPEOUT",
+				"MP0_AWD_SCOPEOUT",
+				"MP1_AWD_SCOPEOUT",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"AWD_PREPARATION",
+				"MP0_AWD_PREPARATION",
+				"MP1_AWD_PREPARATION",
+				"0",
+				"100000"
+			],
+			[
+				"BOOL",
+				"AWD_CREWEDUP",
+				"MP0_AWD_CREWEDUP",
+				"MP1_AWD_CREWEDUP",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_MOVINGON",
+				"MP0_AWD_MOVINGON",
+				"MP1_AWD_MOVINGON",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_PROMOCAMP",
+				"MP0_AWD_PROMOCAMP",
+				"MP1_AWD_PROMOCAMP",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_GUNMAN",
+				"MP0_AWD_GUNMAN",
+				"MP1_AWD_GUNMAN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_SMASHNGRAB",
+				"MP0_AWD_SMASHNGRAB",
+				"MP1_AWD_SMASHNGRAB",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_INPLAINSI",
+				"MP0_AWD_INPLAINSI",
+				"MP1_AWD_INPLAINSI",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_UNDETECTED",
+				"MP0_AWD_UNDETECTED",
+				"MP1_AWD_UNDETECTED",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_ALLROUND",
+				"MP0_AWD_ALLROUND",
+				"MP1_AWD_ALLROUND",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_ELITETHEIF",
+				"MP0_AWD_ELITETHEIF",
+				"MP1_AWD_ELITETHEIF",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_PRO",
+				"MP0_AWD_PRO",
+				"MP1_AWD_PRO",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_SUPPORTACT",
+				"MP0_AWD_SUPPORTACT",
+				"MP1_AWD_SUPPORTACT",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_SHAFTED",
+				"MP0_AWD_SHAFTED",
+				"MP1_AWD_SHAFTED",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"AWD_ASLEEPONJOB",
+				"MP0_AWD_ASLEEPONJOB",
+				"MP1_AWD_ASLEEPONJOB",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"AWD_DAICASHCRAB",
+				"MP0_AWD_DAICASHCRAB",
+				"MP1_AWD_DAICASHCRAB",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"AWD_BIGBRO",
+				"MP0_AWD_BIGBRO",
+				"MP1_AWD_BIGBRO",
+				"0",
+				"100000"
+			],
+			[
+				"BOOL",
+				"AWD_COLLECTOR",
+				"MP0_AWD_COLLECTOR",
+				"MP1_AWD_COLLECTOR",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_DEADEYE",
+				"MP0_AWD_DEADEYE",
+				"MP1_AWD_DEADEYE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_PISTOLSATDAWN",
+				"MP0_AWD_PISTOLSATDAWN",
+				"MP1_AWD_PISTOLSATDAWN",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"AWD_SHARPSHOOTER",
+				"MP0_AWD_SHARPSHOOTER",
+				"MP1_AWD_SHARPSHOOTER",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"AWD_RACECHAMP",
+				"MP0_AWD_RACECHAMP",
+				"MP1_AWD_RACECHAMP",
+				"0",
+				"100000"
+			],
+			[
+				"BOOL",
+				"AWD_TRAFFICAVOI",
+				"MP0_AWD_TRAFFICAVOI",
+				"MP1_AWD_TRAFFICAVOI",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_CANTCATCHBRA",
+				"MP0_AWD_CANTCATCHBRA",
+				"MP1_AWD_CANTCATCHBRA",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_WIZHARD",
+				"MP0_AWD_WIZHARD",
+				"MP1_AWD_WIZHARD",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"AWD_BATSWORD",
+				"MP0_AWD_BATSWORD",
+				"MP1_AWD_BATSWORD",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"AWD_COINPURSE",
+				"MP0_AWD_COINPURSE",
+				"MP1_AWD_COINPURSE",
+				"0",
+				"100000"
+			],
+			[
+				"BOOL",
+				"AWD_APEESCAPE",
+				"MP0_AWD_APEESCAPE",
+				"MP1_AWD_APEESCAPE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_MONKEYKIND",
+				"MP0_AWD_MONKEYKIND",
+				"MP1_AWD_MONKEYKIND",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"AWD_ASTROCHIMP",
+				"MP0_AWD_ASTROCHIMP",
+				"MP1_AWD_ASTROCHIMP",
+				"0",
+				"100000"
+			],
+			[
+				"BOOL",
+				"AWD_AQUAAPE",
+				"MP0_AWD_AQUAAPE",
+				"MP1_AWD_AQUAAPE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_KEEPFAITH",
+				"MP0_AWD_KEEPFAITH",
+				"MP1_AWD_KEEPFAITH",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"AWD_MASTERFUL",
+				"MP0_AWD_MASTERFUL",
+				"MP1_AWD_MASTERFUL",
+				"0",
+				"100000"
+			],
+			[
+				"BOOL",
+				"AWD_TRUELOVE",
+				"MP0_AWD_TRUELOVE",
+				"MP1_AWD_TRUELOVE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_NEMESIS",
+				"MP0_AWD_NEMESIS",
+				"MP1_AWD_NEMESIS",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"AWD_FRIENDZONED",
+				"MP0_AWD_FRIENDZONED",
+				"MP1_AWD_FRIENDZONED",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Heists": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Finished Heists",
+				"MP0_AWD_FINISH_HEISTS",
+				"MP1_AWD_FINISH_HEISTS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Finished Heists Setups",
+				"MP0_AWD_FINISH_HEIST_SETUP_JOB",
+				"MP1_AWD_FINISH_HEIST_SETUP_JOB",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Heist Missions completed",
+				"MP0_HEIST_COMPLETION",
+				"MP1_HEIST_COMPLETION",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Number of Heists Organised",
+				"MP0_HEISTS_ORGANISED",
+				"MP1_HEISTS_ORGANISED",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Successfully control crowds",
+				"MP0_AWD_CONTROL_CROWDS",
+				"MP1_AWD_CONTROL_CROWDS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Won Gold Medals / 25",
+				"MP0_AWD_WIN_GOLD_MEDAL_HEISTS",
+				"MP1_AWD_WIN_GOLD_MEDAL_HEISTS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Did Heist as member / 25",
+				"MP0_AWD_DO_HEIST_AS_MEMBER",
+				"MP1_AWD_DO_HEIST_AS_MEMBER",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Did Heist as leader / 25",
+				"MP0_AWD_DO_HEIST_AS_THE_LEADER",
+				"MP1_AWD_DO_HEIST_AS_THE_LEADER",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Complete Heist without dying",
+				"MP0_AWD_COMPLETE_HEIST_NOT_DIE",
+				"MP1_AWD_COMPLETE_HEIST_NOT_DIE",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Heist Progress",
+				"MP0_HEIST_PLANNING_STAGE",
+				"MP1_HEIST_PLANNING_STAGE",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Heists started",
+				"MP0_HEIST_START",
+				"MP1_HEIST_START",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Heists ended",
+				"MP0_HEIST_END",
+				"MP1_HEIST_END",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Cutscenes indicator prison",
+				"MP0_CUTSCENE_MID_PRISON",
+				"MP1_CUTSCENE_MID_PRISON",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Cutscenes indicator humane",
+				"MP0_CUTSCENE_MID_HUMANE",
+				"MP1_CUTSCENE_MID_HUMANE",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Cutscenes indicator narc",
+				"MP0_CUTSCENE_MID_NARC",
+				"MP1_CUTSCENE_MID_NARC",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Cutscenes indicator ornate",
+				"MP0_CUTSCENE_MID_ORNATE",
+				"MP1_CUTSCENE_MID_ORNATE",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Cutscenes indicator end",
+				"MP0_HEIST_END",
+				"MP1_HEIST_END",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"BOOL",
+				"Split Heist take evenly",
+				"MP0_AWD_SPLIT_HEIST_TAKE_EVENLY",
+				"MP1_AWD_SPLIT_HEIST_TAKE_EVENLY",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Complete Heist without damage",
+				"MP0_AWD_FINISH_HEIST_NO_DAMAGE",
+				"MP1_AWD_FINISH_HEIST_NO_DAMAGE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed all Roles",
+				"MP0_AWD_ALL_ROLES_HEIST",
+				"MP1_AWD_ALL_ROLES_HEIST",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Matched Outfits",
+				"MP0_AWD_MATCHING_OUTFIT_HEIST",
+				"MP1_AWD_MATCHING_OUTFIT_HEIST",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Heist planning created setup",
+				"MP0_HEIST_PLANNING_DONE_PRINT",
+				"MP1_HEIST_PLANNING_DONE_PRINT",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Heist planning as leader",
+				"MP0_HEIST_PLANNING_DONE_HELP_0",
+				"MP1_HEIST_PLANNING_DONE_HELP_0",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Heist planning as member",
+				"MP0_HEIST_PLANNING_DONE_HELP_1",
+				"MP1_HEIST_PLANNING_DONE_HELP_1",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Heist pre-planning board",
+				"MP0_HEIST_PRE_PLAN_DONE_HELP_0",
+				"MP1_HEIST_PRE_PLAN_DONE_HELP_0",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Saw finale cutscene",
+				"MP0_HEIST_CUTS_DONE_FINALE",
+				"MP1_HEIST_CUTS_DONE_FINALE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Active heist strand tutorial",
+				"MP0_HEIST_IS_TUTORIAL",
+				"MP1_HEIST_IS_TUTORIAL",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Watched the intro cutscene",
+				"MP0_HEIST_STRAND_INTRO_DONE",
+				"MP1_HEIST_STRAND_INTRO_DONE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Fleeca cutscene done",
+				"MP0_HEIST_CUTS_DONE_ORNATE",
+				"MP1_HEIST_CUTS_DONE_ORNATE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Prison Job cutscene done",
+				"MP0_HEIST_CUTS_DONE_PRISON",
+				"MP1_HEIST_CUTS_DONE_PRISON",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Humane Labs cutscene done",
+				"MP0_HEIST_CUTS_DONE_BIOLAB",
+				"MP1_HEIST_CUTS_DONE_BIOLAB",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Series A Funding cutscene done",
+				"MP0_HEIST_CUTS_DONE_NARCOTIC",
+				"MP1_HEIST_CUTS_DONE_NARCOTIC",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Pacific Standard cutscene done",
+				"MP0_HEIST_CUTS_DONE_TUTORIAL",
+				"MP1_HEIST_CUTS_DONE_TUTORIAL",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Heist prep mission done",
+				"MP0_HEIST_AWARD_DONE_PREP",
+				"MP1_HEIST_AWARD_DONE_PREP",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Has paid for a heist setup",
+				"MP0_HEIST_AWARD_BOUGHT_IN",
+				"MP1_HEIST_AWARD_BOUGHT_IN",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Heists Global": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Heist Tracker - set to -1",
+				"MPPLY_HEIST_ACH_TRACKER",
+				"MPPLY_HEIST_ACH_TRACKER",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Progress counter",
+				"MPPLY_HEISTTEAMPROGRESSCOUNTER",
+				"MPPLY_HEISTTEAMPROGRESSCOUNTER",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Tracking heist bonus points 2",
+				"MPPLY_HEISTFLOWORDERPROGRESS",
+				"MPPLY_HEISTFLOWORDERPROGRESS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Tracking heist bonus points 3",
+				"MPPLY_HEISTTEAMPROGRESSBITSET",
+				"MPPLY_HEISTTEAMPROGRESSBITSET",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Track completing bitset",
+				"MPPLY_HEISTMEMBERPROGRESSBITSET",
+				"MPPLY_HEISTMEMBERPROGRESSBITSET",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Track completing gold medals",
+				"MPPLY_WIN_GOLD_MEDAL_HEISTS",
+				"MPPLY_WIN_GOLD_MEDAL_HEISTS",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Number of Heists Planning V",
+				"MPPLY_UNIQUE_HEIST_PLANNING_V",
+				"MPPLY_UNIQUE_HEIST_PLANNING_V",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Number of Heists Planning ",
+				"MPPLY_UNIQUE_HEIST_PLANNING",
+				"MPPLY_UNIQUE_HEIST_PLANNING",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Number of Heists Finale V",
+				"MPPLY_UNIQUE_HEIST_FINALE_V",
+				"MPPLY_UNIQUE_HEIST_FINALE_V",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Number of Heists Finale",
+				"MPPLY_UNIQUE_HEIST_FINALE",
+				"MPPLY_UNIQUE_HEIST_FINALE",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Available Heists Planning V",
+				"MPPLY_AVAILABLE_HEIST_PLANV",
+				"MPPLY_AVAILABLE_HEIST_PLANV",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Available Heists Planning",
+				"MPPLY_AVAILABLE_HEIST_PLAN",
+				"MPPLY_AVAILABLE_HEIST_PLAN",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Available Heists Finale V",
+				"MPPLY_AVAILABLE_HEIST_FINALE_V",
+				"MPPLY_AVAILABLE_HEIST_FINALE_V",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Available Heists Finale",
+				"MPPLY_AVAILABLE_HEIST_FINALE",
+				"MPPLY_AVAILABLE_HEIST_FINALE",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Most recent Heist played",
+				"MPPLY_HEISTNODEATHPROGREITSET",
+				"MPPLY_HEISTNODEATHPROGREITSET",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Track 1st person progress",
+				"MPPLY_HEIST_1STPERSON_PROG",
+				"MPPLY_HEIST_1STPERSON_PROG",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Reset the profile settings",
+				"MPPLY_HEIST_RESET_PROFILE",
+				"MPPLY_HEIST_RESET_PROFILE",
+				"-2147483647",
+				"2147483647"
+			],
+			[
+				"BOOL",
+				"Completed in first person",
+				"MPPLY_AWD_COMPLET_HEIST_1STPER",
+				"MPPLY_AWD_COMPLET_HEIST_1STPER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Supporter Role",
+				"MPPLY_AWD_COMPLET_HEIST_MEM",
+				"MPPLY_AWD_COMPLET_HEIST_MEM",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Fleeca Job",
+				"MPPLY_AWD_FLEECA_FIN",
+				"MPPLY_AWD_FLEECA_FIN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Prison Break",
+				"MPPLY_AWD_PRISON_FIN",
+				"MPPLY_AWD_PRISON_FIN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Humane Labs Raid",
+				"MPPLY_AWD_HUMANE_FIN",
+				"MPPLY_AWD_HUMANE_FIN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Series A Funding",
+				"MPPLY_AWD_SERIESA_FIN",
+				"MPPLY_AWD_SERIESA_FIN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Pacific Standard Job",
+				"MPPLY_AWD_PACIFIC_FIN",
+				"MPPLY_AWD_PACIFIC_FIN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"All In Order done",
+				"MPPLY_AWD_HST_ORDER",
+				"MPPLY_AWD_HST_ORDER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Loyalty done",
+				"MPPLY_AWD_HST_SAME_TEAM",
+				"MPPLY_AWD_HST_SAME_TEAM",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Criminal Mastermind done",
+				"MPPLY_AWD_HST_ULT_CHAL",
+				"MPPLY_AWD_HST_ULT_CHAL",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Account Info": {
+		"comments": [],
+		"stats": [
+			[
+				"INT",
+				"Exploit Report",
+				"MPPLY_EXPLOITS",
+				"MPPLY_EXPLOITS",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Text Chat Annoying Me",
+				"MPPLY_TC_ANNOYINGME",
+				"MPPLY_TC_ANNOYINGME",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Text Chat Hate",
+				"MPPLY_TC_HATE",
+				"MPPLY_TC_HATE",
+				"0",
+				"2147483647",
+				"READONLY"
+			]
+		]
+	},
+	"Account Reports": {
+		"comments": [
+			"type wszName MP0 MP1 min max readonly"
+		],
+		"stats": [
+			[
+				"INT",
+				"Griefing Reports",
+				"MPPLY_GRIEFING",
+				"MPPLY_GRIEFING 0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Game Exploits",
+				"MPPLY_GAME_EXPLOITS",
+				"MPPLY_GAME_EXPLOITS",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Voice Chat Annoying",
+				"MPPLY_VC_ANNOYINGME",
+				"MPPLY_VC_ANNOYINGME",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Voice Chat Hate",
+				"MPPLY_VC_HATE",
+				"MPPLY_VC_HATE",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Offensive Language",
+				"MPPLY_OFFENSIVE_LANGUAGE",
+				"MPPLY_OFFENSIVE_LANGUAGE",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Offensive Tagplate",
+				"MPPLY_OFFENSIVE_TAGPLATE",
+				"MPPLY_OFFENSIVE_TAGPLATE",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Offensive UGC",
+				"MPPLY_OFFENSIVE_UGC",
+				"MPPLY_OFFENSIVE_UGC",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Offensive Crew Name",
+				"MPPLY_BAD_CREW_NAME",
+				"MPPLY_BAD_CREW_NAME",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Offensive Crew Motto",
+				"MPPLY_BAD_CREW_MOTTO",
+				"MPPLY_BAD_CREW_MOTTO",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Offensive Crew Status",
+				"MPPLY_BAD_CREW_STATUS",
+				"MPPLY_BAD_CREW_STATUS",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Offensive Crew Emblem",
+				"MPPLY_BAD_CREW_EMBLEM",
+				"MPPLY_BAD_CREW_EMBLEM",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Friendly Commends",
+				"MPPLY_FRIENDLY",
+				"MPPLY_FRIENDLY",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"INT",
+				"Helpful Commends",
+				"MPPLY_HELPFUL",
+				"MPPLY_HELPFUL",
+				"0",
+				"2147483647",
+				"READONLY"
+			],
+			[
+				"BOOL",
+				"Marked As Cheater?",
+				"MPPLY_IS_CHEATER",
+				"MPPLY_IS_CHEATER",
+				"0",
+				"1",
+				"READONLY "
+			],
+			[
+				"BOOL",
+				"Marked As Bad Sport?",
+				"MPPLY_WAS_I_BAD_SPORT",
+				"MPPLY_WAS_I_BAD_SPORT",
+				"0",
+				"1",
+				"READONLY"
+			],
+			[
+				"BOOL",
+				"Marked as High Earner?",
+				"MPPLY_IS_HIGH_EARNER",
+				"MPPLY_IS_HIGH_EARNER",
+				"0",
+				"1",
+				"READONLY "
+			]
+		]
+	},
+	"Freemode PhoneCalls": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"MP0_FM_ACT_PHN",
+				"MP0_FM_ACT_PHN",
+				"MP1_FM_ACT_PHN",
+				"-1",
+				"999999999"
+			],
+			[
+				"INT",
+				"MP0_FM_ACT_PHN2",
+				"MP0_FM_ACT_PHN2",
+				"MP1_FM_ACT_PHN2",
+				"-1",
+				"999999999"
+			],
+			[
+				"INT",
+				"MP0_FM_ACT_PHN3",
+				"MP0_FM_ACT_PHN3",
+				"MP1_FM_ACT_PHN3",
+				"-1",
+				"999999999"
+			],
+			[
+				"INT",
+				"MP0_FM_ACT_PHN4",
+				"MP0_FM_ACT_PHN4",
+				"MP1_FM_ACT_PHN4",
+				"-1",
+				"999999999"
+			],
+			[
+				"INT",
+				"MP0_FM_ACT_PHN5",
+				"MP0_FM_ACT_PHN5",
+				"MP1_FM_ACT_PHN5",
+				"-1",
+				"999999999"
+			],
+			[
+				"INT",
+				"MP0_FM_VEH_TX1",
+				"MP0_FM_VEH_TX1",
+				"MP1_FM_VEH_TX1",
+				"-1",
+				"999999999"
+			],
+			[
+				"INT",
+				"MP0_FM_ACT_PH6",
+				"MP0_FM_ACT_PH6",
+				"MP1_FM_ACT_PH6",
+				"-1",
+				"999999999"
+			],
+			[
+				"INT",
+				"IP0_FM_ACT_PHN",
+				"MP0_FM_ACT_PHN",
+				"MP0_FM_ACT_PHN",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_ACT_PH2",
+				"MP0_FM_ACT_PH2",
+				"MP0_FM_ACT_PH2",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_ACT_PH3",
+				"MP0_FM_ACT_PH3",
+				"MP0_FM_ACT_PH3",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_ACT_PH4",
+				"MP0_FM_ACT_PH4",
+				"MP0_FM_ACT_PH4",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_ACT_PH5",
+				"MP0_FM_ACT_PH5",
+				"MP0_FM_ACT_PH5",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_VEH_TX1",
+				"MP0_FM_VEH_TX1",
+				"MP0_FM_VEH_TX1",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_ACT_PH6",
+				"MP0_FM_ACT_PH6",
+				"MP0_FM_ACT_PH6",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_ACT_PH7",
+				"MP0_FM_ACT_PH7",
+				"MP0_FM_ACT_PH7",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_ACT_PH8",
+				"MP0_FM_ACT_PH8",
+				"MP0_FM_ACT_PH8",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_ACT_PH9",
+				"MP0_FM_ACT_PH9",
+				"MP0_FM_ACT_PH9",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_CUT_DONE",
+				"MP0_FM_CUT_DONE",
+				"MP0_FM_CUT_DONE",
+				"-1",
+				"9999999"
+			],
+			[
+				"INT",
+				"IP0_FM_CUT_DONE_2",
+				"MP0_FM_CUT_DONE_2",
+				"MP0_FM_CUT_DONE_2",
+				"-1",
+				"9999999"
+			]
+		]
+	},
+	"Character": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Reset Orbital Cooldown",
+				"MP0_ORBITAL_CANNON_COOLDOWN",
+				"MP1_ORBITAL_CANNON_COOLDOWN",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Auto equip Pilot helmet",
+				"MP0_AUTO_EQ_HELMET_FLY_VEH",
+				"MP1_AUTO_EQ_HELMET_FLY_VEH",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"Auto equip Bike helmet",
+				"MP0_AUTO_EQ_HELMET",
+				"MP1_AUTO_EQ_HELMET",
+				"0",
+				"1"
+			],
+			[
+				"FLOAT",
+				"Mental State",
+				"MP0_PLAYER_MENTAL_STATE",
+				"MP1_PLAYER_MENTAL_STATE",
+				"0",
+				"100"
+			],
+			[
+				"BOOL",
+				"Plane Access",
+				"MP0_PLANE_ACCESS",
+				"MP1_PLANE_ACCESS",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Boat Access",
+				"MP0_BOAT_ACCESS",
+				"MP1_BOAT_ACCESS",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Helicopter Access",
+				"MP0_HELI_ACCESS",
+				"MP1_HELI_ACCESS",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Deactivated Nightvision",
+				"MP0_HAS_DEACTIVATE_NIGHTVISION",
+				"MP1_HAS_DEACTIVATE_NIGHTVISION",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Visor up",
+				"MP0_IS_VISOR_UP",
+				"MP1_IS_VISOR_UP",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Changed Character asked",
+				"MP0_FM_CHANGECHAR_ASKED",
+				"MP1_FM_CHANGECHAR_ASKED",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Character Abilities": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Increase Stamina",
+				"MP0_SCRIPT_INCREASE_STAM",
+				"MP1_SCRIPT_INCREASE_STAM",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Increase Strength",
+				"MP0_SCRIPT_INCREASE_STRN",
+				"MP1_SCRIPT_INCREASE_STRN",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Increase Lung Capacity",
+				"MP0_SCRIPT_INCREASE_LUNG",
+				"MP1_SCRIPT_INCREASE_LUNG",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Increase Driving",
+				"MP0_SCRIPT_INCREASE_DRIV",
+				"MP1_SCRIPT_INCREASE_DRIV",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Increase Flying",
+				"MP0_SCRIPT_INCREASE_FLY",
+				"MP1_SCRIPT_INCREASE_FLY",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Increase Shooting",
+				"MP0_SCRIPT_INCREASE_SHO",
+				"MP1_SCRIPT_INCREASE_SHO",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Increase Stealth",
+				"MP0_SCRIPT_INCREASE_STL",
+				"MP1_SCRIPT_INCREASE_STL",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Increase Mechanic",
+				"MP0_SCRIPT_INCREASE_MECH",
+				"MP1_SCRIPT_INCREASE_MECH",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Flying Ability",
+				"MP0_FLYING_ABILITY",
+				"MP1_FLYING_ABILITY",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Shooting Ability",
+				"MP0_SHOOTING_ABILITY",
+				"MP1_SHOOTING_ABILITY",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Wheelie Ability",
+				"MP0_WHEELIE_ABILITY",
+				"MP1_WHEELIE_ABILITY",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Special Ability",
+				"MP0_SPECIAL_ABILITY",
+				"MP1_SPECIAL_ABILITY",
+				"0",
+				"100"
+			]
+		]
+	},
+	"Basic Stats": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"BOOL",
+				"Bottle in possession",
+				"MP0_BOTTLE_IN_POSSESSION",
+				"MP0_BOTTLE_IN_POSSESSION",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Daily objective week bonus",
+				"MP0_AWD_DAILYOBJWEEKBONUS",
+				"MP1_AWD_DAILYOBJWEEKBONUS",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Daily objective monthly bonus",
+				"MP0_AWD_DAILYOBJMONTHBONUS",
+				"MP1_AWD_DAILYOBJMONTHBONUS",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Drove Lester vehicle for 5 mins,MP0_AWD_DRIVELESTERCAR5MINS",
+				"MP1_AWD_DRIVELESTERCAR5MINS",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"Daily objectives completed",
+				"MP0_AWD_DAILYOBJCOMPLETED",
+				"MP1_AWD_DAILYOBJCOMPLETED",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Played deadline",
+				"MP0_CRDEADLINE",
+				"MP1_CRDEADLINE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Avoided 5 star wanted level",
+				"MP0_AWD_5STAR_WANTED_AVOIDANCE",
+				"MP1_AWD_5STAR_WANTED_AVOIDANCE",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Car bomb enemy kills",
+				"MP0_AWD_CAR_BOMBS_ENEMY_KILLS",
+				"MP1_1AWD_CAR_BOMBS_ENEMY_KILLS",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Cars exported",
+				"MP0_AWD_CARS_EXPORTED",
+				"MP1_AWD_CARS_EXPORTED",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Shoot down cop helicopter",
+				"MP0_AWD_FMSHOOTDOWNCOPHELI",
+				"MP1_AWD_FMSHOOTDOWNCOPHELI",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Delivered Lester vehicles",
+				"MP0_AWD_LESTERDELIVERVEHICLES",
+				"MP1_AWD_LESTERDELIVERVEHICLES",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Number of haircuts",
+				"MP0_AWD_NO_HAIRCUTS",
+				"MP1_AWD_NO_HAIRCUTS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Distracted cops without dying",
+				"MP0_AWD_ODISTRACTCOPSNOEATH",
+				"MP1_AWD_ODISTRACTCOPSNOEATH",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Passenger time",
+				"MP0_AWD_PASSENGERTIME",
+				"MP1_AWD_PASSENGERTIME",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Smugglers plane takedowns",
+				"MP0_AWD_TAKEDOWNSMUGPLANE",
+				"MP1_AWD_TAKEDOWNSMUGPLANE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Time spent in helicopter",
+				"MP0_AWD_TIME_IN_HELICOPTER",
+				"MP1_AWD_TIME_IN_HELICOPTER",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Vehicles jacked",
+				"MP0_AWD_VEHICLES_JACKEDR",
+				"MP1_AWD_VEHICLES_JACKEDR",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Vehicles exploded",
+				"MP0_CARS_EXPLODED",
+				"MP1_CARS_EXPLODED",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Wanted stars attained",
+				"MP0_STARS_ATTAINED",
+				"MP1_STARS_ATTAINED",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Wanted stars evaded",
+				"MP0_STARS_EVADED",
+				"MP1_STARS_EVADED",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Vehicles exported",
+				"MP0_VEHEXPORTED",
+				"MP1_VEHEXPORTED",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Total Shops held up",
+				"MP0_TOTAL_NO_SHOPS_HELD_UP",
+				"MP1_TOTAL_NO_SHOPS_HELD_UP",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Orbital Cannon Player kills",
+				"MP0_ORBITAL_CANNON_KILLS",
+				"MP1_ORBITAL_CANNON_KILLS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Deathmatches created",
+				"MPPLY_AWD_FM_CR_DM_MADE",
+				"MPPLY_AWD_FM_CR_DM_MADE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Races created",
+				"MPPLY_AWD_FM_CR_RACES_MADE",
+				"MPPLY_AWD_FM_CR_RACES_MADE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Captures created",
+				"MPPLY_NUM_CAPTURES_CREATED",
+				"MPPLY_NUM_CAPTURES_CREATED",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"LTS created",
+				"MPPLY_LTS_CREATED",
+				"MPPLY_LTS_CREATED",
+				"0",
+				"100000"
+			]
+		]
+	},
+	"Inventory": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Ps and Qs",
+				"MP0_NO_BOUGHT_YUM_SNACKS",
+				"MP1_NO_BOUGHT_YUM_SNACKS",
+				"0",
+				"30"
+			],
+			[
+				"INT",
+				"EgoChaser",
+				"MP0_NO_BOUGHT_HEALTH_SNACKS",
+				"MP1_NO_BOUGHT_HEALTH_SNACKS",
+				"0",
+				"15"
+			],
+			[
+				"INT",
+				"Meteorite",
+				"MP0_NO_BOUGHT_EPIC_SNACKS",
+				"MP1_NO_BOUGHT_EPIC_SNACKS",
+				"0",
+				"5"
+			],
+			[
+				"INT",
+				"eCola",
+				"MP0_NUMBER_OF_ORANGE_BOUGHT",
+				"MP1_NUMBER_OF_ORANGE_BOUGHT",
+				"0",
+				"10"
+			],
+			[
+				"INT",
+				"Pisswasser",
+				"MP0_NUMBER_OF_BOURGE_BOUGHT",
+				"MP1_NUMBER_OF_BOURGE_BOUGHT",
+				"0",
+				"10"
+			],
+			[
+				"INT",
+				"Champagne",
+				"MP0_NUMBER_OF_CHAMP_BOUGHT",
+				"MP1_NUMBER_OF_CHAMP_BOUGHT",
+				"0",
+				"5"
+			],
+			[
+				"INT",
+				"Cigarettes",
+				"MP0_CIGARETTES_BOUGHT",
+				"MP1_CIGARETTES_BOUGHT",
+				"0",
+				"20"
+			],
+			[
+				"INT",
+				"Super Light Armor",
+				"MP0_MP_CHAR_ARMOUR_1_COUNT",
+				"MP1_MP_CHAR_ARMOUR_1_COUNT",
+				"0",
+				"10"
+			],
+			[
+				"INT",
+				"Light Armor",
+				"MP0_MP_CHAR_ARMOUR_2_COUNT",
+				"MP1_MP_CHAR_ARMOUR_2_COUNT",
+				"0",
+				"10"
+			],
+			[
+				"INT",
+				"Standard Armor",
+				"MP0_MP_CHAR_ARMOUR_3_COUNT",
+				"MP1_MP_CHAR_ARMOUR_3_COUNT",
+				"0",
+				"10"
+			],
+			[
+				"INT",
+				"Heavy Armor",
+				"MP0_MP_CHAR_ARMOUR_4_COUNT",
+				"MP1_MP_CHAR_ARMOUR_4_COUNT",
+				"0",
+				"10"
+			],
+			[
+				"INT",
+				"Super Heavy Armor",
+				"MP0_MP_CHAR_ARMOUR_5_COUNT",
+				"MP1_MP_CHAR_ARMOUR_5_COUNT",
+				"0",
+				"10"
+			]
+		]
+	},
+	"SC Profile Activities": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Shooting Range Wins",
+				"MPPLY_SHOOTINGRANGE_WINS",
+				"MPPLY_SHOOTINGRANGE_WINS",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Shooting Range Losses",
+				"MPPLY_SHOOTINGRANGE_LOSSES",
+				"MPPLY_SHOOTINGRANGE_LOSSES",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Tennis Matches Won",
+				"MPPLY_TENNIS_MATCHES_WON",
+				"MPPLY_TENNIS_MATCHES_WON",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Tennis Matches Lost",
+				"MPPLY_TENNIS_MATCHES_LOST",
+				"MPPLY_TENNIS_MATCHES_LOST",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Golf Wins",
+				"MPPLY_GOLF_WINS",
+				"MPPLY_GOLF_WINS",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Golf Losses",
+				"MPPLY_GOLF_LOSSES",
+				"MPPLY_GOLF_LOSSES",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Darts Total Wins",
+				"MPPLY_DARTS_TOTAL_WINS",
+				"MPPLY_DARTS_TOTAL_WINS",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Darts Total Matches",
+				"MPPLY_DARTS_TOTAL_MATCHES",
+				"MPPLY_DARTS_TOTAL_MATCHES",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Shooting Range Total Match",
+				"MPPLY_SHOOTINGRANGE_TOTAL_MATCH",
+				"MPPLY_SHOOTINGRANGE_TOTAL_MATCH",
+				"0",
+				"10000000 "
+			]
+		]
+	},
+	"SC Profile Jobs Money": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Earned from Jobs (986m)",
+				"MP0_MONEY_EARN_JOBS",
+				"MP1_MONEY_EARN_JOBS",
+				"0",
+				"986000000"
+			],
+			[
+				"INT",
+				"Earned Selling Vehicles (13m)",
+				"MP0_MONEY_EARN_SELLING_VEH",
+				"MP1_MONEY_EARN_SELLING_VEH",
+				"0",
+				"42356897"
+			],
+			[
+				"INT",
+				"Earned Betting (1265798)",
+				"MP0_MONEY_EARN_BETTING",
+				"MP1_MONEY_EARN_BETTING",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Good Sport (156987)",
+				"MP0_MONEY_EARN_GOOD_SPORT",
+				"MP1_MONEY_EARN_GOOD_SPORT",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Picked Up (125987)",
+				"MP0_MONEY_EARN_PICKED_UP",
+				"MP1_MONEY_EARN_PICKED_UP",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"From Others (598756)",
+				"MP0_MONEY_EARN_SHARED",
+				"MP1_MONEY_EARN_SHARED",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Shared from Jobs (365798)",
+				"MP0_MONEY_EARN_JOBSHARED",
+				"MP1_MONEY_EARN_JOBSHARED",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Rockstar Awarded 25654789",
+				"MP0_MONEY_EARN_ROCKSTAR_AWARD",
+				"MP1_MONEY_EARN_ROCKSTAR_AWARD",
+				"0",
+				"45654789"
+			]
+		]
+	},
+	"SC Profile Others": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Playing Time (2147483647ms)",
+				"MP0_TOTAL_PLAYINGTIME",
+				"MP1_TOTAL_PLAYINGTIME",
+				"0",
+				"2147483647"
+			],
+			[
+				"INT",
+				"Killed Cop",
+				"MP0_KILLS_COP",
+				"MP1_KILLS_COP",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Killed Swat",
+				"MP0_KILLS_SWAT",
+				"MP1_KILLS_SWAT",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Stars Attained",
+				"MP0_STARS_ATTAINED",
+				"MP1_STARS_ATTAINED",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Stars Evaded",
+				"MP0_STARS_EVADED",
+				"MP1_STARS_EVADED",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Time Spent Wanted (432m)",
+				"MP0_TOTAL_CHASE_TIME",
+				"MP1_TOTAL_CHASE_TIME",
+				"0",
+				"432000000"
+			],
+			[
+				"INT",
+				"Vehicle Exported",
+				"MP0_VEHEXPORTED",
+				"MP1_VEHEXPORTED",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Total Number Of Shops Held Up",
+				"MP0_TOTAL_NO_SHOPS_HELD_UP",
+				"MP1_TOTAL_NO_SHOPS_HELD_UP",
+				"0",
+				"1000000 "
+			],
+			[
+				"INT",
+				"Number Of Stolen Cop Vehicles",
+				"MP0_NUMBER_STOLEN_COP_VEHICLE",
+				"MP1_NUMBER_STOLEN_COP_VEHICLE",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Number Of Stolen Cars",
+				"MP0_NUMBER_STOLEN_CARS",
+				"MP1_NUMBER_STOLEN_CARS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Number Of Stolen Bikes",
+				"MP0_NUMBER_STOLEN_BIKES",
+				"MP1_NUMBER_STOLEN_BIKES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Number Of Stolen Boats",
+				"MP0_NUMBER_STOLEN_BOATS",
+				"MP1_NUMBER_STOLEN_BOATS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Number Of Stolen Helicopters",
+				"MP0_NUMBER_STOLEN_HELIS",
+				"MP1_NUMBER_STOLEN_HELIS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Number Of Stolen Planes",
+				"MP0_NUMBER_STOLEN_PLANES",
+				"MP1_NUMBER_STOLEN_PLANES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Number Of Stolen Quadbikes",
+				"MP0_NUMBER_STOLEN_QUADBIKES",
+				"MP1_NUMBER_STOLEN_QUADBIKES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Number Of Stolen Bicycles",
+				"MP0_NUMBER_STOLEN_BICYCLES",
+				"MP1_NUMBER_STOLEN_BICYCLES",
+				"0",
+				"1000000"
+			]
+		]
+	},
+	"MPPLY Global Stats": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Global Races Won",
+				"MPPLY_TOTAL_RACES_WON",
+				"MPPLY_TOTAL_RACES_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Global Races Lost",
+				"MPPLY_TOTAL_RACES_LOST",
+				"MPPLY_TOTAL_RACES_LOST",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Global Custom Races Won",
+				"MPPLY_TOTAL_CUSTOM_RACES_WON",
+				"MPPLY_TOTAL_CUSTOM_RACES_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Global Deathmatches Won",
+				"MPPLY_TOTAL_DEATHMATCH_WON",
+				"MPPLY_TOTAL_DEATHMATCH_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Global Deathmatches Lost",
+				"MPPLY_TOTAL_DEATHMATCH_LOST",
+				"MPPLY_TOTAL_DEATHMATCH_LOST",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Global Team DM Won",
+				"MPPLY_TOTAL_TDEATHMATCH_WON",
+				"MPPLY_TOTAL_TDEATHMATCH_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Global Team DM Lost",
+				"MPPLY_TOTAL_TDEATHMATCH_LOST",
+				"MPPLY_TOTAL_TDEATHMATCH_LOST",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Shooting Range Won",
+				"MPPLY_SHOOTINGRANGE_WINS",
+				"MPPLY_SHOOTINGRANGE_WINS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Shooting Range Lost",
+				"MPPLY_SHOOTINGRANGE_LOSSES",
+				"MPPLY_SHOOTINGRANGE_LOSSES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Total Shooting Range Matches",
+				"MPPLY_SHOOTINGRANGE_TOTAL_MATCH",
+				"MPPLY_SHOOTINGRANGE_TOTAL_MATCH",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Tennis Matches Won",
+				"MPPLY_TENNIS_MATCHES_WON",
+				"MPPLY_TENNIS_MATCHES_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Tennis Matches Lost",
+				"MPPLY_TENNIS_MATCHES_LOST",
+				"MPPLY_TENNIS_MATCHES_LOST",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Golf Matches Won",
+				"MPPLY_GOLF_WINS",
+				"MPPLY_GOLF_WINS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Golf Matches Lost",
+				"MPPLY_GOLF_LOSSES",
+				"MPPLY_GOLF_LOSSES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Dart Matches Won",
+				"MPPLY_DARTS_TOTAL_WINS",
+				"MPPLY_DARTS_TOTAL_WINS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Total Dart Matches",
+				"MPPLY_DARTS_TOTAL_MATCHES",
+				"MPPLY_DARTS_TOTAL_MATCHES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Base Jumps Won",
+				"MPPLY_BJ_WINS",
+				"MPPLY_BJ_WINS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Base Jumps Lost",
+				"MPPLY_BJ_LOST",
+				"MPPLY_BJ_LOST",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Race To Point Won",
+				"MPPLY_RACE_2_POINT_WINS",
+				"MPPLY_RACE_2_POINT_WINS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Race To Point Lost",
+				"MPPLY_RACE_2_POINT_LOST",
+				"MPPLY_RACE_2_POINT_LOST",
+				"0",
+				"1000000"
+			]
+		]
+	},
+	"K/D": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"MPPLY Number of players killed",
+				"MPPLY_KILLS_PLAYERS",
+				"MPPLY_KILLS_PLAYERS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"MPPLY Number of deaths",
+				"MPPLY_DEATHS_PLAYER",
+				"MPPLY_DEATHS_PLAYER",
+				"0",
+				"1000000"
+			],
+			[
+				"FLOAT",
+				"MPPLY Kill Death Ratio",
+				"MPPLY_KILL_DEATH_RATIO",
+				"MPPLY_KILL_DEATH_RATIO",
+				"0",
+				"100"
+			]
+		]
+	},
+	"Weapon Accuracy Related": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Shots fired",
+				"MP0_SHOTS",
+				"MP1_SHOTS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Hits",
+				"MP0_HITS",
+				"MP1_HITS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Vehicles Hits",
+				"MP0_DB_HITS_PEDS_VEHICLES",
+				"MP1_DB_HITS_PEDS_VEHICLES",
+				"0",
+				"1000000"
+			],
+			[
+				"FLOAT",
+				"Weapon Accuracy",
+				"MP0_WEAPON_ACCURACY",
+				"MP1_WEAPON_ACCURACY",
+				"0",
+				"100"
+			]
+		]
+	},
+	"Unlock Fast Run": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Unlock Ability 1 (-1)",
+				"MP0_CHAR_FM_ABILITY_1_UNLCK",
+				"MP1_CHAR_FM_ABILITY_1_UNLCK",
+				"-100",
+				"100"
+			],
+			[
+				"INT",
+				"Unlock Ability 2 (-1)",
+				"MP0_CHAR_FM_ABILITY_2_UNLCK",
+				"MP1_CHAR_FM_ABILITY_2_UNLCK",
+				"-100",
+				"100"
+			],
+			[
+				"INT",
+				"Unlock Ability 3 (-1)",
+				"MP0_CHAR_FM_ABILITY_3_UNLCK",
+				"MP1_CHAR_FM_ABILITY_3_UNLCK",
+				"-100",
+				"100"
+			],
+			[
+				"INT",
+				"Unlock Ability 4 (-1)",
+				"MP0_CHAR_ABILITY_1_UNLCK",
+				"MP1_CHAR_ABILITY_1_UNLCK",
+				"-100",
+				"100"
+			],
+			[
+				"INT",
+				"Unlock Ability 5 (-1)",
+				"MP0_CHAR_ABILITY_2_UNLCK",
+				"MP1_CHAR_ABILITY_2_UNLCK",
+				"-100",
+				"100"
+			],
+			[
+				"INT",
+				"Unlock Ability 6 (-1)",
+				"MP0_CHAR_ABILITY_3_UNLCK",
+				"MP1_CHAR_ABILITY_3_UNLCK",
+				"-100",
+				"100"
+			],
+			[
+				" "
+			]
+		]
+	},
+	"Combat Stats": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Character Kills",
+				"MP0_KILLS",
+				"MP1_KILLS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Player Kills",
+				"MP0_KILLS_PLAYERS",
+				"MP1_KILLS_PLAYERS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Character Deaths",
+				"MP0_DEATHS",
+				"MP1_DEATHS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Player Deaths",
+				"MP0_DEATHS_PLAYER",
+				"MP1_DEATHS_PLAYER",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Database Kills",
+				"MP0_DB_KILLS",
+				"MP1_DB_KILLS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Database Player Kills",
+				"MP0_DB_PLAYER_KILLS",
+				"MP1_DB_PLAYER_KILLS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Pass DB Kills",
+				"MP0_PASS_DB_KILLS",
+				"MP1_PASS_DB_KILLS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Pass amount being killed",
+				"MP0_PASS_DB_PLAYER_KILLS",
+				"MP1_PASS_DB_PLAYER_KILLS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Killed by headshot",
+				"MP0_HEADSHOTS",
+				"MP1_HEADSHOTS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Killed by player headshot",
+				"MP0_PLAYER_HEADSHOTS",
+				"MP1_PLAYER_HEADSHOTS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Database killed by headshot",
+				"MP0_DB_HEADSHOTS",
+				"MP1_DB_HEADSHOTS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Pass killed by headshot",
+				"MP0_PASS_DB_HEADSHOTS",
+				"MP1_PASS_DB_HEADSHOTS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Nightvision Kills",
+				"MP0_AWD_NIGHTVISION_KILLS",
+				"MP1_AWD_NIGHTVISION_KILLS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Killed psychopaths",
+				"MP0_AWD_KILL_PSYCHOPATHS",
+				"MP1_AWD_KILL_PSYCHOPATHS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Killed Cops",
+				"MP0_KILLS_COP",
+				"MP1_KILLS_COP",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Killed SWATs",
+				"MP0_KILLS_SWAT",
+				"MP1_KILLS_SWAT",
+				"0",
+				"1000000"
+			]
+		]
+	},
+	"Races": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Races Won",
+				"MP0_RACES_WON",
+				"MP1_RACES_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Races Lost",
+				"MP0_RACES_LOST",
+				"MP1_RACES_LOST",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Rally won drive",
+				"MP0_AWD_FMRALLYWONDRIVE",
+				"MP1_AWD_FMRALLYWONDRIVE",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Rally won nav",
+				"MP0_AWD_FMRALLYWONNAV",
+				"MP1_AWD_FMRALLYWONNAV",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Sea Races Wins",
+				"MP0_AWD_FMWINSEARACE",
+				"MP1_AWD_FMWINSEARACE",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Air Races Wins",
+				"MP0_AWD_FMWINAIRRACE",
+				"MP1_AWD_FMWINAIRRACE",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"GTA Races Wins",
+				"MP0_AWD_FM_GTA_RACES_WON",
+				"MP1_AWD_FM_GTA_RACES_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Turbo Starts",
+				"MP0_NUMBER_TURBO_STARTS_IN_RACE",
+				"MP1_NUMBER_TURBO_STARTS_IN_RACE",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Stunt Jumps completed",
+				"MP0_USJS_COMPLETED",
+				"MP1_USJS_COMPLETED",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Fastest Laps",
+				"MP0_AWD_FM_RACES_FASTEST_LAP",
+				"MP1_AWD_FM_RACES_FASTEST_LAP",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Last to First",
+				"MP0_AWD_FM_RACE_LAST_FIRST",
+				"MP1_AWD_FM_RACE_LAST_FIRST",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Slip Streams",
+				"MP0_NUMBER_SLIPSTREAMS_IN_RACE",
+				"MP1_NUMBER_SLIPSTREAMS_IN_RACE",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Air Launches",
+				"MP0_NUMBER_OF_AIR_LAUNCHES",
+				"MP1_NUMBER_OF_AIR_LAUNCHES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Air launches over 5 seconds",
+				"MP0_AIR_LAUNCHES_OVER_5S",
+				"MP1_AIR_LAUNCHES_OVER_5S",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Air launches over 40 meters",
+				"MP0_AIR_LAUNCHES_OVER_40M",
+				"MP1_AIR_LAUNCHES_OVER_40M",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Drive without crashes",
+				"MP0_AWD_FMDRIVEWITHOUTCRASH",
+				"MP1_AWD_FMDRIVEWITHOUTCRASH",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Reach wave without dying",
+				"MP0_AWD_FMHORDWAVESSURVIVE",
+				"MP1_AWD_FMHORDWAVESSURVIVE",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Win race to points",
+				"MP0_AWD_FMWINRACETOPOINTS",
+				"MP1_AWD_FMWINRACETOPOINTS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Flips in a vehicle jump",
+				"MP0_MOST_FLIPS_IN_ONE_JUMP",
+				"MP1_MOST_FLIPS_IN_ONE_JUMP",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Spins in a vehicle jump",
+				"MP0_MOST_SPINS_IN_ONE_JUMP",
+				"MP1_MOST_SPINS_IN_ONE_JUMP",
+				"0",
+				"1000000"
+			],
+			[
+				"FLOAT",
+				"Longest wheelie",
+				"MP0_LONGEST_WHEELIE_DIST",
+				"MP1_LONGEST_WHEELIE_DIST",
+				"0",
+				"100000000"
+			],
+			[
+				"BOOL",
+				"Store 20 vehicles in Garages",
+				"MP0_AWD_STORE_20_CAR_IN_GARAGES",
+				"MP1_AWD_STORE_20_CAR_IN_GARAGES",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Fully modded vehicles MP0_AWD_FMFULLYMODDEDCAR",
+				"MP1_AWD_FMFULLYMODDEDCAR",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Kill 3 + win race",
+				"MP0_AWD_FMKILL3ANDWINGTARACE",
+				"MP1_AWD_FMKILL3ANDWINGTARACE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Furthest Wheelie",
+				"MP0_AWD_FMFURTHESTWHEELIE",
+				"MP1_AWD_FMFURTHESTWHEELIE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"25 different Races",
+				"MP0_AWD_FM25DIFFERENTRACES",
+				"MP1_AWD_FM25DIFFERENTRACES",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"World Record Holder",
+				"MP0_AWD_FMRACEWORLDRECHOLDER",
+				"MP1_AWD_FMRACEWORLDRECHOLDER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Custom Race Wins",
+				"MP0_AWD_FMWINCUSTOMRACE",
+				"MP1_AWD_FMWINCUSTOMRACE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"All Race Modes Won",
+				"MP0_AWD_FMWINALLRACEMODES",
+				"MP1_AWD_FMWINALLRACEMODES",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Missions": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Total death match kills",
+				"MP0_DM_CURRENT_KILLS",
+				"MP1_DM_CURRENT_KILLS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Total death match deaths",
+				"MP0_DM_CURRENT_DEATHS",
+				"MP1_DM_CURRENT_DEATHS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Total death match assists",
+				"MP0_DM_CURRENT_ASSISTS",
+				"MP1_DM_CURRENT_ASSISTS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Total kills",
+				"MP0_AWD_FM_DM_TOTALKILLS",
+				"MP1_AWD_FM_DM_TOTALKILLS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Death match revenge kills",
+				"MP0_AWD_FMREVENGEKILLSDM",
+				"MP1_AWD_FMREVENGEKILLSDM",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Death match wins",
+				"MP0_AWD_FM_DM_WINS",
+				"MP1_AWD_FM_DM_WINS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Team Death Match MVP",
+				"MP0_AWD_FM_TDM_MVP",
+				"MP1_AWD_FM_TDM_MVP",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Team Death Match Wins",
+				"MP0_AWD_FM_TDM_WINS",
+				"MP1_AWD_FM_TDM_WINS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"3 Kills same guy",
+				"MP0_AWD_FM_DM_3KILLSAMEGUY",
+				"MP1_AWD_FM_DM_3KILLSAMEGUY",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Stolen Kill",
+				"MP0_AWD_FM_DM_STOLENKILL",
+				"MP1_AWD_FM_DM_STOLENKILL",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"LTS last player alive",
+				"MP0_AWD_ONLY_PLAYER_ALIVE_LTS",
+				"MP1_AWD_ONLY_PLAYER_ALIVE_LTS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"LTS killed entire team",
+				"MP0_AWD_KILL_TEAM_YOURSELF_LTS",
+				"MP1_AWD_KILL_TEAM_YOURSELF_LTS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Death match kill streaks",
+				"MP0_AWD_FM_DM_KILLSTREAK",
+				"MP1_AWD_FM_DM_KILLSTREAK",
+				"0",
+				"1000000"
+			],
+			[
+				"BOOL",
+				"Kill streak had",
+				"MP0_AWD_FMKILLSTREAKSDM",
+				"MP1_AWD_FMKILLSTREAKSDM",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Activities": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Captures Won",
+				"MP0_AWD_WIN_CAPTURES",
+				"MP1_AWD_WIN_CAPTURES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Last Team Standings Won",
+				"MP0_AWD_WIN_LAST_TEAM_STANDINGS",
+				"MP1_AWD_WIN_LAST_TEAM_STANDINGS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Drop-off Capture Packages",
+				"MP0_AWD_DROPOFF_CAP_PACKAGES",
+				"MP1_AWD_DROPOFF_CAP_PACKAGES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Picked up Capture Packages",
+				"MP0_AWD_PICKUP_CAP_PACKAGES",
+				"MP1_AWD_PICKUP_CAP_PACKAGES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Killed carrier in Capture",
+				"MP0_AWD_KILL_CARRIER_CAPTURE",
+				"MP1_AWD_KILL_CARRIER_CAPTURE",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Won Capture without dying",
+				"MP0_AWD_WIN_CAPTURE_DONT_DYING",
+				"MP1_AWD_WIN_CAPTURE_DONT_DYING",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Returned Mental State",
+				"MP0_AWD_MENTALSTATE_TO_NORMAL",
+				"MP1_AWD_MENTALSTATE_TO_NORMAL",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Land away from target",
+				"MP0_AWD_FMBASEJMP",
+				"MP1_AWD_FMBASEJMP",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Earned cash from betting",
+				"MP0_AWD_FMBBETWIN",
+				"MP1_AWD_FMBBETWIN",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Parachute jumps 20m",
+				"MP0_AWD_PARACHUTE_JUMPS_20M",
+				"MP1_AWD_PARACHUTE_JUMPS_20M",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Parachute jumps 50m",
+				"MP0_AWD_PARACHUTE_JUMPS_50M",
+				"MP1_AWD_PARACHUTE_JUMPS_50M",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Dart wins",
+				"MP0_AWD_WIN_AT_DARTS",
+				"MP1_AWD_WIN_AT_DARTS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Arm wrestling wins",
+				"MP0_MOST_ARM_WRESTLING_WINS",
+				"MP1_MOST_ARM_WRESTLING_WINS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Golf wins",
+				"MP0_AWD_FM_GOLF_WON",
+				"MP1_AWD_FM_GOLF_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Golf birdies",
+				"MP0_AWD_FM_GOLF_BIRDIES",
+				"MP1_AWD_FM_GOLF_BIRDIES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Tennis wins",
+				"MP0_AWD_FM_TENNIS_WON",
+				"MP1_AWD_FM_TENNIS_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Tennis aces",
+				"MP0_AWD_FM_TENNIS_ACE",
+				"MP1_AWD_FM_TENNIS_ACE",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Prostitutes frequented",
+				"MP0_PROSTITUTES_FREQUENTED",
+				"MP1_PROSTITUTES_FREQUENTED",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Lap dances",
+				"MP0_AWD_LAPDANCES",
+				"MP1_AWD_LAPDANCES",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Lap dances bought",
+				"MP0_LAP_DANCED_BOUGHT",
+				"MP1_LAP_DANCED_BOUGHT",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Security cars robbed",
+				"MP0_AWD_SECURITY_CARS_ROBBED",
+				"MP1_AWD_SECURITY_CARS_ROBBED",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Hold up shops",
+				"MP0_AWD_HOLD_UP_SHOPS",
+				"MP1_AWD_HOLD_UP_SHOPS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Killbounty",
+				"MP0_AWD_FMKILLBOUNTY",
+				"MP1_AWD_FMKILLBOUNTY",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Traded in property",
+				"MP0_AWD_TRADE_IN_YOUR_PROPERTY",
+				"MP1_AWD_TRADE_IN_YOUR_PROPERTY",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Crate drops collected",
+				"MP0_AWD_FMCRATEDROPS",
+				"MP1_AWD_FMCRATEDROPS",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Shootrange TG Won",
+				"MP0_AWD_FM_SHOOTRANG_TG_WON",
+				"MP1_AWD_FM_SHOOTRANG_TG_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Shootrange RT Won",
+				"MP0_AWD_FM_SHOOTRANG_RT_WON",
+				"MP1_AWD_FM_SHOOTRANG_RT_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"Shootrange CT Won",
+				"MP0_AWD_FM_SHOOTRANG_CT_WON",
+				"MP1_AWD_FM_SHOOTRANG_CT_WON",
+				"0",
+				"1000000"
+			],
+			[
+				"BOOL",
+				"Shootrange gran won",
+				"MP0_AWD_FM_SHOOTRANG_GRAN_WON",
+				"MP1_AWD_FM_SHOOTRANG_GRAN_WON",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Activate 2 person key switches",
+				"MP0_AWD_ACTIVATE_2_PERSON_KEY",
+				"MP1_AWD_ACTIVATE_2_PERSON_KEY",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Golf hole in 1",
+				"MP0_AWD_FM_GOLF_HOLE_IN_1",
+				"MP1_AWD_FM_GOLF_HOLE_IN_1",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Tennis stasewins",
+				"MP0_AWD_FM_TENNIS_STASETWIN",
+				"MP1_AWD_FM_TENNIS_STASETWIN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"6 Dart checkout",
+				"MP0_AWD_FM6DARTCHKOUT",
+				"MP1_AWD_FM6DARTCHKOUT",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Attacked Gang HQ",
+				"MP0_AWD_FMATTGANGHQ",
+				"MP1_AWD_FMATTGANGHQ",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Won every game mode",
+				"MP0_AWD_FMWINEVERYGAMEMODE",
+				"MP1_AWD_FMWINEVERYGAMEMODE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"25 different TDM",
+				"MP0_AWD_FM25DIFFERENTDM",
+				"MP1_AWD_FM25DIFFERENTDM",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"5 Tennis set wins",
+				"MP0_AWD_FM_TENNIS_5_SET_WINS",
+				"MP1_AWD_FM_TENNIS_5_SET_WINS",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"25 different clothing bought",
+				"MP0_AWD_FM25DIFITEMSCLOTHES",
+				"MP1_AWD_FM25DIFITEMSCLOTHES",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Most kills gang hide",
+				"MP0_AWD_FMMOSTKILLSGANGHIDE",
+				"MP1_AWD_FMMOSTKILLSGANGHIDE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Most kills survive",
+				"MP0_AWD_FMMOSTKILLSSURVIVE",
+				"MP1_AWD_FMMOSTKILLSSURVIVE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Picked up DLC Crate",
+				"MP0_AWD_FMPICKUPDLCCRATE1ST",
+				"MP1_AWD_FMPICKUPDLCCRATE1ST",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Tattooed all body Parts",
+				"MP0_AWD_FMTATTOOALLBODYPARTS",
+				"MP1_AWD_FMTATTOOALLBODYPARTS",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Weapons": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"BOOL",
+				"Stone Hatchet Challenge",
+				"MPPLY_MELEECHLENGECOMPLETED",
+				"MPPLY_MELEECHLENGECOMPLETED",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Double Action Revolver",
+				"MPPLY_HEADSHOTCHLENGECOMPLETED",
+				"MPPLY_HEADSHOTCHLENGECOMPLETED",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Navy Revolver",
+				"MPPLY_NAVYREVOLVERCOMPLETED",
+				"MPPLY_NAVYREVOLVERCOMPLETED",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Timers and Cooldowns": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"MC Business 1",
+				"MP0_PAYRESUPPLYTIMER0",
+				"MP1_PAYRESUPPLYTIMER0",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"MC Business 2",
+				"MP0_PAYRESUPPLYTIMER1",
+				"MP1_PAYRESUPPLYTIMER1",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"MC Business 3",
+				"MP0_PAYRESUPPLYTIMER2",
+				"MP0_PAYRESUPPLYTIMER2",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"MC Business 4",
+				"MP0_PAYRESUPPLYTIMER3",
+				"MP0_PAYRESUPPLYTIMER3",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"MC Business 5",
+				"MP0_PAYRESUPPLYTIMER4",
+				"MP0_PAYRESUPPLYTIMER4",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"Bunker",
+				"MP0_PAYRESUPPLYTIMER5",
+				"MP0_PAYRESUPPLYTIMER5",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"BLOCK_CEO_WORK",
+				"MP0_BLOCK_CEO_WORK",
+				"MP1_BLOCK_CEO_WORK",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"BLOCK_GANG_BOSS_WORK",
+				"MP0_BLOCK_GANG_BOSS_WORK",
+				"MP0_BLOCK_GANG_BOSS_WORK",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Office Money": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Set this to 1000",
+				"MP0_LIFETIME_BUY_COMPLETE",
+				"MP1_LIFETIME_BUY_COMPLETE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Set this to 1000",
+				"MP0_LIFETIME_BUY_UNDERTAKEN",
+				"MP1_LIFETIME_BUY_UNDERTAKEN",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Set this to 1000",
+				"MP0_LIFETIME_BUY_UNDERTAKEN",
+				"MP1_LIFETIME_BUY_UNDERTAKEN",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Set this to 1000",
+				"MP0_LIFETIME_SELL_UNDERTAKEN",
+				"MP1_LIFETIME_SELL_UNDERTAKEN",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Set this to 20000000",
+				"MP0_LIFETIME_CONTRA_EARNINGS",
+				"MP1_LIFETIME_CONTRA_EARNINGS",
+				"0",
+				"30000000"
+			]
+		]
+	},
+	"Alien Egg Resupply Mission - Bunker": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Set this to 599",
+				"MP0_LFETIME_BIKER_BUY_COMPLET5",
+				"MP1_LFETIME_BIKER_BUY_COMPLET5",
+				"0",
+				"1000"
+			],
+			[
+				"INT",
+				"Set this to 599",
+				"MP0_LFETIME_BIKER_BUY_UNDERTA5",
+				"MP1_LFETIME_BIKER_BUY_UNDERTA5",
+				"0",
+				"1000"
+			]
+		]
+	},
+	"Vehicle Trade Prices": {
+		"comments": [],
+		"stats": [
+			[
+				"INT",
+				"IE vehicle trade price",
+				"MP0_AT_FLOW_VEHICLE_BS",
+				"MP1_AT_FLOW_VEHICLE_BS",
+				"-1",
+				"0"
+			],
+			[
+				"INT",
+				"DD vehicle trade price",
+				"MP0_GANGOPS_FLOW_BITSET_MISS0",
+				"MP1_GANGOPS_FLOW_BITSET_MISS0",
+				"-1",
+				"0"
+			],
+			[
+				"INT",
+				"GR vehicle trade price",
+				"MP0_WVM_FLOW_VEHICLE_BS",
+				"MP1_WVM_FLOW_VEHICLE_BS",
+				"-1",
+				"0"
+			]
+		]
+	},
+	"Warehouse": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"MATTOTALFORFACTORY0",
+				"MP0_MATTOTALFORFACTORY0",
+				"MP1_MATTOTALFORFACTORY0",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"FACTORYSLOT0",
+				"MP0_FACTORYSLOT0",
+				"MP1_FACTORYSLOT0",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"FACTORYSLOT1",
+				"MP0_FACTORYSLOT1",
+				"MP1_FACTORYSLOT1",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"FACTORYSLOT2",
+				"MP0_FACTORYSLOT2",
+				"MP1_FACTORYSLOT2",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"FACTORYSLOT3",
+				"MP0_FACTORYSLOT3",
+				"MP1_FACTORYSLOT3",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"FACTORYSLOT4",
+				"MP0_FACTORYSLOT4",
+				"MP1_FACTORYSLOT4",
+				"0",
+				"10000000"
+			]
+		]
+	},
+	"Flightschool": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"BOOL",
+				"Medal 0",
+				"MP0_PILOT_ASPASSEDLESSON_0",
+				"MP1_PILOT_ASPASSEDLESSON_0",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Medal 1",
+				"MP0_PILOT_ASPASSEDLESSON_1",
+				"MP1_PILOT_ASPASSEDLESSON_1",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Medal 2",
+				"MP0_PILOT_ASPASSEDLESSON_2",
+				"MP1_PILOT_ASPASSEDLESSON_2",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Medal 3",
+				"MP0_PILOT_ASPASSEDLESSON_3",
+				"MP1_PILOT_ASPASSEDLESSON_3",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Medal 4",
+				"MP0_PILOT_ASPASSEDLESSON_4",
+				"MP1_PILOT_ASPASSEDLESSON_4",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Medal 5",
+				"MP0_PILOT_ASPASSEDLESSON_5",
+				"MP1_PILOT_ASPASSEDLESSON_5",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Medal 6",
+				"MP0_PILOT_ASPASSEDLESSON_6",
+				"MP1_PILOT_ASPASSEDLESSON_6",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Medal 7",
+				"MP0_PILOT_ASPASSEDLESSON_7",
+				"MP1_PILOT_ASPASSEDLESSON_7",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Medal 8",
+				"MP0_PILOT_ASPASSEDLESSON_8",
+				"MP1_PILOT_ASPASSEDLESSON_8",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Medal 9",
+				"MP0_PILOT_ASPASSEDLESSON_9",
+				"MP1_PILOT_ASPASSEDLESSON_9",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Lowriders": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"BOOL",
+				"Seen cutscene DRV",
+				"MP0_LOW_FLOW_CS_DRV_SEEN",
+				"MP1_LOW_FLOW_CS_DRV_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Seen cutscene TRA",
+				"MP0_LOW_FLOW_CS_TRA_SEEN",
+				"MP1_LOW_FLOW_CS_TRA_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Seen cutscene FUN",
+				"MP0_LOW_FLOW_CS_FUN_SEEN",
+				"MP1_LOW_FLOW_CS_FUN_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Seen cutscene PHO",
+				"MP0_LOW_FLOW_CS_PHO_SEEN",
+				"MP1_LOW_FLOW_CS_PHO_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Seen cutscene FIN",
+				"MP0_LOW_FLOW_CS_FIN_SEEN",
+				"MP1_LOW_FLOW_CS_FIN_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Seen cutscene BEN",
+				"MP0_LOW_BEN_INTRO_CS_SEEN",
+				"MP1_LOW_BEN_INTRO_CS_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"Amount of completed flows",
+				"MP0_LOWRIDER_FLOW_COMPLETE",
+				"MP1_LOWRIDER_FLOW_COMPLETE",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Current progress",
+				"MP0_LOW_FLOW_CURRENT_PROG",
+				"MP1_LOW_FLOW_CURRENT_PROG",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Current call status",
+				"MP0_LOW_FLOW_CURRENT_CALL",
+				"MP1_LOW_FLOW_CURRENT_CALL",
+				"0",
+				"100"
+			],
+			[
+				"INT",
+				"Lowrider intro tutorial",
+				"MP0_LOWRIDER_RACE_HELP",
+				"MP1_LOWRIDER_RACE_HELP",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Lowrider help bitset",
+				"MP0_LOWRIDER_HELP_BITSET",
+				"MP1_LOWRIDER_HELP_BITSET",
+				"0",
+				"1000000000"
+			]
+		]
+	},
+	"CEO": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"CEO Buys completed",
+				"MP0_LIFETIME_BUY_COMPLETE",
+				"MP1_LIFETIME_BUY_COMPLETE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"CEO Buys undertaken",
+				"MP0_LIFETIME_BUY_UNDERTAKEN",
+				"MP1_LIFETIME_BUY_UNDERTAKEN",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"CEO Sells completed",
+				"MP0_LIFETIME_SELL_COMPLETE",
+				"MP1_LIFETIME_SELL_COMPLETE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"CEO Sells undertaken",
+				"MP0_LIFETIME_SELL_UNDERTAKEN",
+				"MP1_LIFETIME_SELL_UNDERTAKEN",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"CEO Total Earnings",
+				"MP0_LIFETIME_CONTRA_EARNINGS",
+				"MP1_LIFETIME_CONTRA_EARNINGS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Don't Cross The Line Wins",
+				"MP0_DCTL_WINS",
+				"MP1_DCTL_WINS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Don't Cross The Line Matches",
+				"MP0_DCTL_PLAY_COUNT",
+				"MP1_DCTL_PLAY_COUNT",
+				"0",
+				"100000"
+			],
+			[
+				"BOOL",
+				"CEO Ban",
+				"MP0_BLOCK_CEO_WORK",
+				"MP1_BLOCK_CEO_WORK",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Biker Business": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Total Coca Earnings",
+				"MP0_LIFETIME_BKR_SELL_EARNINGS0",
+				"MP1_LIFETIME_BKR_SELL_EARNINGS0",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Coca sell missions completed",
+				"MP0_LIFETIME_BKR_SELL_COMPLETBC",
+				"MP1_LIFETIME_BKR_SELL_COMPLETBC",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Coca sell missions undertaken",
+				"MP0_LIFETIME_BKR_SELL_UNDERTABC",
+				"MP1_LIFETIME_BKR_SELL_UNDERTABC",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Total Meth Earnings",
+				"MP0_LIFETIME_BKR_SELL_EARNINGS1",
+				"MP1_LIFETIME_BKR_SELL_EARNINGS1",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Meth sell missions completed",
+				"MP0_LIFETIME_BKR_SEL_COMPLETBC1",
+				"MP1_LIFETIME_BKR_SEL_COMPLETBC1",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Meth sell missions undertaken",
+				"MP0_LIFETIME_BKR_SEL_UNDERTABC1",
+				"MP1_LIFETIME_BKR_SEL_UNDERTABC1",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Total Cash Earnings",
+				"MP0_LIFETIME_BKR_SELL_EARNINGS2",
+				"MP1_LIFETIME_BKR_SELL_EARNINGS2",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Cash sell missions completed",
+				"MP0_LIFETIME_BKR_SEL_COMPLETBC2",
+				"MP1_LIFETIME_BKR_SEL_COMPLETBC2",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Cash sell missions undertaken",
+				"MP0_LIFETIME_BKR_SEL_UNDERTABC2",
+				"MP1_LIFETIME_BKR_SEL_UNDERTABC2",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Total Weed Earnings",
+				"MP0_LIFETIME_BKR_SELL_EARNINGS3",
+				"MP1_LIFETIME_BKR_SELL_EARNINGS3",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Weed sell missions completed",
+				"MP0_LIFETIME_BKR_SEL_COMPLETBC3",
+				"MP1_LIFETIME_BKR_SEL_COMPLETBC3",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Weed sell missions undertaken",
+				"MP0_LIFETIME_BKR_SEL_UNDERTABC3",
+				"MP1_LIFETIME_BKR_SEL_UNDERTABC3",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Total Docs Earnings",
+				"MP0_LIFETIME_BKR_SELL_EARNINGS4",
+				"MP1_LIFETIME_BKR_SELL_EARNINGS4",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Docs sell missions completed",
+				"MP0_LIFETIME_BKR_SEL_COMPLETBC4",
+				"MP1_LIFETIME_BKR_SEL_COMPLETBC4",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Docs sell missions undertaken",
+				"MP0_LIFETIME_BKR_SEL_UNDERTABC4",
+				"MP1_LIFETIME_BKR_SEL_UNDERTABC4",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker flow process",
+				"MP0_AT_FLOW_IMPEXP_NUM",
+				"MP1_AT_FLOW_IMPEXP_NUM",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Cocaine Buys completed",
+				"MP0_LIFETIME_BIKER_BUY_COMPLET",
+				"MP1_LIFETIME_BIKER_BUY_COMPLET",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Cocaine Buys undertaken",
+				"MP0_LIFETIME_BIKER_BUY_UNDERTA",
+				"MP1_LIFETIME_BIKER_BUY_UNDERTA",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Cocaine Sells completed",
+				"MP0_LFETIME_BIKER_SELL_COMPLET",
+				"MP1_LIFETIME_BIKER_SELL_COMPLET",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Cocaine Sells undertaken",
+				"MP0_LIFETIME_BIKER_SELL_UNDERTA",
+				"MP1_LIFETIME_BIKER_SELL_UNDERTA",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Meth Buys completed",
+				"MP0_LFETIME_BIKER_BUY_COMPLET1",
+				"MP1_LFETIME_BIKER_BUY_COMPLET1",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Meth Buys undertaken",
+				"MP0_LFETIME_BIKER_BUY_UNDERTA1",
+				"MP1_LFETIME_BIKER_BUY_UNDERTA1",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Meth Sells completed",
+				"MP0_LFETIME_BIKER_SELL_COMPLET1",
+				"MP1_LFETIME_BIKER_SELL_COMPLET1",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Meth Sells undertaken",
+				"MP0_LFETIME_BIKER_SELL_UNDERTA1",
+				"MP1_LFETIME_BIKER_SELL_UNDERTA1",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Cash Buys completed",
+				"MP0_LFETIME_BIKER_BUY_COMPLET2",
+				"MP1_LFETIME_BIKER_BUY_COMPLET2",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Cash Buys undertaken",
+				"MP0_LFETIME_BIKER_BUY_UNDERTA2",
+				"MP1_LFETIME_BIKER_BUY_UNDERTA2",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Cash Sells completed",
+				"MP0_LFETIME_BIKER_SELL_COMPLET2",
+				"MP1_LFETIME_BIKER_SELL_COMPLET2",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Cash Sells undertaken",
+				"MP0_LFETIME_BIKER_SELL_UNDERTA2",
+				"MP1_LFETIME_BIKER_SELL_UNDERTA2",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Weed Buys completed",
+				"MP0_LFETIME_BIKER_BUY_COMPLET3",
+				"MP1_LFETIME_BIKER_BUY_COMPLET3",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Weed Buys undertaken",
+				"MP0_LFETIME_BIKER_BUY_UNDERTA3",
+				"MP1_LFETIME_BIKER_BUY_UNDERTA3",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Weed Sells completed",
+				"MP0_LFETIME_BIKER_SELL_COMPLET3",
+				"MP1_LFETIME_BIKER_SELL_COMPLET3",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Weed Sells undertaken",
+				"MP0_LFETIME_BIKER_SELL_UNDERTA3",
+				"MP1_LFETIME_BIKER_SELL_UNDERTA3",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Docs Buys completed",
+				"MP0_LFETIME_BIKER_BUY_COMPLET4",
+				"MP1_LFETIME_BIKER_BUY_COMPLET4",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Docs Buys undertaken",
+				"MP0_LFETIME_BIKER_BUY_UNDERTA4",
+				"MP1_LFETIME_BIKER_BUY_UNDERTA4",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Docs Sells completed",
+				"MP0_LFETIME_BIKER_SELL_COMPLET4",
+				"MP1_LFETIME_BIKER_SELL_COMPLET4",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Biker Docs Sells undertaken",
+				"MP0_LFETIME_BIKER_SELL_UNDERTA4",
+				"MP1_LFETIME_BIKER_SELL_UNDERTA4",
+				"0",
+				"100000000"
+			]
+		]
+	},
+	"Biker Clubhouse": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Members marked for death",
+				"MP0_MEMBERSMARKEDFORDEATH",
+				"MP1_MEMBERSMARKEDFORDEATH",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"MC kills",
+				"MP0_MCKILLS",
+				"MP1_MCKILLS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"MC deaths",
+				"MP0_MCDEATHS",
+				"MP1_MCDEATHS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Rival President kills",
+				"MP0_RIVALPRESIDENTKILLS",
+				"MP1_RIVALPRESIDENTKILLS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Rival CEO and VIP kills",
+				"MP0_RIVALCEOANDVIPKILLS",
+				"MP1_RIVALCEOANDVIPKILLS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Melee kills",
+				"MP0_MELEEKILLS",
+				"MP1_MELEEKILLS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"MC contract missions completed",
+				"MP0_CLUBHOUSECONTRACTSCOMPLETE",
+				"MP1_CLUBHOUSECONTRACTSCOMPLETE",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"MC contract missions earnings",
+				"MP0_CLUBHOUSECONTRACTEARNINGS",
+				"MP1_CLUBHOUSECONTRACTEARNINGS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Clubhouse work completed",
+				"MP0_CLUBWORKCOMPLETED",
+				"MP1_CLUBWORKCOMPLETED",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Clubhouse challenges completed",
+				"MP0_CLUBCHALLENGESCOMPLETED",
+				"MP1_CLUBCHALLENGESCOMPLETED",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Member challenges completed",
+				"MP0_MEMBERCHALLENGESCOMPLETED",
+				"MP1_MEMBERCHALLENGESCOMPLETED",
+				"0",
+				"100000000"
+			]
+		]
+	},
+	"Import Export": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Import Export Steals started",
+				"MP0_LFETIME_IE_STEAL_STARTED",
+				"MP1_LFETIME_IE_STEAL_STARTED",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Import Export Sells started",
+				"MP0_LFETIME_IE_EXPORT_STARTED",
+				"MP1_LFETIME_IE_EXPORT_STARTED",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Import Export Sells completed",
+				"MP0_LFETIME_IE_EXPORT_COMPLETED",
+				"MP1_LFETIME_IE_EXPORT_COMPLETED",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Import Export Earnings",
+				"MP0_LFETIME_IE_MISSION_EARNINGS",
+				"MP1_LFETIME_IE_MISSION_EARNINGS",
+				"0",
+				"100000000"
+			]
+		]
+	},
+	"Gunrunning": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Total Bunker Earnings",
+				"MP0_LIFETIME_BKR_SELL_EARNINGS5",
+				"MP1_LIFETIME_BKR_SELL_EARNINGS5",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Bunker Buys completed",
+				"MP0_LFETIME_BIKER_BUY_COMPLET5",
+				"MP1_LFETIME_BIKER_BUY_COMPLET5",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Bunker Buys undertaken",
+				"MP0_LFETIME_BIKER_BUY_UNDERTA5",
+				"MP1_LFETIME_BIKER_BUY_UNDERTA5",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Bunker Sells completed",
+				"MP0_LFETIME_BIKER_SELL_COMPLET5",
+				"MP1_LFETIME_BIKER_SELL_COMPLET5",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Bunker Sells undertaken",
+				"MP0_LFETIME_BIKER_SELL_UNDERTA5",
+				"MP1_LFETIME_BIKER_SELL_UNDERTA5",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Bunker SM completed",
+				"MP0_LIFETIME_BKR_SEL_COMPLETBC5",
+				"MP1_LIFETIME_BKR_SEL_COMPLETBC5",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Bunker SM undertaken",
+				"MP0_LIFETIME_BKR_SEL_UNDERTABC5",
+				"MP1_LIFETIME_BKR_SEL_UNDERTABC5",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Shootingrange Highscore 1",
+				"MP0_SR_HIGHSCORE_1",
+				"MP1_SR_HIGHSCORE_1",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Shootingrange Highscore 2",
+				"MP0_SR_HIGHSCORE_2",
+				"MP1_SR_HIGHSCORE_2",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Shootingrange Highscore 3",
+				"MP0_SR_HIGHSCORE_3",
+				"MP1_SR_HIGHSCORE_3",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Shootingrange Highscore 4",
+				"MP0_SR_HIGHSCORE_4",
+				"MP1_SR_HIGHSCORE_4",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Shootingrange Highscore 5",
+				"MP0_SR_HIGHSCORE_5",
+				"MP1_SR_HIGHSCORE_5",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Shootingrange Highscore 6",
+				"MP0_SR_HIGHSCORE_6",
+				"MP1_SR_HIGHSCORE_6",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Shootingrange Targets Hit",
+				"MP0_SR_TARGETS_HIT",
+				"MP1_SR_TARGETS_HIT",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Shootingrange VS Wins",
+				"MP0_SR_VS_WINS",
+				"MP1_SR_VS_WINS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Shootingrange Weapon Bitset",
+				"MP0_SR_WEAPON_BIT_SET",
+				"MP1_SR_WEAPON_BIT_SET",
+				"-1",
+				"0"
+			],
+			[
+				"BOOL",
+				"Shootingrange Tier Rewards 1",
+				"MP0_SR_TIER_1_REWARD",
+				"MP1_SR_TIER_1_REWARD",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Shootingrange Tier Rewards 2",
+				"MP0_SR_INCREASE_THROW_CAP",
+				"MP1_SR_INCREASE_THROW_CAP",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Shootingrange Tier Rewards 3",
+				"MP0_SR_TIER_3_REWARD",
+				"MP1_SR_TIER_3_REWARD",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"Total Bunker Products",
+				"MP0_PRODTOTALFORFACTORY5",
+				"MP1_PRODTOTALFORFACTORY5",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Total Bunker Research",
+				"MP0_RESEARCHTOTALFORFACTORY5",
+				"MP1_RESEARCHTOTALFORFACTORY5",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Total Bunker Materials",
+				"MP0_MATTOTALFORFACTORY5",
+				"MP1_MATTOTALFORFACTORY5",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Timers for factory laptop",
+				"MP0_PAYRESUPPLYTIMER5",
+				"MP1_PAYRESUPPLYTIMER5",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Factory setup complete",
+				"MP0_FACTORYSETUP5",
+				"MP1_FACTORYSETUP5",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Total Bunker Missions",
+				"MP0_MISSIONFORFACTORY5",
+				"MP1_MISSIONFORFACTORY5",
+				"0",
+				"100000000"
+			]
+		]
+	},
+	"Smugglers Run": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Steals started",
+				"MP0_LFETIME_HANGAR_BUY_UNDETAK",
+				"MP1_LFETIME_HANGAR_BUY_UNDETAK",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Steals completed",
+				"MP0_LFETIME_HANGAR_BUY_COMPLET",
+				"MP1_LFETIME_HANGAR_BUY_COMPLET",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Sales started",
+				"MP0_LFETIME_HANGAR_SEL_UNDETAK",
+				"MP1_LFETIME_HANGAR_SEL_UNDETAK",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Sales completed",
+				"MP0_LFETIME_HANGAR_SEL_COMPLET",
+				"MP1_LFETIME_HANGAR_SEL_COMPLET",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Rival Crates stolen",
+				"MP0_RIVAL_HANGAR_CRATES_STOLEN",
+				"MP1_RIVAL_HANGAR_CRATES_STOLEN",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Hangar Sale earnings",
+				"MP0_LFETIME_HANGAR_EARNINGS",
+				"MP1_LFETIME_HANGAR_EARNINGS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Cargo Type Bonus",
+				"MP0_LFETIME_HANGAR_EARN_BONUS",
+				"MP1_LFETIME_HANGAR_EARN_BONUS",
+				"0",
+				"100000000"
+			]
+		]
+	},
+	"Xmas Livery Unlocks": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Xmas Livery Unlocks 00",
+				"MPPLY_XMASLIVERIES0",
+				"MPPLY_XMASLIVERIES0",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 01",
+				"MPPLY_XMASLIVERIES1",
+				"MPPLY_XMASLIVERIES1",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 02",
+				"MPPLY_XMASLIVERIES2",
+				"MPPLY_XMASLIVERIES2",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 03",
+				"MPPLY_XMASLIVERIES3",
+				"MPPLY_XMASLIVERIES3",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 04",
+				"MPPLY_XMASLIVERIES4",
+				"MPPLY_XMASLIVERIES4",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 05",
+				"MPPLY_XMASLIVERIES5",
+				"MPPLY_XMASLIVERIES5",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 06",
+				"MPPLY_XMASLIVERIES6",
+				"MPPLY_XMASLIVERIES6",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 07",
+				"MPPLY_XMASLIVERIES7",
+				"MPPLY_XMASLIVERIES7",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 08",
+				"MPPLY_XMASLIVERIES8",
+				"MPPLY_XMASLIVERIES8",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 09",
+				"MPPLY_XMASLIVERIES9",
+				"MPPLY_XMASLIVERIES9",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 10",
+				"MPPLY_XMASLIVERIES10",
+				"MPPLY_XMASLIVERIES10",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 11",
+				"MPPLY_XMASLIVERIES11",
+				"MPPLY_XMASLIVERIES11",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 12",
+				"MPPLY_XMASLIVERIES12",
+				"MPPLY_XMASLIVERIES12",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 13",
+				"MPPLY_XMASLIVERIES13",
+				"MPPLY_XMASLIVERIES13",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 14",
+				"MPPLY_XMASLIVERIES14",
+				"MPPLY_XMASLIVERIES14",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 15",
+				"MPPLY_XMASLIVERIES15",
+				"MPPLY_XMASLIVERIES15",
+				"-1",
+				"1"
+			],
+			[
+				"INT",
+				"Xmas Livery Unlocks 16",
+				"MPPLY_XMASLIVERIES16",
+				"MPPLY_XMASLIVERIES16",
+				"-1",
+				"1"
+			]
+		]
+	},
+	"Doomsday": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Doomsday Heist Status",
+				"MP0_GANGOPS_HEIST_STATUS",
+				"MP1_GANGOPS_HEIST_STATUS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Gangop Morgue",
+				"MP0_CR_GANGOP_MORGUE",
+				"MP1_CR_GANGOP_MORGUE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Deluxo",
+				"MP0_CR_GANGOP_DELUXO",
+				"MP1_CR_GANGOP_DELUXO",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Serverfarm",
+				"MP0_CR_GANGOP_SERVERFARM",
+				"MP1_CR_GANGOP_SERVERFARM",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop IAA Base Finale",
+				"MP0_CR_GANGOP_IAABASE_FIN",
+				"MP1_CR_GANGOP_IAABASE_FIN",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Steal Osprey",
+				"MP0_CR_GANGOP_STEALOSPREY",
+				"MP1_CR_GANGOP_STEALOSPREY",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Foundry",
+				"MP0_CR_GANGOP_FOUNDRY",
+				"MP1_CR_GANGOP_FOUNDRY",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Riotvan",
+				"MP0_CR_GANGOP_RIOTVAN",
+				"MP1_CR_GANGOP_RIOTVAN",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Submarine Car",
+				"MP0_CR_GANGOP_SUBMARINECAR",
+				"MP1_CR_GANGOP_SUBMARINECAR",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Submarine Finale",
+				"MP0_CR_GANGOP_SUBMARINE_FIN",
+				"MP1_CR_GANGOP_SUBMARINE_FIN",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Predator",
+				"MP0_CR_GANGOP_PREDATOR",
+				"MP1_CR_GANGOP_PREDATOR",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop BM Launcher",
+				"MP0_CR_GANGOP_BMLAUNCHER",
+				"MP1_CR_GANGOP_BMLAUNCHER",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop BC Custom",
+				"MP0_CR_GANGOP_BCCUSTOM",
+				"MP1_CR_GANGOP_BCCUSTOM",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Stealth Tanks",
+				"MP0_CR_GANGOP_STEALTHTANKS",
+				"MP1_CR_GANGOP_STEALTHTANKS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Spyplane",
+				"MP0_CR_GANGOP_SPYPLANE",
+				"MP1_CR_GANGOP_SPYPLANE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Finale",
+				"MP0_CR_GANGOP_FINALE",
+				"MP1_CR_GANGOP_FINALE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Finale P2",
+				"MP0_CR_GANGOP_FINALE_P2",
+				"MP1_CR_GANGOP_FINALE_P2",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Gangop Finale P3",
+				"MP0_CR_GANGOP_FINALE_P3",
+				"MP1_CR_GANGOP_FINALE_P3",
+				"0",
+				"100000"
+			]
+		]
+	},
+	"Doomsday Global": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"BOOL",
+				"Act I Data Breaches done",
+				"MPPLY_AWD_GANGOPS_IAA",
+				"MPPLY_AWD_GANGOPS_IAA",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Act II Bogdan Problem done",
+				"MPPLY_AWD_GANGOPS_SUBMARINE",
+				"MPPLY_AWD_GANGOPS_SUBMARINE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Act II Doomsday Scenario done",
+				"MPPLY_AWD_GANGOPS_MISSILE",
+				"MPPLY_AWD_GANGOPS_MISSILE",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"All in Order II",
+				"MPPLY_GANGOPS_ALLINORDER",
+				"MPPLY_GANGOPS_ALLINORDER",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Loyalty II",
+				"MPPLY_GANGOPS_LOYALTY3",
+				"MPPLY_GANGOPS_LOYALTY3",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Loyalty III",
+				"MPPLY_GANGOPS_LOYALTY2",
+				"MPPLY_GANGOPS_LOYALTY2",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Loyalty IV",
+				"MPPLY_GANGOPS_LOYALTY",
+				"MPPLY_GANGOPS_LOYALTY",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Criminal Mastermind II",
+				"MPPLY_GANGOPS_CRIMMASMD3",
+				"MPPLY_GANGOPS_CRIMMASMD3",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Criminal Mastermind III",
+				"MPPLY_GANGOPS_CRIMMASMD2",
+				"MPPLY_GANGOPS_CRIMMASMD2",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Criminal Mastermind IV",
+				"MPPLY_GANGOPS_CRIMMASMD",
+				"MPPLY_GANGOPS_CRIMMASMD",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Supporting Role II",
+				"MPPLY_GANGOPS_SUPPORT",
+				"MPPLY_GANGOPS_SUPPORT",
+				"0",
+				"1000000000"
+			],
+			[
+				"BOOL",
+				"All in Order done",
+				"MPPLY_AWD_GANGOPS_ALLINORDER",
+				"MPPLY_AWD_GANGOPS_ALLINORDER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Loyalty 1 done",
+				"MPPLY_AWD_GANGOPS_LOYALTY",
+				"MPPLY_AWD_GANGOPS_LOYALTY",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Loyalty 2 done",
+				"MPPLY_AWD_GANGOPS_LOYALTY2",
+				"MPPLY_AWD_GANGOPS_LOYALTY2",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Loyalty 3 done",
+				"MPPLY_AWD_GANGOPS_LOYALTY3",
+				"MPPLY_AWD_GANGOPS_LOYALTY3",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Criminal Mastermind 1 done",
+				"MPPLY_AWD_GANGOPS_CRIMMASMD",
+				"MPPLY_AWD_GANGOPS_CRIMMASMD",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Criminal Mastermind 2 done",
+				"MPPLY_AWD_GANGOPS_CRIMMASMD2",
+				"MPPLY_AWD_GANGOPS_CRIMMASMD2",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Criminal Mastermind 3 done",
+				"MPPLY_AWD_GANGOPS_CRIMMASMD3",
+				"MPPLY_AWD_GANGOPS_CRIMMASMD3",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Nightclub": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Nightclub Popularity",
+				"MP0_CLUB_POPULARITY",
+				"MP1_CLUB_POPULARITY",
+				"0",
+				"1000"
+			],
+			[
+				"INT",
+				"VIP appearances",
+				"MP0_NIGHTCLUB_VIP_APPEAR",
+				"MP1_NIGHTCLUB_VIP_APPEAR",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Nightclub jobs completed",
+				"MP0_NIGHTCLUB_JOBS_DONE",
+				"MP1_NIGHTCLUB_JOBS_DONE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Nightclub earnings",
+				"MP0_NIGHTCLUB_EARNINGS",
+				"MP1_NIGHTCLUB_EARNINGS",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Warehouse sales completed",
+				"MP0_HUB_SALES_COMPLETED",
+				"MP1_HUB_SALES_COMPLETED",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Warehouse earnings",
+				"MP0_HUB_EARNINGS",
+				"MP1_HUB_EARNINGS",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Dance Combo Minutes",
+				"MP0_DANCE_COMBO_DURATION_MINS",
+				"MP1_DANCE_COMBO_DURATION_MINS",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Players visits",
+				"MP0_NIGHTCLUB_PLAYER_APPEAR",
+				"MP1_NIGHTCLUB_PLAYER_APPEAR",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Warehouse goods sold",
+				"MP0_LIFETIME_HUB_GOODS_SOLD",
+				"MP1_LIFETIME_HUB_GOODS_SOLD",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Warehouse goods accrued",
+				"MP0_LIFETIME_HUB_GOODS_MADE",
+				"MP1_LIFETIME_HUB_GOODS_MADE",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Perfect Dances in Club",
+				"MP0_DANCEPERFECTOWNCLUB",
+				"MP1_DANCEPERFECTOWNCLUB",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Number of Unique Players",
+				"MP0_NUMUNIQUEPLYSINCLUB",
+				"MP1_NUMUNIQUEPLYSINCLUB",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Time Danced to different DJ's",
+				"MP0_DANCETODIFFDJS",
+				"MP1_DANCETODIFFDJS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Time Danced to Solomun",
+				"MP0_AWD_DANCE_TO_SOLOMUN",
+				"MP1_AWD_DANCE_TO_SOLOMUN",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Time Danced to Tale of Us",
+				"MP0_AWD_DANCE_TO_TALEOFUS",
+				"MP1_AWD_DANCE_TO_TALEOFUS",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Time Danced to Dixon",
+				"MP0_AWD_DANCE_TO_DIXON",
+				"MP1_AWD_DANCE_TO_DIXON",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Time Danced to Black Madonna",
+				"MP0_AWD_DANCE_TO_BLKMAD",
+				"MP1_AWD_DANCE_TO_BLKMAD",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Drunk Trophy",
+				"MP0_AWD_CLUB_DRUNK",
+				"MP1_AWD_CLUB_DRUNK",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Hotspot Time in ms",
+				"MP0_NIGHTCLUB_HOTSPOT_TIME_MS",
+				"MP1_NIGHTCLUB_HOTSPOT_TIME_MS",
+				"0",
+				"100000000"
+			],
+			[
+				"BOOL",
+				"Coordinated Trophy",
+				"MP0_AWD_CLUB_COORD",
+				"MP1_AWD_CLUB_COORD",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Hotspot Trophy",
+				"MP0_AWD_CLUB_HOTSPOT",
+				"MP1_AWD_CLUB_HOTSPOT",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Clubber Trophy",
+				"MP0_AWD_CLUB_CLUBBER",
+				"MP1_AWD_CLUB_CLUBBER",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"Contraband units owned",
+				"MP0_NIGHTCLUB_CONT_TOTAL",
+				"MP1_NIGHTCLUB_CONT_TOTAL",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Contraband mission",
+				"MP0_NIGHTCLUB_CONT_MISSION",
+				"MP1_NIGHTCLUB_CONT_MISSION",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"Club Contraband mission",
+				"MP0_CLUB_CONTRABAND_MISSION",
+				"MP1_CLUB_CONTRABAND_MISSION",
+				"0",
+				"100000000"
+			]
+		]
+	},
+	"Arena Stats": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Skill Points",
+				"MP0_ARENAWARS_SP",
+				"MP1_ARENAWARS_SP",
+				"0",
+				"5000"
+			],
+			[
+				"INT",
+				"Skill Level",
+				"MP0_ARENAWARS_SKILL_LEVEL",
+				"MP1_ARENAWARS_SKILL_LEVEL",
+				"0",
+				"20"
+			],
+			[
+				"INT",
+				"Skill Points Lifetime",
+				"MP0_ARENAWARS_SP_LIFETIME",
+				"MP1_ARENAWARS_SP_LIFETIME",
+				"0",
+				"5000"
+			],
+			[
+				"INT",
+				"Arena Points",
+				"MP0_ARENAWARS_AP",
+				"MP1_ARENAWARS_AP",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena Tier",
+				"MP0_ARENAWARS_AP_TIER",
+				"MP1_ARENAWARS_AP_TIER",
+				"0",
+				"1500"
+			],
+			[
+				"INT",
+				"Arena Points Lifetime",
+				"MP0_ARENAWARS_AP_LIFETIME",
+				"MP1_ARENAWARS_AP_LIFETIME",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena Wins",
+				"MP0_ARENAWARS_CARRER_WINS",
+				"MP1_ARENAWARS_CARRER_WINS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena Team-Wins",
+				"MP0_ARENAWARS_CARRER_WINT",
+				"MP1_ARENAWARS_CARRER_WINT",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Free Wheel Spins",
+				"MP0_ARENAWARS_FREE_SPINS",
+				"MP1_ARENAWARS_FREE_SPINS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena Matches Played",
+				"MP0_ARENAWARS_MATCHES_PLYD",
+				"MP1_ARENAWARS_MATCHES_PLYD",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena Team-Matches Played",
+				"MP0_ARENAWARS_MATCHES_PLYDT",
+				"MP1_ARENAWARS_MATCHES_PLYDT",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Champagne bought for inventory",
+				"MP0_NUMBER_OF_CHAMP_BOUGHT",
+				"MP1_NUMBER_OF_CHAMP_BOUGHT",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena Spectator Kills",
+				"MP0_ARN_SPECTATOR_KILLS",
+				"MP1_ARN_SPECTATOR_KILLS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena Kills",
+				"MP0_ARN_LIFETIME_KILLS",
+				"MP1_ARN_LIFETIME_KILLS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena Deaths",
+				"MP0_ARN_LIFETIME_DEATHS",
+				"MP1_ARN_LIFETIME_DEATHS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Wins on Arena sci-fi maps",
+				"MP0_ARN_W_THEME_SCIFI",
+				"MP1_ARN_W_THEME_SCIFI",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Wins on Arena apoc maps",
+				"MP0_ARN_W_THEME_APOC",
+				"MP1_ARN_W_THEME_APOC",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Wins on Arena consumer maps",
+				"MP0_ARN_W_THEME_CONS",
+				"MP1_ARN_W_THEME_CONS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Time spent in spectator box",
+				"MP0_ARN_SPEC_BOX_TIME_MS",
+				"MP1_ARN_SPEC_BOX_TIME_MS",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Time spent in spectator cams",
+				"MP0_ARN_SPECTATOR_CAMS",
+				"MP1_ARN_SPECTATOR_CAMS",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Time spent in spectator drone",
+				"MP0_ARN_SPECTATOR_DRONE",
+				"MP1_ARN_SPECTATOR_DRONE",
+				"0",
+				"1000000000"
+			],
+			[
+				"INT",
+				"Smokes had in spectator box",
+				"MP0_ARN_SMOKE",
+				"MP1_ARN_SMOKE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Drinks had in spectator box",
+				"MP0_ARN_DRINK",
+				"MP1_ARN_DRINK",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Wall trinkets tickers shown",
+				"MP0_ARN_BS_TRINKET_TICKERS",
+				"MP1_ARN_BS_TRINKET_TICKERS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Wall trinkets earned",
+				"MP0_ARN_BS_TRINKET_SAVED",
+				"MP1_ARN_BS_TRINKET_SAVED",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena MG Kills",
+				"MP0_ARENA_MG_KILLS",
+				"MP1_ARENA_MG_KILLS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena MG Deaths",
+				"MP0_ARENA_MG_DEATHS",
+				"MP1_ARENA_MG_DEATHS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena MG Shots",
+				"MP0_ARENA_MG_SHOTSS",
+				"MP1_ARENA_MG_SHOTS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena MG Hits",
+				"MP0_ARENA_MG_HITS",
+				"MP1_ARENA_MG_HITS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena MG Headshots",
+				"MP0_ARENA_MG_HEADSHOTS",
+				"MP1_ARENA_MG_HEADSHOTS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena MG Enemy Kills",
+				"MP0_ARENA_MG_ENEMY_KILLS",
+				"MP1_ARENA_MG_ENEMY_KILLS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena HM Kills",
+				"MP0_ARENA_HM_KILLS",
+				"MP1_ARENA_HM_KILLS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena HM Deaths",
+				"MP0_ARENA_HM_DEATHS",
+				"MP1_ARENA_HM_DEATHS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena HM Shots",
+				"MP0_ARENA_HM_SHOTS",
+				"MP1_ARENA_HM_SHOTS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena HM Hits",
+				"MP0_ARENA_HM_HITS",
+				"MP1_ARENA_HM_HITS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena HM Enemy Kills",
+				"MP0_ARENA_HM_ENEMY_KILLS",
+				"MP1_ARENA_HM_ENEMY_KILLS",
+				"0",
+				"100000"
+			]
+		]
+	},
+	"Arena Trophies": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Career Winner - 1000",
+				"MP0_AWD_CAREER_WINNER",
+				"MP1_AWD_CAREER_WINNER",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Top Score - 500000",
+				"MP0_AWD_TOP_SCORE",
+				"MP1_AWD_TOP_SCORE",
+				"0",
+				"10000000"
+			],
+			[
+				"INT",
+				"Time Served - 1000",
+				"MP0_AWD_TIME_SERVED",
+				"MP1_AWD_TIME_SERVED",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Arena Wageworker - 20m",
+				"MP0_AWD_ARENA_WAGEWORKER",
+				"MP1_AWD_ARENA_WAGEWORKER",
+				"0",
+				"100000000"
+			],
+			[
+				"INT",
+				"We've Got One - 50",
+				"MP0_AWD_WEVE_GOT_ONE",
+				"MP1_AWD_WEVE_GOT_ONE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"You're Outta Here - 200",
+				"MP0_AWD_YOURE_OUTTA_HERE",
+				"MP1_AWD_YOURE_OUTTA_HERE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Massive Hunt - 50",
+				"MP0_AWD_MASSIVE_SHUNT",
+				"MP1_AWD_MASSIVE_SHUNT",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Kill Or Be Killed - 50",
+				"MP0_AWD_KILL_OR_BE_KILLED",
+				"MP1_AWD_KILL_OR_BE_KILLED",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Crowd Participation - 50",
+				"MP0_AWD_CROWDPARTICIPATION",
+				"MP1_AWD_CROWDPARTICIPATION",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Sitting Duck - 50",
+				"MP0_AWD_SITTING_DUCK",
+				"MP1_AWD_SITTING_DUCK",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Master Bandito - 50",
+				"MP0_AWD_MASTER_BANDITO",
+				"MP1_AWD_MASTER_BANDITO",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"You Mean Booby Traps - 50",
+				"MP0_AWD_YOUMEANBOOBYTRAPS",
+				"MP1_AWD_YOUMEANBOOBYTRAPS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Spinner - 50",
+				"MP0_AWD_SPINNER",
+				"MP1_AWD_SPINNER",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Trough a Lens - 50",
+				"MP0_AWD_THROUGH_A_LENS",
+				"MP1_AWD_THROUGH_A_LENS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Ready For War - 50",
+				"MP0_AWD_READY_FOR_WAR",
+				"MP1_AWD_READY_FOR_WAR",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Tower offense - 50",
+				"MP0_AWD_TOWER_OFFENSE",
+				"MP1_AWD_TOWER_OFFENSE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Watch Your Step - 50",
+				"MP0_AWD_WATCH_YOUR_STEP",
+				"MP1_AWD_WATCH_YOUR_STEP",
+				"0",
+				"100000"
+			],
+			[
+				"BOOL",
+				"Unstoppable",
+				"MP0_AWD_UNSTOPPABLE",
+				"MP1_AWD_UNSTOPPABLE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Contact Sports",
+				"MP0_AWD_CONTACT_SPORT",
+				"MP1_AWD_CONTACT_SPORT",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Pegasus",
+				"MP0_AWD_PEGASUS",
+				"MP1_AWD_PEGASUS",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Arena Skill Level": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"BOOL",
+				"SP 01 New Kid",
+				"MP0_AWD_BEGINNER",
+				"MP1_AWD_BEGINNER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 02 Field-Filler",
+				"MP0_AWD_FIELD_FILLER",
+				"MP1_AWD_FIELD_FILLER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 03 Armchair Racer",
+				"MP0_AWD_ARMCHAIR_RACER",
+				"MP1_AWD_ARMCHAIR_RACER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 04 Learner",
+				"MP0_AWD_LEARNER",
+				"MP1_AWD_LEARNER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 05 Gifted Amateur",
+				"MP0_AWD_SUNDAY_DRIVER",
+				"MP1_AWD_SUNDAY_DRIVER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 06 The Rookie",
+				"MP0_AWD_THE_ROOKIE",
+				"MP1_AWD_THE_ROOKIE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 07 Bump and Run",
+				"MP0_AWD_BUMP_AND_RUN",
+				"MP1_AWD_BUMP_AND_RUN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 08 Gear-Head",
+				"MP0_AWD_GEAR_HEAD",
+				"MP1_AWD_GEAR_HEAD",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 09 Pinball",
+				"MP0_AWD_DOOR_SLAMMER",
+				"MP1_AWD_DOOR_SLAMMER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 10 Semi-Pro",
+				"MP0_AWD_HOT_LAP",
+				"MP1_AWD_HOT_LAP",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 11 Arena Vet",
+				"MP0_AWD_ARENA_AMATEUR",
+				"MP1_AWD_ARENA_AMATEUR",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 12 Paint Trader",
+				"MP0_AWD_PAINT_TRADER",
+				"MP1_AWD_PAINT_TRADER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 13 Shunter",
+				"MP0_AWD_SHUNTER",
+				"MP1_AWD_SHUNTER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 14 Jock",
+				"MP0_AWD_JOCK",
+				"MP1_AWD_JOCK",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 15 Wrecking Ball",
+				"MP0_AWD_WARRIOR",
+				"MP1_AWD_WARRIOR",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 16 First in Field",
+				"MP0_AWD_T_BONE",
+				"MP1_AWD_T_BONE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 17 Gladiator",
+				"MP0_AWD_MAYHEM",
+				"MP1_AWD_MAYHEM",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 18 Ring Master",
+				"MP0_AWD_WRECKER",
+				"MP1_AWD_WRECKER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 19 Arena Warrior",
+				"MP0_AWD_CRASH_COURSE",
+				"MP1_AWD_CRASH_COURSE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"SP 20 Arena Legend",
+				"MP0_AWD_ARENA_LEGEND",
+				"MP1_AWD_ARENA_LEGEND",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Arena Matches": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Won Bomb Ball",
+				"MP0_ARN_W_PASS_THE_BOMB",
+				"MP1_ARN_W_PASS_THE_BOMB",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Won Hot Bomb",
+				"MP0_ARN_W_DETONATION",
+				"MP1_ARN_W_DETONATION",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Won Wreck It",
+				"MP0_ARN_W_ARCADE_RACE",
+				"MP1_ARN_W_ARCADE_RACE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Won Flag War",
+				"MP0_ARN_W_CTF",
+				"MP1_ARN_W_CTF",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Won Tag Team",
+				"MP0_ARN_W_TAG_TEAM",
+				"MP1_ARN_W_TAG_TEAM",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Won Buzzer Beater",
+				"MP0_ARN_W_DESTR_DERBY",
+				"MP1_ARN_W_DESTR_DERBY",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Won Carnage",
+				"MP0_ARN_W_CARNAGE",
+				"MP1_ARN_W_CARNAGE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Won Here Come The Monsters",
+				"MP0_ARN_W_MONSTER_JAM",
+				"MP1_ARN_W_MONSTER_JAM",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Won Games Masters",
+				"MP0_ARN_W_GAMES_MASTERS",
+				"MP1_ARN_W_GAMES_MASTERS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Lost Bomb Ball",
+				"MP0_ARN_L_PASS_THE_BOMB",
+				"MP1_ARN_L_PASS_THE_BOMB",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Lost Hot Bomb",
+				"MP0_ARN_L_DETONATION",
+				"MP1_ARN_L_DETONATION",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Lost Wreck It",
+				"MP0_ARN_L_ARCADE_RACE",
+				"MP1_ARN_L_ARCADE_RACE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Lost Flag War",
+				"MP0_ARN_L_CTF",
+				"MP1_ARN_L_CTF",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Lost Tag Team",
+				"MP0_ARN_L_TAG_TEAM",
+				"MP1_ARN_L_TAG_TEAM",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Lost Buzzer Beater",
+				"MP0_ARN_L_DESTR_DERBY",
+				"MP1_ARN_L_DESTR_DERBY",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Lost Carnage",
+				"MP0_ARN_L_CARNAGE",
+				"MP1_ARN_L_CARNAGE",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Lost Here Come The Monsters",
+				"MP0_ARN_L_MONSTER_JAM",
+				"MP1_ARN_L_MONSTER_JAM",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Lost Games Masters",
+				"MP0_ARN_L_GAMES_MASTERS",
+				"MP1_ARN_L_GAMES_MASTERS",
+				"0",
+				"100000"
+			]
+		]
+	},
+	"Casino Stats": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Completed freemode missions",
+				"MP0_AWD_ODD_JOBS",
+				"MP1_AWD_ODD_JOBS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"King Of The Hill wins",
+				"MP0_KINGOFHILLWINS",
+				"MP1_KINGOFHILLWINS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"King Of The Hill losses",
+				"MP0_KINGOFHILLLOSS",
+				"MP1_KINGOFHILLLOSS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Collectibles - Action Figure",
+				"MP0_ACTION_FIG_COLLECTED",
+				"MP1_ACTION_FIG_COLLECTED",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Collectibles - Cards",
+				"MP0_PLAYING_CARD_COLLECTED",
+				"MP1_PLAYING_CARD_COLLECTED",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Collectibles - Peyotes",
+				"MP0_PEYOTE_COLLECTED",
+				"MP1_PEYOTE_COLLECTED",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Last Animal",
+				"MP0_LAST_ANIMAL",
+				"MP1_LAST_ANIMAL",
+				"-100",
+				"100000"
+			],
+			[
+				"BOOL",
+				"Took a Peyote",
+				"MP0_HAS_TAKEN_PEYOTE_BEFORE",
+				"MP1_HAS_TAKEN_PEYOTE_BEFORE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Vehicle reward done",
+				"MP0_CAS_VEHICLE_REWARD",
+				"MP1_CAS_VEHICLE_REWARD",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Headshot Challenge 1 done",
+				"MPPLY_CROSSPLATCARD",
+				"MPPLY_CROSSPLATCARD",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Headshot Challenge 2 done",
+				"MPPLY_CROSSPLATCARD2",
+				"MPPLY_CROSSPLATCARD2",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Casino Missions": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"BOOL",
+				"Completed Casino Rescue",
+				"MP0_AWD_FIRST_TIME1",
+				"MP1_AWD_FIRST_TIME1",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Casino Brawl",
+				"MP0_AWD_FIRST_TIME2",
+				"MP1_AWD_FIRST_TIME2",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Casino Meeting",
+				"MP0_AWD_FIRST_TIME3",
+				"MP1_AWD_FIRST_TIME3",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Casino Oil Demolition",
+				"MP0_AWD_FIRST_TIME4",
+				"MP1_AWD_FIRST_TIME4",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Casino Defend",
+				"MP0_AWD_FIRST_TIME5",
+				"MP1_AWD_FIRST_TIME5",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed Casino Finale",
+				"MP0_AWD_FIRST_TIME6",
+				"MP1_AWD_FIRST_TIME6",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"All Missions in order",
+				"MP0_AWD_ALL_IN_ORDER",
+				"MP1_AWD_ALL_IN_ORDER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed missions as Member",
+				"MP0_AWD_SUPPORTING_ROLE",
+				"MP1_AWD_SUPPORTING_ROLE",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed missions as Leader",
+				"MP0_AWD_LEADER",
+				"MP1_AWD_LEADER",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Completed without dying",
+				"MP0_AWD_SURVIVALIST",
+				"MP1_AWD_SURVIVALIST",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Flow Cutscene RSC seen",
+				"MP0_VCM_FLOW_CS_RSC_SEEN",
+				"MP1_VCM_FLOW_CS_RSC_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Flow Cutscene BWL seen",
+				"MP0_VCM_FLOW_CS_BWL_SEEN",
+				"MP1_VCM_FLOW_CS_BWL_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Flow Cutscene MTG seen",
+				"MP0_VCM_FLOW_CS_MTG_SEEN",
+				"MP1_VCM_FLOW_CS_MTG_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Flow Cutscene OIL seen",
+				"MP0_VCM_FLOW_CS_OIL_SEEN",
+				"MP1_VCM_FLOW_CS_OIL_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Flow Cutscene DEF seen",
+				"MP0_VCM_FLOW_CS_DEF_SEEN",
+				"MP1_VCM_FLOW_CS_DEF_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Flow Cutscene FIN seen",
+				"MP0_VCM_FLOW_CS_FIN_SEEN",
+				"MP1_VCM_FLOW_CS_FIN_SEEN",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Vehicle reward done",
+				"MP0_CAS_VEHICLE_REWARD",
+				"MP1_CAS_VEHICLE_REWARD",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"Completed freemode missions",
+				"MP0_AWD_ODD_JOBS",
+				"MP1_AWD_ODD_JOBS",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Flow Progress - SET to -1",
+				"MP0_VCM_FLOW_PROGRESS",
+				"MP1_VCM_FLOW_PROGRESS",
+				"-100",
+				"100000"
+			],
+			[
+				"INT",
+				"Story Progress - SET to -1",
+				"MP0_VCM_STORY_PROGRESS",
+				"MP1_VCM_STORY_PROGRESS",
+				"-100",
+				"100000"
+			],
+			[
+				"BOOL",
+				"Casino Stat Bool 0 - SET",
+				"MP0_CASINOPSTAT_BOOL0",
+				"MP1_CASINOPSTAT_BOOL0",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"Casino Stat Bool 1 - SET",
+				"MP0_CASINOPSTAT_BOOL1",
+				"MP1_CASINOPSTAT_BOOL1",
+				"0",
+				"1"
+			]
+		]
+	},
+	"Casino Arcade": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"BOOL",
+				"IaP Challenge - Live Saver",
+				"MP0_IAP_CHALLENGE_0",
+				"MP1_IAP_CHALLENGE_0",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"IaP Challenge - Control Oil",
+				"MP0_IAP_CHALLENGE_1",
+				"MP1_IAP_CHALLENGE_1",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"IaP Challenge - Endless Oil",
+				"MP0_IAP_CHALLENGE_2",
+				"MP1_IAP_CHALLENGE_2",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"IaP Challenge - Full Moon",
+				"MP0_IAP_CHALLENGE_3",
+				"MP1_IAP_CHALLENGE_3",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"IaP Challenge - Number 4?",
+				"MP0_IAP_CHALLENGE_4",
+				"MP1_IAP_CHALLENGE_4",
+				"0",
+				"1"
+			],
+			[
+				"BOOL",
+				"IaP - Gold Tank unlocked",
+				"MP0_IAP_GOLD_TANK",
+				"MP1_IAP_GOLD_TANK",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"IaP - Maximum Moon distance",
+				"MP0_IAP_MAX_MOON_DIST",
+				"MP1_IAP_MAX_MOON_DIST",
+				"0",
+				"3474000"
+			],
+			[
+				"INT",
+				"SCGW - The Punks Games",
+				"MP0_SCGW_NUM_WINS_GANG_0",
+				"MP1_SCGW_NUM_WINS_GANG_0",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"SCGW - The Yokels Games",
+				"MP0_SCGW_NUM_WINS_GANG_1",
+				"MP1_SCGW_NUM_WINS_GANG_1",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"SCGW - THe Hoods Games",
+				"MP0_SCGW_NUM_WINS_GANG_2",
+				"MP1_SCGW_NUM_WINS_GANG_2",
+				"0",
+				"1000000"
+			],
+			[
+				"INT",
+				"SCGW - The Bikers Games",
+				"MP0_SCGW_NUM_WINS_GANG_3",
+				"MP1_SCGW_NUM_WINS_GANG_3",
+				"0",
+				"1000000"
+			],
+			[
+				"BOOL",
+				"SCGW - Untouchable",
+				"MP0_SCGW_WON_NO_DEATHS",
+				"MP1_SCGW_WON_NO_DEATHS",
+				"0",
+				"1"
+			],
+			[
+				"INT",
+				"Invade Persuade - Initials 0",
+				"MP0_IAP_INITIALS_0",
+				"MP1_IAP_INITIALS_0",
+				"0",
+				"100000 "
+			],
+			[
+				"INT",
+				"Invade Persuade - Initials 1",
+				"MP0_IAP_INITIALS_1",
+				"MP1_IAP_INITIALS_1",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Initials 2",
+				"MP0_IAP_INITIALS_2",
+				"MP1_IAP_INITIALS_2",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Initials 3",
+				"MP0_IAP_INITIALS_3",
+				"MP1_IAP_INITIALS_3",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Initials 4",
+				"MP0_IAP_INITIALS_4",
+				"MP1_IAP_INITIALS_4",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Initials 5",
+				"MP0_IAP_INITIALS_5",
+				"MP1_IAP_INITIALS_5",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Initials 6",
+				"MP0_IAP_INITIALS_6",
+				"MP1_IAP_INITIALS_6",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Initials 7",
+				"MP0_IAP_INITIALS_7",
+				"MP1_IAP_INITIALS_7",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Initials 8",
+				"MP0_IAP_INITIALS_8",
+				"MP1_IAP_INITIALS_8",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Initials 9",
+				"MP0_IAP_INITIALS_9",
+				"MP1_IAP_INITIALS_9",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Score 0",
+				"MP0_IAP_SCORE_0",
+				"MP1_IAP_SCORE_0",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Score 1",
+				"MP0_IAP_SCORE_1",
+				"MP1_IAP_SCORE_1",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Score 2",
+				"MP0_IAP_SCORE_2",
+				"MP1_IAP_SCORE_2",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Score 3",
+				"MP0_IAP_SCORE_3",
+				"MP1_IAP_SCORE_3",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Score 4",
+				"MP0_IAP_SCORE_4",
+				"MP1_IAP_SCORE_4",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Score 5",
+				"MP0_IAP_SCORE_5",
+				"MP1_IAP_SCORE_5",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Score 6",
+				"MP0_IAP_SCORE_6",
+				"MP1_IAP_SCORE_6",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Score 7",
+				"MP0_IAP_SCORE_7",
+				"MP1_IAP_SCORE_7",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Score 8",
+				"MP0_IAP_SCORE_8",
+				"MP1_IAP_SCORE_8",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Invade Persuade - Score 9",
+				"MP0_IAP_SCORE_9",
+				"MP1_IAP_SCORE_9",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Initials 0",
+				"MP0_SCGW_INITIALS_0",
+				"MP1_SCGW_INITIALS_0",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Initials 1",
+				"MP0_SCGW_INITIALS_1",
+				"MP1_SCGW_INITIALS_1",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Initials 2",
+				"MP0_SCGW_INITIALS_2",
+				"MP1_SCGW_INITIALS_2",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Initials 3",
+				"MP0_SCGW_INITIALS_3",
+				"MP1_SCGW_INITIALS_3",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Initials 4",
+				"MP0_SCGW_INITIALS_4",
+				"MP1_SCGW_INITIALS_4",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Initials 5",
+				"MP0_SCGW_INITIALS_5",
+				"MP1_SCGW_INITIALS_5",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Initials 6",
+				"MP0_SCGW_INITIALS_6",
+				"MP1_SCGW_INITIALS_6",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Initials 7",
+				"MP0_SCGW_INITIALS_7",
+				"MP1_SCGW_INITIALS_7",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Initials 8",
+				"MP0_SCGW_INITIALS_8",
+				"MP1_SCGW_INITIALS_8",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Initials 9",
+				"MP0_SCGW_INITIALS_9",
+				"MP1_SCGW_INITIALS_9",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Score 0",
+				"MP0_SCGW_SCORE_0",
+				"MP1_SCGW_SCORE_0",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Score 1",
+				"MP0_SCGW_SCORE_1",
+				"MP1_SCGW_SCORE_1",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Score 2",
+				"MP0_SCGW_SCORE_2",
+				"MP1_SCGW_SCORE_2",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Score 3",
+				"MP0_SCGW_SCORE_3",
+				"MP1_SCGW_SCORE_3",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Score 4",
+				"MP0_SCGW_SCORE_4",
+				"MP1_SCGW_SCORE_4",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Score 5",
+				"MP0_SCGW_SCORE_5",
+				"MP1_SCGW_SCORE_5",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Score 6",
+				"MP0_SCGW_SCORE_6",
+				"MP1_SCGW_SCORE_6",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Score 7",
+				"MP0_SCGW_SCORE_7",
+				"MP1_SCGW_SCORE_7",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Score 8",
+				"MP0_SCGW_SCORE_8",
+				"MP1_SCGW_SCORE_8",
+				"0",
+				"100000"
+			],
+			[
+				"INT",
+				"Street Crimes - Score 9",
+				"MP0_SCGW_SCORE_9",
+				"MP1_SCGW_SCORE_9",
+				"0",
+				"100000"
+			]
+		]
+	},
+	"Crew Rank": {
+		"comments": [
+			"type wszName MP0 MP1 min max"
+		],
+		"stats": [
+			[
+				"INT",
+				"Crew 1",
+				"MPPLY_CREW_LOCAL_XP_0",
+				"MPPLY_CREW_LOCAL_XP_0",
+				"0",
+				"1787576850"
+			],
+			[
+				"INT",
+				"Crew 2",
+				"MPPLY_CREW_LOCAL_XP_1",
+				"MPPLY_CREW_LOCAL_XP_1",
+				"0",
+				"1787576850"
+			],
+			[
+				"INT",
+				"Crew 3",
+				"MPPLY_CREW_LOCAL_XP_2",
+				"MPPLY_CREW_LOCAL_XP_2",
+				"0",
+				"1787576850"
+			],
+			[
+				"INT",
+				"Crew 4",
+				"MPPLY_CREW_LOCAL_XP_3",
+				"MPPLY_CREW_LOCAL_XP_3",
+				"0",
+				"1787576850"
+			],
+			[
+				"INT",
+				"Crew 5",
+				"MPPLY_CREW_LOCAL_XP_4",
+				"MPPLY_CREW_LOCAL_XP_4",
+				"0",
+				"1787576850"
+			]
+		]
+	}
+}
