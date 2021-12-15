@@ -22,8 +22,8 @@ local pidor_vehicles = {
 
 local function DeleteVehicle(id, name, veh, veh_name)
 	print("Deleting " .. veh_name .." for " .. name)
-	script.send(id, 1229338575, id, id)
-	script.send(id, -1026787486, MISC.GET_FRAME_COUNT())
+	script.send(id, -1026787486, id)
+	script.send(id, 578856274)
 end
 
 local function CheckVehicle(id, name)
