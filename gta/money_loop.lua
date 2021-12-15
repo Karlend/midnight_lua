@@ -8,7 +8,7 @@ function OnFeatureTick()
 		return
 	end
 
-	local receive = script_global:new(1700984)
+	local receive = script_global:new(1964171)
 	receive:set_long(1)
 end
 
