@@ -42,15 +42,15 @@ end
 function PLAYER.Goto(id)
 	local target_pos = Vector3()
 	if player.get_coordinates(id, target_pos) then
-		console.log(con_color.Yellow, "Teleporting to target\n")
+		--console.log(con_color.Yellow, "Teleporting to target\n")
 		target_pos.z = target_pos.z + 100
 		utils.teleport(target_pos)
 	end
 end
 
-
+local next_time = 0
 local TELEPORT_START, TELEPORT_REQUEST, TELEPORT_DONE = 1, 2, 3
-local TELEPORT_TRIES = 0
+local TELEPORT_TRIES, TELEPORT_FETCH, TELEPORT_NOCONTROL = 0, 0, 0
 local TELEPORT_CURRENT, TELEPORT_TARGET, TELEPORT_LP_POS
 
 local actions = {
@@ -64,6 +64,7 @@ local actions = {
 		end
 		PLAYER.Goto(target)
 		TELEPORT_CURRENT = TELEPORT_REQUEST
+		next_time = system.ticks() + 50
 	end,
 	[TELEPORT_REQUEST] = function(lp, target)
 		PLAYER.OffTheRadar(lp, 5)
@@ -73,26 +74,38 @@ local actions = {
 			return
 		end
 		if pos.z == -50 then
-			console.log(con_color.Red, "Target isn't loaded\n")
+			--console.log(con_color.Red, "Target isn't loaded\n")
 			return
 		end
-		console.log(con_color.Yellow, "Getting vehicle\n")
+		if not player.is_in_vehicle(target) then
+			utils.notify("Teleport.lua", "Target isn't in vehicle", gui_icon.warning, notify_type.fatal)
+			TELEPORT_CURRENT = TELEPORT_DONE
+			return
+		end
+		--console.log(con_color.Yellow, "Getting vehicle\n")
 		local vehicle = player.get_vehicle_handle(target)
 		if vehicle < 1 then
-			TELEPORT_CURRENT = TELEPORT_DONE
-			utils.notify("Teleport.lua", "Target isn't in vehicle", gui_icon.warning, notify_type.fatal)
-			console.log(con_color.Red, "Target isn't in vehicle\n")
+			TELEPORT_FETCH = TELEPORT_FETCH + 1
+			if TELEPORT_FETCH > 50 then
+				utils.notify("Teleport.lua", "Failed to get player vehicle", gui_icon.warning, notify_type.fatal)
+				TELEPORT_CURRENT = TELEPORT_DONE
+			end
 			return
 		end
-		console.log(con_color.Yellow, "Requesting control for vehicle " .. tostring(vehicle) .. "\n")
+		--console.log(con_color.Yellow, "Requesting control for vehicle " .. tostring(vehicle) .. "\n")
 		entity.request_control(vehicle)
 		local can = entity.is_controlled(vehicle)
 		if not can --[[and not NETWORK.NETWORK_HAS_CONTROL_OF_ENTITY(vehicle)]] then
 			console.log(con_color.Red, "Didn't get control\n")
+			TELEPORT_NOCONTROL = TELEPORT_NOCONTROL + 1
+			if TELEPORT_NOCONTROL > 20 then
+				utils.notify("Teleport.lua", "Failed to get control", gui_icon.warning, notify_type.fatal)
+				TELEPORT_CURRENT = TELEPORT_DONE
+			end
 			return
 		end
-		console.log(con_color.Yellow, "Teleporting\n")
-		console.log(con_color.Yellow, "vehicle is " .. tostring(vehicle) .. ". pos is " .. tostring(TELEPORT_LP_POS) .. "\n")
+		--console.log(con_color.Yellow, "Teleporting\n")
+		--console.log(con_color.Yellow, "vehicle is " .. tostring(vehicle) .. ". pos is " .. tostring(TELEPORT_LP_POS) .. "\n")
 		utils.teleport(vehicle, TELEPORT_LP_POS)
 		if TELEPORT_TRIES >= 3 then
 			TELEPORT_CURRENT = TELEPORT_DONE
@@ -100,13 +113,13 @@ local actions = {
 		TELEPORT_TRIES = TELEPORT_TRIES + 1
 	end,
 	[TELEPORT_DONE] = function(lp, target)
-		console.log(con_color.Yellow, "Teleporting back\n")
-		console.log(con_color.Yellow, "pos is " .. tostring(TELEPORT_LP_POS) .. "\n")
+		--console.log(con_color.Yellow, "Teleporting back\n")
+		--console.log(con_color.Yellow, "pos is " .. tostring(TELEPORT_LP_POS) .. "\n")
 		utils.teleport(TELEPORT_LP_POS)
 		TELEPORT_CURRENT = nil
 		TELEPORT_TARGET = nil
 		TELEPORT_LP_POS = nil
-		console.log(con_color.Yellow, "Teleport done\n")
+		--console.log(con_color.Yellow, "Teleport done\n")
 		utils.notify("Teleport.lua", "Teleport done", gui_icon.world, notify_type.default)
 	end,
 }
@@ -129,6 +142,11 @@ local function StartTeleport(info)
 	end
 	utils.notify("Teleport.lua", "Target - " .. name, gui_icon.players, notify_type.default)
 	console.log(con_color.Yellow, "Target - " .. name .. "\n")
+	if not player.is_in_vehicle(id) then
+		utils.notify("Teleport.lua", "Target isn't in vehicle", gui_icon.warning, notify_type.fatal)
+		return
+	end
+	TELEPORT_TRIES, TELEPORT_FETCH, TELEPORT_NOCONTROL = 0, 0, 0
 	TELEPORT_CURRENT = TELEPORT_START
 	TELEPORT_TARGET = id
 end
@@ -143,7 +161,6 @@ function OnChatMsg(index, text)
 	end
 end
 
-local next_time = 0
 function OnFeatureTick()
 	local now = system.ticks()
 	if now >= next_time then
