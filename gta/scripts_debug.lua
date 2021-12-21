@@ -5,7 +5,7 @@ function OnScriptSend(ply_bits, args)
 		table.insert(args_tbl, args:read_long(i))
 	end
 	local args_text = table.concat(args_tbl, ", ")
-	print("[SCRIPT_SEND] Script " .. args:read_long(0) .. " sending to " .. ply_bits .. ". Args(" .. tostring(args_size) .. "): " .. args_text)
+	console.log(con_color.LightBlue, "[SCRIPT_SEND] Script " .. args:read_long(0) .. " sending to " .. ply_bits .. ". Args(" .. tostring(args_size) .. "): " .. args_text .. "\n")
 end
 
 local last_script = {}
@@ -24,7 +24,7 @@ function OnScriptEvent(ply, args)
 		table.insert(args_tbl, args:read_long(i))
 	end
 	local args_text = table.concat(args_tbl, ", ")
-	print("[SCRIPT_RECEIVE] Script " .. hash .. " from " .. name .. " Args(" .. tostring(args_size) .. "): " .. args_text)
+	console.log(con_color.Blue, "[SCRIPT_RECEIVE] Script " .. hash .. " from " .. name .. " Args(" .. tostring(args_size) .. "): " .. args_text .. "\n")
 	return true
 end
 
@@ -33,15 +33,14 @@ local ignore = {
 	["NETWORK_CHECK_EXE_SIZE_EVENT"] = true,
 	["CACHE_PLAYER_HEAD_BLEND_DATA_EVENT"] = true,
 	["SCRIPT_ARRAY_DATA_VERIFY_EVENT"] = true,
-	["REMOTE_SCRIPT_INFO_EVENT"] = true,
 	["REMOTE_SCRIPT_LEAVE_EVENT"] = true,
 	["GIVE_CONTROL_EVENT"] = true,
 	["NETWORK_TRAIN_REPORT_EVENT"] = true,
 	["SCRIPTED_GAME_EVENT"] = true,
 	["NETWORK_ENTITY_AREA_STATUS_EVENT"] = true,
 	["CLEAR_AREA_EVENT"] = true,
-	["NETWORK_ENTITY_AREA_STATUS_EVENT"] = true,
-	["NETWORK_UPDATE_SYNCED_SCENE_EVENT"] = true
+	["NETWORK_UPDATE_SYNCED_SCENE_EVENT"] = true,
+	["PLAYER_CARD_STAT_EVENT"] = true,
 }
 
 local last_event = {}
@@ -54,23 +53,11 @@ function OnNetworkEvent(ply, event, buf)
 	end
 	last_event[ply] = id
 	if not ignore[name] and not ignore[id] then
-		print("[NETWORK_EVENT_DEBUG] got " .. tostring(name) .. "(" .. tostring(id) .. ") from " .. ply_name)
+		console.log(con_color.Green, "[NETWORK_EVENT_DEBUG] got " .. tostring(name) .. "(" .. tostring(id) .. ") from " .. ply_name .. "\n")
 	end
 	return true
 end
 
---for k,v in ipairs({"OnInit", "OnDone", "OnPlayerJoin", "OnPlayerLeft", "OnWeaponReceived", "OnPlayerJoinByRid", "OnChatMsg", "OnSpectating", "OnStopSpectating", "OnScriptStopped", "OnModderDetected", "OnVehicleLeave", "OnVehicleEnter", "OnFirstSingleplayerJoin", "OnTransitionEnd", "OnWindowProc", "OnDirectXPresent", "OnDirectXResizeBuffers", "OnKeyPressed", "OnGameState", "OnScriptStarted", "OnFeatureTick", "OnFeatureStart", "OnFeatureStart"}) do
---	_G[v] = function(...)
---		local args = {...}
---		print(v .. ". Args: " .. #args)
---	end
---end
-
---system.fiber(function()
---	local peds = entity.get_all_peds()
---	print("got peds")
---	for k,v in ipairs(peds) do
---		entity.delete(v)
---	end
---	print("finised")
---end)
+function OnMetric(class, name)
+	console.log(con_color.LightPurple, "[METRIC_DEBUG] Class: " .. class .. ". Name: " .. name .. "\n")
+end
