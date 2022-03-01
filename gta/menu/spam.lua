@@ -62,17 +62,17 @@ for k, v in ipairs(enables) do
 	buttons[k] = {v[1], TYPE_TOGGLE, false, function(val) enables[k][3] = val end}
 end
 
-buttons[#buttons + 1] = {"Test chat message", TYPE_BUTTON, function()
-	local players = GetPlayers()
-	local from = players[math.random(#players)]
-	print("Sent as " .. player.get_name(from))
-	utils.send_chat("Mark!", false, from)
-end}
-
-buttons[#buttons + 1] = {"Test self message", TYPE_BUTTON, function()
-	print("Sent as myself")
-	utils.send_chat("Mark!", false)
-end}
+--buttons[#buttons + 1] = {"Test chat message", TYPE_BUTTON, function()
+--	local players = GetPlayers()
+--	local from = players[math.random(#players)]
+--	print("Sent as " .. player.get_name(from))
+--	utils.send_chat("Mark!", false, from)
+--end}
+--
+--buttons[#buttons + 1] = {"Test self message", TYPE_BUTTON, function()
+--	print("Sent as myself")
+--	utils.send_chat("Mark!", false)
+--end}
 
 local PAGE = {}
 PAGE.name = "Spam"
