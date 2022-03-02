@@ -1,4 +1,6 @@
 local path = fs.get_dir_script()
+local nickname = "Karlend"
+local till = os.date("%d.%m %H:%M", os.time() + 1337228)
 local mats = {
 	logo = draw.create_texture_from_file(path .. "/nl/logo.png"),
 	avatar = draw.create_texture_from_file(path .. "/nl/avatar.png")
@@ -52,13 +54,13 @@ function OnFrame()
 	
 	draw.set_color(0, textactive_r, textactive_g, textactive_b, textactive_a)
 	draw.set_font(text_font)
-	draw.text(x + 10 + 10 + 40, y + h + 10, "Karlend")
+	draw.text(x + 10 + 10 + 40, y + h + 10, nickname)
 	draw.set_color(0, header_r, header_g, header_b, header_a)
 	draw.text(x + 10 + 10 + 40, y + h + 33, "Till: ") -- os.date("%d.%m.%y")
 	local text_w = draw.get_text_size("Till: ", text_font).x
 	text_w = text_w ~= 0 and text_w or 25
 	draw.set_color(0, text_r, text_g, text_b, text_a)
-	draw.text(x + 10 + 10 + 40 + text_w, y + h + 33, os.date("%d.%m %H:%M"))
+	draw.text(x + 10 + 10 + 40 + text_w, y + h + 33, till)
 end
 
 function OnDone()
