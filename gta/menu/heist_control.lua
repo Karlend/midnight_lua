@@ -203,9 +203,9 @@ local menu_buts = {
 	{"Doomsday editor", TYPE_TAB},
 	{"Contract editor", TYPE_TAB},
 	{"Apartments editor", TYPE_TAB},
-	{"Remove enemies", TYPE_BUTTON},
-	{"Remove cameras", TYPE_BUTTON},
-	{"Hack doors", TYPE_BUTTON},
+	--{"Remove enemies", TYPE_BUTTON},
+	--{"Remove cameras", TYPE_BUTTON},
+	--{"Hack doors", TYPE_BUTTON},
 }
 
 for k, v in ipairs(menu_buts) do
