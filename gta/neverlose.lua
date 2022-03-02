@@ -32,7 +32,7 @@ function OnFrame()
 
 	draw.set_rounding(rounding)
 	draw.rect_filled(x, start_y, x + w, y + 2)
-	draw.texture(start_x, start_y + 4, mats.logo)
+	draw.texture(mats.logo, start_x, start_y + 4)
 
 	-- низ
 	draw.set_rounding(0)
@@ -48,7 +48,7 @@ function OnFrame()
 	draw.set_color(0, 255, 255, 255, 20)
 	draw.rect_filled(x, y + h, x + 170, y + h + 1)
 	-- аватар и текст
-	draw.texture(x + 10, y + h + 10, mats.avatar)
+	draw.texture(mats.avatar, x + 10, y + h + 10)
 	
 	draw.set_color(0, textactive_r, textactive_g, textactive_b, textactive_a)
 	draw.set_font(text_font)
