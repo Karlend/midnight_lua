@@ -1,5 +1,5 @@
 local path = fs.get_dir_script()
-local nickname = "Karlend"
+local nickname = "Hope..."
 local till = os.date("%d.%m %H:%M", os.time() + 1337228)
 local mats = {
 	logo = draw.create_texture_from_file(path .. "/nl/logo.png"),
