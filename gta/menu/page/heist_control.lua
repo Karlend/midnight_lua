@@ -1,10 +1,11 @@
-local TYPE_TAB, TYPE_TOGGLE, TYPE_SLIDER, TYPE_SELECTION, TYPE_BUTTON = 0, 1, 2, 3, 4
-
 --[[
 	Helper funcs
 ]]
 
 local function GetCharID()
+	if not social.is_ready() then
+		return "MP0_"
+	end
 	local char_global = script_global:new(1574907)
 	return char_global:get_int64() == 0 and "MP0_" or "MP1_"
 end
@@ -14,6 +15,14 @@ local function STAT_SET_INT(hash, value)
 	local stat_hash = string.smart_joaat(char_id .. hash)
 	
 	stats.set_u32(stat_hash, value)
+end
+
+local function STAT_GET_INT(hash, min, max)
+	local char_id = GetCharID()
+	local stat_hash = string.smart_joaat(char_id .. hash)
+	
+	local val = stats.get_u32(stat_hash)
+	return math.min(math.max(min, val), max)
 end
 
 local cut, warehouse
@@ -168,22 +177,22 @@ local menu_buts = {
 				STAT_SET_INT("MP0_H3_LAST_APPROACH", val == 1 and 2 or 1)
 				STAT_SET_INT("MP0_H3OPT_WEAPS", val == 1 and 1 or 0)
 			end},
-			{"Target", TYPE_SELECTION, 1, {"Money", "Gold", "Art", "Diamonds"}, function(val, but)
+			{"Target", TYPE_SELECTION, STAT_GET_INT("H3OPT_TARGET", 0, 3) + 1, {"Money", "Gold", "Art", "Diamonds"}, function(val, but)
 				STAT_SET_INT("H3OPT_TARGET", val - 1)
 			end},
-			{"Hacker", TYPE_SELECTION, 1, {"3%", "7%", "5%", "10%", "9%"}, function(val, but)
-				STAT_SET_INT("H3OPT_CREWHACKER", val)
+			{"Hacker", TYPE_SELECTION, STAT_GET_INT("H3OPT_CREWHACKER", 0, 4) + 1, {"3%", "7%", "5%", "10%", "9%"}, function(val, but)
+				STAT_SET_INT("H3OPT_CREWHACKER", val - 1)
 			end},
-			{"Driver", TYPE_SELECTION, 1, {"5%", "7%", "9%", "6%", "10%"}, function(val, but)
-				STAT_SET_INT("H3OPT_CREWDRIVER", val)
+			{"Driver", TYPE_SELECTION, STAT_GET_INT("H3OPT_CREWDRIVER", 0, 4) + 1, {"5%", "7%", "9%", "6%", "10%"}, function(val, but)
+				STAT_SET_INT("H3OPT_CREWDRIVER", val - 1)
 			end},
-			{"Crew Weapon", TYPE_SELECTION, 1, {"5%", "9%", "7%", "10%", "10%"}, function(val, but)
-				STAT_SET_INT("H3OPT_CREWWEAP", val)
+			{"Crew Weapon", TYPE_SELECTION, STAT_GET_INT("H3OPT_CREWWEAP", 0, 4) + 1, {"5%", "9%", "7%", "10%", "10%"}, function(val, but)
+				STAT_SET_INT("H3OPT_CREWWEAP", val - 1)
 			end},
-			{"Weapon", TYPE_SELECTION, 1, {"Stealth", "Normal"}, function(val, but)
-				STAT_SET_INT("H3OPT_WEAPS", val == 1 and 1 or 0)
+			{"Weapon", TYPE_SELECTION, STAT_GET_INT("H3OPT_WEAPS", 0, 1) + 1, {"Normal", "Stealth"}, function(val, but)
+				STAT_SET_INT("H3OPT_WEAPS", val - 1)
 			end},
-			{"Vehicle", TYPE_SELECTION, 1, {"First", "Second", "Third", "Fourth"}, function(val, but)
+			{"Vehicle", TYPE_SELECTION, STAT_GET_INT("H3OPT_VEHS", 0, 3) + 1, {"First", "Second", "Third", "Fourth"}, function(val, but)
 				STAT_SET_INT("H3OPT_VEHS", val - 1)
 			end},
 			{"Remove heavy guards", TYPE_SLIDER, 0, 0, 3, function(val, but)
@@ -195,17 +204,21 @@ local menu_buts = {
 			{"Card level", TYPE_SLIDER, 0, 0, 2, function(val, but)
 				STAT_SET_INT("H3OPT_KEYLEVELS", val)
 			end},
-			{"Masks", TYPE_SELECTION, 1, {"Geometric Set", "Hunter Set", "Oni Half Mask Set", "Emoji Set", "Ornate Skull Set", "Lucky Fruit Set", "Gurilla Set", "Clown Set", "Animal Set", "Riot Set", "Oni Set", "Hockey Set"}, function(val, but)
-				STAT_SET_INT("MP0_H3OPT_MASKS", val)
+			{"Masks", TYPE_SELECTION, STAT_GET_INT("H3OPT_VEHS", 0, 11) + 1, {"Geometric Set", "Hunter Set", "Oni Half Mask Set", "Emoji Set", "Ornate Skull Set", "Lucky Fruit Set", "Gurilla Set", "Clown Set", "Animal Set", "Riot Set", "Oni Set", "Hockey Set"}, function(val, but)
+				STAT_SET_INT("MP0_H3OPT_MASKS", val - 1)
 			end},
 		}
 	},
 	{"Doomsday editor", TYPE_TAB},
 	{"Contract editor", TYPE_TAB},
 	{"Apartments editor", TYPE_TAB},
-	--{"Remove enemies", TYPE_BUTTON},
-	--{"Remove cameras", TYPE_BUTTON},
-	--{"Hack doors", TYPE_BUTTON},
+	{"Remove enemies", TYPE_BUTTON},
+	{"Remove cameras", TYPE_BUTTON, function()
+		
+	end},
+	{"Hack doors", TYPE_BUTTON, function()
+	
+	end},
 }
 
 for k, v in ipairs(menu_buts) do

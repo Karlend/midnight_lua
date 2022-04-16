@@ -1,4 +1,5 @@
-local TYPE_TAB, TYPE_TOGGLE, TYPE_SLIDER, TYPE_SELECTION, TYPE_BUTTON = 0, 1, 2, 3, 4
+TYPE_TAB, TYPE_TOGGLE, TYPE_SLIDER, TYPE_SELECTION, TYPE_BUTTON = 0, 1, 2, 3, 4
+local lua_path = fs.get_dir_script()
 
 --[[
 	CFG
@@ -8,28 +9,51 @@ local CFG = {}
 CFG.Buttons = 10 -- кол-во кнопок в меню
 CFG.Font = "Georgia"
 
+local PAGES = {}
+local PAGE = {}
+
+--[[
+	Translation
+]]
+
+local translation = {}
+if fs.file_exists(lua_path .. "/menu/translation.txt") then
+	local text = fs.file_load_txt(lua_path .. "/menu/translation.txt")
+	local lines = string.gmatch(text, "[^%c]+")
+	for line in lines do
+		local what = line:match(".+:")
+		local translated = line:sub(#what+2)
+		what = what:sub(0, -2)
+		translation[what] = translated
+	end
+end
+
+local function t(a)
+	if PAGE.name == "Player list" and not PAGE.sub_folder[1] then
+		return a
+	end
+	return translation[a] or a
+end
+
 --[[
 	MENU
 ]]
-
-local PAGES = {}
-local PAGE = {}
 
 local MENU = {}
 MENU.Page = 1
 MENU.Show = false
 
-function MENU.Add(name, info)
-	if not name or type(name) == "boolean" then
+MENU.PlayerFeatures = {}
+
+
+function MENU.Add(info, path)
+	if not info or type(info) ~= "table" then
+		print("[MENU LUA] Tried to register " .. tostring(info) .. " - " .. tostring(path))
 		return
 	end
 	local id = #PAGES + 1
-	if type(name) == "table" then
-		info = name
-		name = name.name or "Unknown page " .. tostring(id) 
-		info.name = nil
-	end
-	print("[MENU LUA] Registering " .. name .. " page")
+	local name = info.name or "Unknown"
+	print("[MENU LUA] Registering " .. name .. " page - " .. tostring(path))
 	info.selection = info.selection or 1
 	info.footer = info.footer or name
 	info.buttons = info.buttons or {}
@@ -42,8 +66,21 @@ function MENU.Add(name, info)
 	return id
 end
 
+function MENU.AddPlayer(player_features, path)
+	local id = #MENU.PlayerFeatures + 1
+	local name = player_features.name or path
+	MENU.PlayerFeatures[id] = {name, TYPE_TAB, player_features}
+	print("[MENU LUA] Registering " .. name .. " player page")
+	return id
+end
+
 function MENU.Remove(name)
 	for k, v in ipairs(PAGES) do
+		if v.name == name then
+			table.remove(PAGES, k)
+		end
+	end
+	for k, v in ipairs(MENU.PlayerFeatures) do
 		if v.name == name then
 			table.remove(PAGES, k)
 		end
@@ -92,11 +129,11 @@ local function GetText(id)
 	local name, TYPE = but[1], but[2]
 	local func = to_text[TYPE]
 	if not func then
-		return name, "?"
+		return t(name), "?"
 	end
 	local text, prefix = func(but, name)
 
-	return text, prefix
+	return t(text), t(prefix)
 end
 
 function MENU.Update()
@@ -143,29 +180,108 @@ end
 	Default Page
 ]]
 
---MENU.Add("Default", {
---	buttons = {
---		{"Cayo Perico editor", TYPE_TAB},
---		{"Casino editor", TYPE_TAB},
---		{"Doomsday editor", TYPE_TAB},
---		{"Contract editor", TYPE_TAB},
---		{"Apartments editor", TYPE_TAB},
---		{"Modded cut", TYPE_TOGGLE, false, function(val) print("Modded cut changed to " .. tostring(val)) end},
---		{"Remove enemies", TYPE_BUTTON},
---		{"Remove cameras", TYPE_BUTTON},
---		{"Hack doors", TYPE_BUTTON},
---	},
---	footer = "Heist control v1"
---})
+local players = {}
+local player_list = {}
+
+local function on_player_change(id)
+	if PAGE.name ~= "Player list" then
+		return
+	end
+	if PAGE.selection >= id then
+		PAGE.selection = math.max(PAGE.selection - 1, 1)
+	end
+	if PAGE.sub_folder[1] then
+		return
+	end
+	MENU.Update()
+end
+
+local function deepcopy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in next, orig, nil do
+            copy[deepcopy(orig_key)] = deepcopy(orig_value)
+        end
+        setmetatable(copy, deepcopy(getmetatable(orig)))
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
+end
+
+
+
+local function add_player(ply, name, rid)
+	local next_id = #player_list + 1
+	players[next_id] = ply
+	player_list[next_id] = {name, TYPE_TAB, deepcopy(MENU.PlayerFeatures), function() PAGE.player_id = ply end}
+	on_player_change(next_id)
+end
+
+local function remove_player(ply)
+	local id
+	for k,v in ipairs(players) do
+		if v == ply then
+			id = k
+			break
+		end
+	end
+	if not id then
+		return
+	end
+	if PAGE.player_id == ply then
+		PAGE.sub_folder = {}
+	end
+	table.remove(player_list, id)
+	table.remove(players, id)
+	on_player_change(id)
+end
+
+local function update_players()
+	for i = 0, 32 do
+		if player.is_valid(i) then
+			local ply, name, rid = i, player.get_name(i), player.get_rid(i)
+			add_player(ply, name, rid)
+		end
+	end
+end
+
+MENU.Add({
+	name = "Player list",
+	buttons = player_list,
+	footer = "Player list",
+	OnPlayerJoin = function(ply, name, rid, ip, host_key)
+		add_player(ply, name, rid)
+	end,
+	OnPlayerLeft = function(ply)
+		remove_player(ply)
+	end
+})
 
 --[[
 	Draw
 ]]
 
-local lua_path = fs.get_dir_script()
+local pathes = {
+	lua_path .. "/menu",
+	lua_path .. "/menu/materials",
+	lua_path .. "/menu/materials/header.png",
+	lua_path .. "/menu/page"
+}
+
+for k, v in ipairs(pathes) do
+	if not fs.exists(v) then
+			for i = 1, 10 do
+				print("[MENU] Failed to find specific file: " .. v .. " | Aborting")
+			end
+		return
+	end
+end
 
 MENU.Materials = {
-	header = draw.create_texture_from_file(lua_path .. "/menu/header.png")
+	header = draw.create_texture_from_file(lua_path .. "/menu/materials/header.png")
 }
 
 local w, h = draw.get_window_width(), draw.get_window_height()
@@ -178,7 +294,7 @@ local sizes = {
 	button_h = 36 * scale
 }
 
-local font --= draw.create_font(CFG.Font, sizes.button_h)
+local font --= draw.create_font(CFG.Font, sizes.button_h) -- Спасибо Контеру за фикс шрифтов, который крашит гта
 
 local function DrawButton(x, y, text, active, right)
 	if active then
@@ -189,7 +305,7 @@ local function DrawButton(x, y, text, active, right)
 		draw.set_font(font)
 		draw.text(x + 5, y + sizes.button_h * .25, text)
 
-		local size = Vector2(20, 0)--draw.get_text_size(right)
+		local size = draw.get_text_size(right)
 		draw.text(x + sizes.width - size.x, y + sizes.button_h * .25, right)
 		return
 	end
@@ -204,7 +320,7 @@ local function DrawButton(x, y, text, active, right)
 
 	draw.set_color(0, 125, 125, 125, 220)
 	
-	local size = Vector2(20, 0)--draw.get_text_size(right)
+	local size = draw.get_text_size(right)
 	draw.text(x + sizes.width - size.x, y + sizes.button_h * .25, right)
 end
 
@@ -254,7 +370,7 @@ local function callback(but)
 	local last = but[#but]
 	if type(last) == "function" then -- Я ебал везде ещё проверять позицию функции, такой метод - лучше всего.
 		local value = but[3] -- Значение всегда 3-е
-		last(value, but)
+		last(value, but, PAGE.player_id)
 	end
 end
 
@@ -326,7 +442,7 @@ local keys = {
 		if TYPE == TYPE_BUTTON then
 			local func = but[3]
 			if func then
-				func(but)
+				func(but, PAGE.player_id)
 			end
 			MENU.Update()
 			return
@@ -403,19 +519,62 @@ end
 	Load pages
 ]]
 
-for _, file_name in ipairs(fs.get_files(lua_path .. "/menu/")) do
-	local extension = string.sub(file_name, -4)
-	if extension == ".lua" then
-		local path = string.sub(file_name, #lua_path + 2)
-		local name, page = require(path)
-		MENU.Add(name, page)
+local loaded
+local function LoadPages()
+	for _, file_name in ipairs(fs.get_files(lua_path .. "/menu/page/")) do
+		local extension = string.sub(file_name, -4)
+		if extension == ".lua" then
+			local path = string.sub(file_name, #lua_path + 2)
+			local page = require(path)
+			if type(page) == "table" then
+				MENU.Add(page, path)
+			end
+		end
 	end
 end
+
+local function LoadPlayerPages()
+	for _, file_name in ipairs(fs.get_files(lua_path .. "/menu/player/")) do
+		local extension = string.sub(file_name, -4)
+		if extension == ".lua" then
+			local path = string.sub(file_name, #lua_path + 2)
+			local page = require(path)
+			if type(page) == "table" then
+				MENU.AddPlayer(page, path)
+			end
+		end
+	end
+end
+
+LoadPlayerPages()
+if player.is_valid(player.index()) then
+	LoadPages()
+else
+	local loaded
+	function OnSessionJoin()
+		if not loaded then
+			LoadPages()
+		end
+		loaded = true
+	end
+	function OnFirstSingleplayerJoin()
+		if not loaded then
+			LoadPages()
+		end
+		loaded = true
+	end
+end
+
 
 function OnFeatureTick()
 	for k,v in ipairs(PAGES) do
 		if v.Think then
 			v.Think()
+		end
+	end
+	for k,v in ipairs(MENU.PlayerFeatures) do
+		if v[3].Think then
+			v[3].Think()
 		end
 	end
 end
@@ -434,4 +593,24 @@ function OnPlayerJoin(ply, name, rid, ip, host_key)
 			v.OnPlayerJoin(ply, name, rid, ip, host_key)
 		end
 	end
+	for k,v in ipairs(MENU.PlayerFeatures) do
+		if v[3].OnPlayerJoin then
+			v[3].OnPlayerJoin(ply, name, rid, ip, host_key)
+		end
+	end
 end
+
+function OnPlayerLeft(ply)
+	for k,v in ipairs(PAGES) do
+		if v.OnPlayerLeft then
+			v.OnPlayerLeft(ply)
+		end
+	end
+	for k,v in ipairs(MENU.PlayerFeatures) do
+		if v[3].OnPlayerLeft then
+			v[3].OnPlayerLeft(ply)
+		end
+	end
+end
+
+update_players()

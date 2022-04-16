@@ -1,30 +1,19 @@
-function OnScriptSend(ply_bits, args)
-	local args_tbl = {}
-	local args_size = args:size() - 1
-	for i = 1, args_size do
-		table.insert(args_tbl, args:read_long(i))
-	end
-	local args_text = table.concat(args_tbl, ", ")
-	console.log(con_color.LightBlue, "[SCRIPT_SEND] Script " .. args:read_long(0) .. " sending to " .. ply_bits .. ". Args(" .. tostring(args_size) .. "): " .. args_text .. "\n")
+function OnScriptSend(targets, event, args)
+	local args_text = table.concat(args, ", ")
+	console.log(con_color.LightBlue, "[SCRIPT_SEND] Script " .. event .. " sending to " .. #targets .. " target(s). Args(" .. #args .. "): " .. args_text .. "\n")
 end
 
 local last_script = {}
 
-function OnScriptEvent(ply, args)
-	local hash = args:read_long(0)
+function OnScriptEvent(ply, event, args)
 	local last = last_script[ply] or 1
-	if hash == last then
+	if event == last then
 		return true
 	end
-	last_script[ply] = hash
+	last_script[ply] = event
 	local name = player.get_name(ply)
-	local args_tbl = {}
-	local args_size = args:size() - 1
-	for i = 1, args_size do
-		table.insert(args_tbl, args:read_long(i))
-	end
-	local args_text = table.concat(args_tbl, ", ")
-	console.log(con_color.Blue, "[SCRIPT_RECEIVE] Script " .. hash .. " from " .. name .. " Args(" .. tostring(args_size) .. "): " .. args_text .. "\n")
+	local args_text = table.concat(args, ", ")
+	console.log(con_color.Blue, "[SCRIPT_RECEIVE] Script " .. event .. " from " .. name .. " Args(" .. #args .. "): " .. args_text .. "\n")
 	return true
 end
 

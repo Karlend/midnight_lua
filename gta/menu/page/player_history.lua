@@ -1,4 +1,3 @@
-local TYPE_TAB, TYPE_TOGGLE, TYPE_SLIDER, TYPE_SELECTION, TYPE_BUTTON = 0, 1, 2, 3, 4
 local test = {}
 
 local path = fs.get_dir_product() .. "/players.log"
@@ -34,7 +33,13 @@ end
 
 for _, v in ipairs(players) do
 	local info = v[1] .. " | " .. v[2]
-	table.insert(buttons, 1, {info, TYPE_BUTTON, function() utils.notify("M-History", "Trying to join " .. info, gui_icon.incognito, notify_type.warning) lobby.join_by_rid(tonumber(v[2])) end})
+	table.insert(buttons, 1, {
+		info, TYPE_TAB, {
+			{"Copy name", TYPE_BUTTON, function() utils.set_clipboard(v[1]) utils.notify("M-History", "Name was copied to clipboard", gui_icon.spoofing, notify_type.default) end},
+			{"Copy RID", TYPE_BUTTON, function() utils.set_clipboard(v[2]) utils.notify("M-History", "RID was copied to clipboard", gui_icon.spoofing, notify_type.default) end},
+			{"Join", TYPE_BUTTON, function() utils.notify("M-History", "Trying to join " .. info, gui_icon.incognito, notify_type.warning) lobby.join_by_rid(tonumber(v[2])) end}
+		}
+	})
 end
 
 local PAGE = {}

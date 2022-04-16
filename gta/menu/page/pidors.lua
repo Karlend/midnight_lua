@@ -1,5 +1,3 @@
-local TYPE_TAB, TYPE_TOGGLE, TYPE_SLIDER, TYPE_SELECTION, TYPE_BUTTON = 0, 1, 2, 3, 4
-
 local PLAYER = {}
 
 function PLAYER.GetPlayers(ignore)
