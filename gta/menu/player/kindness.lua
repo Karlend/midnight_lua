@@ -1,6 +1,6 @@
 local bully_funcs = {
 	["XP Loop"] = function(ply)
-		script.send(ply, 1572255940, 15000, ply, ply, 0, 23, 0, 0, 0, 263, 263)
+		script.send(ply, 1572255940, ply, ply, 0, 23, 0, 0, 0, 263, 263)
 		return 10
 	end,
 }
