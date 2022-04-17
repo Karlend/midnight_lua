@@ -43,7 +43,6 @@ local player_features = {
 
 	Think = function()
 		BullyThem()
-		DeleteObjects()
 	end
 }
 
