@@ -46,24 +46,3 @@ function OnNetworkEvent(ply, event, buf)
 	end
 	return true
 end
-
-local block_class = {
-	["DIG"] = true
-}
-
-local block_name = {
-	["MetricScriptEventSpam"] = true,
-	["MetricCheatScript"] = true,
-}
-
-function OnMetric(class, name)
-	if block_class[class] or block_name[name] then
-		console.log(con_color.LightPurple, "[METRIC_DEBUG] Blocked | Class: " .. class .. ". Name: " .. name .. "\n")
-		return false
-	end
-	console.log(con_color.LightPurple, "[METRIC_DEBUG] Class: " .. class .. ". Name: " .. name .. "\n")
-end
-
---function OnStatChange(hash, value, size, type_name)
---	console.log(con_color.LightPurple, "[STAT_DEBUG] Stat " .. hash .. "(" .. type_name .. ") was changed to " .. tostring(value) .. " \n")
---end

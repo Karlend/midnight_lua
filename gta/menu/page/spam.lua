@@ -58,7 +58,7 @@ local enables = {
 local buttons = {}
 
 for k, v in ipairs(enables) do
-	buttons[k] = {v[1], TYPE_TOGGLE, false, function(val) enables[k][3] = val end}
+	buttons[k] = MENU:Toggle(v[1])
 end
 
 local PAGE = {}
@@ -71,7 +71,8 @@ local calls = {}
 PAGE.Think = function()
 	local now = system.ticks()
 	for k,v in ipairs(enables) do
-		if v[3] then
+		local but = buttons[k]
+		if but:GetValue() then
 			local next_call = calls[k] or 0
 			if now > next_call then
 				local await = v[2](now) or 0

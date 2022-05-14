@@ -1,207 +1,239 @@
 local PAGE = {}
 PAGE.name = "Ceo control"
-PAGE.footer = "Ceo control v1"
+PAGE.footer = "Ceo control v2"
 
 PAGE.selection = 1
 
-local enables = {
-	{
-		"Modded warehouse",
-		function(val, prices) 
-			for i = 0, 21 do
-				prices:at(15595):at(i):set_int64(5000000 - (100000 * i))
-			end
-			script_global:new(1946791):set_int64(1)
-		end
-	},
-	{
-		"Remove warehouse cooldown",
-		function(val, prices) 
-			prices:at(15360):at(0):set_int64(0)
-			prices:at(15360):at(1):set_int64(0)
-		end
-	},
-	{
-		"Modded vehicle cargo",
-		function(val, prices) 
-			prices:at(19206):at(0):set_int64(40000 * 5)
-			prices:at(19206):at(1):set_int64(25000 * 5)
-			prices:at(19206):at(2):set_int64(15000 * 5)
-		end
-	},
-	{
-		"Remove vehicle cargo cooldown",
-		function(val, prices)
-			for i = 0, 3 do
-				prices:at(19476):at(i):set_int64(0)
-			end
-		end
-	},
-	{
-		"Modded air freight cargo",
-		function(val, prices) 
-			for i = 0, 8 do
-				prices:at(22578):at(i):set_int64(10000 * 5)
-			end
-		end
-	},
-	{
-		"Remove air freight cargo cooldown",
-		function(val, prices)
-			for i = 0, 4 do
-				prices:at(22521):at(i):set_int64(0)
-			end
-		end
-	},
-	{
-		"Modded autoshop",
-		function(val, prices) 
-			prices:at(30768):at(0):set_int64(20000 * 5)
-			prices:at(30768):at(1):set_int64(25000 * 5)
-			prices:at(30768):at(2):set_int64(30000 * 5)
-		end
-	},
-	{
-		"Modded MC stock",
-		function(val, prices)
-			prices:at(17222):set_int64(1000)
-			prices:at(17223):set_int64(3500)
-			prices:at(17224):set_int64(20000)
-			prices:at(17225):set_int64(8500)
-			prices:at(17226):set_int64(1500)
-		end
-	},
-	{
-		"Modded MC price",
-		function(val, prices) 
-			prices:at(18860):at(0):set_float(50)
-			prices:at(18860):at(1):set_float(50)
-			prices:at(18747):set_int64(math.floor(15000 * .1))
-		end
-	},
-	{
-		"Modded MC units",
-		function(val, prices) 
-			prices:at(18705):set_int64(80 * 3)
-			prices:at(18713):set_int64(20 * 3)
-			prices:at(18721):set_int64(10 * 3)
-			prices:at(18729):set_int64(60 * 3)
-			prices:at(18737):set_int64(40 * 3)
-		end
-	},
-	{
-		"Modded MC production",
-		function(val, prices) 
-			prices:at(17197):set_int64(math.floor(360000 * .01))
-			prices:at(17198):set_int64(math.floor(1800000 * .01))
-			prices:at(17199):set_int64(math.floor(3000000 * .01))
-			prices:at(17200):set_int64(math.floor(300000 * .01))
-			prices:at(17201):set_int64(math.floor(720000 * .01))
-			-- Time to Produce Reductions
-			for i = 0, 9 do
-				prices:at(17202):at(i):set_int64(1200000)
-			end
-		end
-	},
-	{
-		"Modded Nightclub production",
-		function(val, prices) 
-			prices:at(24134):set_int64(math.floor(4800000 * .01))
-			prices:at(24135):set_int64(math.floor(14400000 * .01))
-			prices:at(24136):set_int64(math.floor(7200000 * .01))
-			prices:at(24137):set_int64(math.floor(2400000 * .01))
-			prices:at(24138):set_int64(math.floor(1800000 * .01))
-			prices:at(24139):set_int64(math.floor(3600000 * .01))
-			prices:at(24140):set_int64(math.floor(8400000 * .01))
-			--prices:at(24141):set_float(0.5)
-		end
-	},
-	{
-		"Modded Nightclub price",
-		function(val, prices) 
-			prices:at(24142):set_int64(5000*10)
-			prices:at(24143):set_int64(20000*10)
-			prices:at(24144):set_int64(8500*10)
-			prices:at(24145):set_int64(1500*10)
-			prices:at(24146):set_int64(1000*10)
-			prices:at(24147):set_int64(3500*10)
-			prices:at(24148):set_int64(10000*10)
-			--prices:at(24141):set_float(0.5)
-		end
-	},
-	{
-		"Modded Bunker price",
-		function(val, prices) 
-			-- Resupply price
-			prices:at(21347):set_int64(1000)
-			prices:at(21346):set_int64(1000)
-			-- Sell mult
-			prices:at(21302):set_float(3.5)
-			prices:at(21303):set_float(3.5)
-		end
-	},
-	{
-		"Modded Bunker production",
-		function(val, prices) 
-			-- Product
-			--prices:at(21328):set_int64(15000)
-			-- Time to reduce
-			prices:at(21324):set_int64(10000000)
-			prices:at(21325):set_int64(10000000)
-			-- Time to produce
-			prices:at(21323):set_int64(5000)
-			prices:at(21339):set_int64(5000)
+local globals = MENU:LoadGlobals("ceo_control")
+local main = globals.main
 
-			-- Produce amount
-			prices:at(21326):set_int64(100)
-			prices:at(21327):set_int64(100)
-		end
-	},
-	{
-		"Modded Contract",
-		function(val, prices)
-			for i = 0, 2 do
-				prices:at(8170):at(i):set_float(5)
-			end
-			prices:at(31355):set_int64(math.floor(150000 * 5))
-			--prices:at(31356):set_int64(35000 * 5)
-			script_global:new(1805208):set_int64(135000)
-			script_global:new(1805211):set_int64(135000)
-			script_global:new(1805214):set_int64(135000)
-			
-		end
-	},
-	{
-		"Remove Contract cooldown",
-		function(val, prices)
-			for i = 0, 4 do
-				prices:at(24390):at(i):set_int64(0)
-			end
-			prices:at(31329):set_int64(0)
-			prices:at(31407):set_int64(0)
-		end
-	},
-	{
-		"Modded arcade",
-		function(val, prices)
-			prices:at(28899):set_int64(100000) -- max daily income
-			prices:at(28900):set_int64(4000) -- income per arcade
-			prices:at(28901):set_int64(4000) -- income per arcade
-		end
-	},
-	{
-		"test",
-		function(val, prices)
-			script_global:new(2725234):set_int64(1)
-		end
-	},
-}
+local active_funcs = {}
 
-local buttons = {}
-
-for k, v in ipairs(enables) do
-	buttons[k] = {v[1], TYPE_TOGGLE, false, function(val) enables[k][3] = val end}
+local function AddOrRemove(button, func)
+	local name = button:GetName()
+	if button:GetValue() then
+		active_funcs[name] = func
+	else
+		active_funcs[name] = nil
+	end
 end
+
+local buttons = {
+	MENU:Tab("UI_CC_WAREHOUSE", {
+		MENU:Toggle("UI_CC_REMOVE_WAR._BUY_COOLDOWN"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.warehouse.cd.buy):set_int64(0)
+			end)
+		end),
+		MENU:Toggle("UI_CC_REMOVE_WAR._SELL_COOLDOWN"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.warehouse.cd.sell):set_int64(0)
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_WAR._PRICES"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.warehouse.price) do
+					script_global:new(main):at(v):set_int64(5000000 - (100000 * i))
+				end
+			end)
+		end),
+	}),
+
+	MENU:Tab("UI_CC_VEHICLE_CARGO", {
+		MENU:Toggle("UI_CC_REMOVE_VEH-CARGO_COOLDOWNS"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.vehicle_cargo.cd) do
+					script_global:new(main):at(v):set_int64(0)
+				end
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_VEH-CARGO_PRICES"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.warehouse.price) do
+					script_global:new(main):at(v):set_int64(200000)
+				end
+			end)
+		end),
+	}),
+
+	MENU:Tab("UI_CC_AIR_FREIGHT", {
+		MENU:Toggle("UI_CC_REMOVE_AIR-FREIGHT_COOLDOWNS"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.air_freight.cd) do
+					script_global:new(main):at(v):set_int64(0)
+				end
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_AIR-FREIGHT_PRICES"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.air_freight.price) do
+					script_global:new(main):at(v):set_int64(50000)
+				end
+			end)
+		end),
+	}),
+
+	MENU:Tab("UI_CC_CONTRACTS", {
+		MENU:Toggle("UI_CC_REMOVE_VIP_COOLDOWN"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.contract.vip.cd):set_int64(0)
+			end)
+		end),
+		MENU:Toggle("UI_CC_REMOVE_CLIENTS_COOLDOWNS"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.contract.clients) do
+					script_global:new(main):at(v):set_int64(0)
+				end
+			end)
+		end),
+	}),
+
+	MENU:Tab("UI_CC_KOSATKA", {
+		MENU:Toggle("UI_CC_REMOVE_MISSILES_COOLDOWN"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.kosatka.cd):set_int64(0)
+			end)
+		end),
+		MENU:Toggle("UI_CC_INFINITE_MISSILES"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.kosatka.missiles):set_int64(10000)
+			end)
+		end),
+	}),
+
+	MENU:Tab("UI_CC_MC", {
+		MENU:Toggle("UI_CC_MODDED_MC_RESUPPLY_COST"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.mc.resupply):set_int64(0)
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_MC_SIGNAL_TIME"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.mc.signal):set_int64(0)
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_MC_STOCK"):SetCallback(function(self, val)
+			local val_to_amount = {1000, 3500, 20000, 8500, 1500, 1500} -- Сойдёт
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.mc.stock) do
+					script_global:new(main):at(v):set_int64(val_to_amount[i])
+				end
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_MC_UNITS"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.mc.units) do
+					script_global:new(main):at(v):set_int64(100)
+				end
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_MC_UNITS_PRICE"):SetCallback(function(self, val) -- Не ебу. Или кол-во потребление, либо же то, сколько выдаёт. Думаю, что первый вариант
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.mc.production) do
+					script_global:new(main):at(v):set_int64(1)
+				end
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_MC_PRODUCTION"):SetCallback(function(self, val)
+			local val_to_amount = {80 * 3, 20 * 3, 10 * 3, 60 * 3, 40 * 3} -- Сойдёт
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.mc.production) do
+					script_global:new(main):at(v):set_int64(val_to_amount[i])
+				end
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_MC_SELL_MULTS"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.mc.sell_mult) do
+					script_global:new(main):at(v):set_float(3.5)
+				end
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_MC_BUY_PRICE"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.mc.buy_price) do
+					script_global:new(main):at(v):set_int64(0)
+				end
+			end)
+		end),
+	}),
+
+	MENU:Tab("UI_CC_BUNKER", {
+		MENU:Toggle("UI_CC_REMOVE_BUNKER_RESUPPLY_COST"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.bunker.resupply):set_int64(0)
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_BUNKER_SELL_MULTS"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.bunker.sell):set_float(3.5)
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_BUNKER_UNITS_PRICE"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.bunker.units_price) do
+					script_global:new(main):at(v):set_int64(1)
+				end
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_BUNKER_PRODUCTION"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.bunker.production) do
+					script_global:new(main):at(v):set_int64(1000)
+				end
+			end)
+		end),
+	}),
+
+	MENU:Tab("UI_CC_NIGHTCLUB", {
+		MENU:Toggle("UI_CC_REMOVE_NC_PROMOTE_COOLDOWN"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.nightclub.promote):set_int64(0)
+			end)
+		end),
+		MENU:Toggle("UI_CC_REMOVE_NC_SELL_COOLDOWN"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				script_global:new(main):at(globals.nightclub.sell):set_int64(0)
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_NC_SELL_PRICES"):SetCallback(function(self, val)
+			local val_to_amount = {5000 * 5, 20000 * 5, 8500 * 5, 1500 * 5, 1000 * 5, 3500 * 5, 10000 * 5}
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.nightclub.price) do
+					script_global:new(main):at(v):set_int64(val_to_amount[i] or 100000)
+				end
+			end)
+		end),
+	}),
+
+	MENU:Tab("UI_CC_TUNERS", {
+		MENU:Toggle("UI_CC_REMOVE_TUNER_REPAIR_PRICE"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.tuner.repair) do
+					script_global:new(main):at(v):set_int64(0)
+				end
+			end)
+		end),
+		MENU:Toggle("UI_CC_MODDED_TUNER_SELL_PRICE"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.tuner.price) do
+					script_global:new(main):at(v):set_int64(150000)
+				end
+			end)
+		end),
+	}),
+
+	MENU:Tab("UI_CC_ARCADE", {
+		MENU:Toggle("UI_CC_MODDED_ARCADE_INCOME"):SetCallback(function(self, val)
+			AddOrRemove(self, function()
+				for i, v in ipairs(globals.arcade.income_per_arcade) do
+					script_global:new(main):at(v):set_int64(200000)
+				end
+				script_global:new(main):at(globals.arcade.max_income):set_int64(200000)
+			end)
+		end),
+	}),
+}
 
 PAGE.buttons = buttons
 
@@ -209,13 +241,10 @@ local calls = {}
 PAGE.Think = function()
 	local prices = script_global:new(262145)
 	local now = system.ticks()
-	for k,v in ipairs(enables) do
-		if v[3] then
-			local next_call = calls[k] or 0
-			if now > next_call then
-				local await = v[2](now, prices) or 0
-				calls[k] = now + await
-			end
+	for k,v in pairs(active_funcs) do
+		if now > (calls[k] or 0) then
+			local a = v(prices)
+			calls[k] = now + (a or 0)
 		end
 	end
 end

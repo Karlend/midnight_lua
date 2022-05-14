@@ -1,11 +1,9 @@
-local test = {}
-
 local path = fs.get_dir_product() .. "/players.log"
 local players_in_list = 250
 
 local function split(s, delimiter)
 	local result = {}
-	for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+	for match in (s .. delimiter):gmatch("(.-)" .. delimiter) do
 		table.insert(result, match)
 	end
 	return result
@@ -31,20 +29,32 @@ else
 	end
 end
 
-for _, v in ipairs(players) do
-	local info = v[1] .. " | " .. v[2]
-	table.insert(buttons, 1, {
-		info, TYPE_TAB, {
-			{"Copy name", TYPE_BUTTON, function() utils.set_clipboard(v[1]) utils.notify("M-History", "Name was copied to clipboard", gui_icon.spoofing, notify_type.default) end},
-			{"Copy RID", TYPE_BUTTON, function() utils.set_clipboard(v[2]) utils.notify("M-History", "RID was copied to clipboard", gui_icon.spoofing, notify_type.default) end},
-			{"Join", TYPE_BUTTON, function() utils.notify("M-History", "Trying to join " .. info, gui_icon.incognito, notify_type.warning) lobby.join_by_rid(tonumber(v[2])) end}
-		}
+local function GenButton(name, rid)
+	local button = MENU:Tab(name, {
+		MENU:Button("UI_HISTORY_COPY_NAME", function()
+			utils.set_clipboard(name)
+			utils.notify("M-History", "Name was copied to clipboard", gui_icon.spoofing, notify_type.default)
+		end),
+		MENU:Button("UI_HISTORY_COPY_RID", function()
+			utils.set_clipboard(rid)
+			utils.notify("M-History", "RID was copied to clipboard", gui_icon.spoofing, notify_type.default)
+		end),
+		MENU:Button("UI_HISTORY_JOIN", function()
+			lobby.join_by_rid(tonumber(rid))
+			utils.notify("M-History", "Trying to join " .. name, gui_icon.incognito, notify_type.warning)
+		end),
 	})
+	return button
+end
+
+for _, v in ipairs(players) do
+	local but = GenButton(v[1], v[2])
+	table.insert(buttons, 1, but)
 end
 
 local PAGE = {}
 PAGE.name = "Player history"
-PAGE.footer = "Click to join"
+PAGE.footer = "Player history"
 PAGE.buttons = buttons
 PAGE.selection = 1
 
@@ -67,9 +77,9 @@ PAGE.OnChatMsg = function(ply, text)
 end
 
 PAGE.OnPlayerJoin = function(ply, name, rid, ip, host_key)
-	local info = name .. " | " .. rid
 	table.insert(players, {name, rid})
-	table.insert(buttons, 1, {info, TYPE_BUTTON, function() utils.notify("M-History", "Trying to join " .. info, gui_icon.incognito, notify_type.warning) lobby.join_by_rid(rid) end})
+	local but = GenButton(name, rid)
+	table.insert(buttons, 1, but)
 end
 
 return PAGE

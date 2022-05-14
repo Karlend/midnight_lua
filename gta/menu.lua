@@ -1,5 +1,7 @@
-TYPE_TAB, TYPE_TOGGLE, TYPE_SLIDER, TYPE_SELECTION, TYPE_BUTTON = 0, 1, 2, 3, 4
+TYPE_TAB, TYPE_TOGGLE, TYPE_SLIDER, TYPE_SELECTION, TYPE_BUTTON, TYPE_TEXT = 0, 1, 2, 3, 4, 5
 local lua_path = fs.get_dir_script()
+
+local json = require("lib/json")
 
 --[[
 	CFG
@@ -17,31 +19,88 @@ local PAGE = {}
 ]]
 
 local translation = {}
-if fs.file_exists(lua_path .. "/menu/translation.txt") then
-	local text = fs.file_load_txt(lua_path .. "/menu/translation.txt")
-	local lines = string.gmatch(text, "[^%c]+")
-	for line in lines do
-		local what = line:match(".+:")
-		local translated = line:sub(#what+2)
-		what = what:sub(0, -2)
-		translation[what] = translated
-	end
+if fs.file_exists(lua_path .. "/menu/localizaion.lua") then
+	translation = require("menu/localizaion")
 end
 
-local function t(a)
-	if PAGE.name == "Player list" and not PAGE.sub_folder[1] then
-		return a
-	end
-	return translation[a] or a
+function GL(key)
+	return translation[key] or key
+end
+
+local option_meta = {
+	name = "UI_UNKNOWN",
+	type = TYPE_BUTTON,
+	func = function(self)
+		print("Pressed on " .. self:GetName())
+	end,
+	callback = function(self)
+		return
+	end,
+	right = function(self)
+		return
+	end,
+	left = function(self)
+		return
+	end,
+	GetName = function(self)
+		return GL(self.name)
+	end,
+	GetRaw = function(self)
+		return self.name
+	end,
+	GetType = function(self)
+		return self.type
+	end,
+	GetValue = function(self)
+		return self.value
+	end,
+	SetValue = function(self, val)
+		self.value = val
+		self:callback(val)
+		return self
+	end,
+	GetFunc = function(self)
+		return self.func
+	end,
+	SetFunc = function(self, func)
+		self.func = func
+		return self
+	end,
+	GetCallback = function(self)
+		return self.callback
+	end,
+	SetCallback = function(self, func)
+		self.callback = func
+		return self
+	end,
+	GetMin = function(self)
+		return self.min or 0
+	end,
+	GetMax = function(self)
+		return self.max or 0
+	end,
+	GetList = function(self)
+		return self.buttons or {}
+	end,
+	GetButtons = function(self)
+		return self.buttons or {}
+	end,
+}
+option_meta.__index = option_meta
+
+local function MO(tbl)
+	setmetatable(tbl, option_meta)
+	return tbl
 end
 
 --[[
 	MENU
 ]]
 
-local MENU = {}
+MENU = {}
 MENU.Page = 1
 MENU.Show = false
+MENU.json = json
 
 MENU.PlayerFeatures = {}
 
@@ -66,10 +125,80 @@ function MENU.Add(info, path)
 	return id
 end
 
+function MENU:Button(name, func)
+	local a = MO({name = name, func = func, type = TYPE_BUTTON, page = PAGE})
+	function a:func()
+		func(self, PAGE.player_id)
+	end
+	return a
+end
+
+function MENU:Toggle(name, func)
+	local a = MO({name = name, func = function(s) s:SetValue(not s:GetValue()) end, type = TYPE_TOGGLE, page = PAGE})
+	function a:func()
+		local val = not self:GetValue()
+		self:SetValue(val)
+		a:callback(val)
+	end
+	return a
+end
+
+function MENU:Slider(name, min, max, func)
+	local a = MO({name = name, func = func, type = TYPE_SLIDER, min = min, max = max, page = PAGE})
+	function a:left()
+		local value = self:GetValue()
+		self:SetValue(math.max(self:GetMin(), value - 1))
+	end
+	function a:right()
+		local value = self:GetValue()
+		self:SetValue(math.min(self:GetMax(), value + 1))
+	end
+	return a
+end
+
+function MENU:Selection(name, list)
+	local a = MO({name = name, type = TYPE_SELECTION, buttons = list, page = PAGE, value = 1})
+	function a:left()
+		local value = self:GetValue()
+		local avaible = self:GetList()
+		if value - 1 < 1 then
+			value = #avaible
+		else
+			value = value - 1
+		end
+		self:SetValue(value)
+	end
+	function a:right()
+		local value = self:GetValue()
+		local avaible = self:GetList()
+		if value + 1 > #avaible then
+			value = 0
+		end
+		self:SetValue(value + 1)
+	end
+	return a
+end
+
+function MENU:Tab(name, buttons)
+	local a = MO({name = name, buttons = buttons, type = TYPE_TAB, page = PAGE})
+	function a:func()
+		local amount = #PAGE.sub_folder
+		PAGE.sub_folder[amount + 1] = PAGE.selection
+		PAGE.selection = 1
+		self:callback()
+	end
+	return a
+end
+
+function MENU:Text(name, text)
+	local a = MO({name = name, value = text, type = TYPE_TEXT})
+	return a
+end
+
 function MENU.AddPlayer(player_features, path)
 	local id = #MENU.PlayerFeatures + 1
 	local name = player_features.name or path
-	MENU.PlayerFeatures[id] = {name, TYPE_TAB, player_features}
+	MENU.PlayerFeatures[id] = MENU:Tab(name, player_features)
 	print("[MENU LUA] Registering " .. name .. " player page")
 	return id
 end
@@ -89,36 +218,57 @@ end
 
 MENU.Active = {} -- Сюда попадают кнопки для отображения при апдейте
 
+local hueta = true -- https://i.imgur.com/nsTFZQ1.png
+
 local to_text = {
 	[TYPE_TAB] = function(but, text)
+		if hueta then
+			return ">> " .. text, ""
+		end
 		return text, ">>"
 	end,
 	[TYPE_TOGGLE] = function(but, text)
-		local on = but[3]
-		local prefix = on and "[Y] " or "[  ] "
+		local on = but:GetValue()
+		local prefix = on and "[X] " or "[  ] "
+		if hueta then
+			return prefix .. " " .. text, ""
+		end
 		return text, prefix
 	end,
 	[TYPE_SLIDER] = function(but, text)
-		local amount = tostring(but[3] or 0)
+		local amount = tostring(but:GetValue())
 		local prefix = "< " .. amount .. " >"
+		if hueta then
+			return text .. " - " .. prefix, ""
+		end
 		return text, prefix
 	end,
 	[TYPE_SELECTION] = function(but, text)
-		local now = but[3]
-		local possible = but[4]
+		local now = but:GetValue()
+		local possible = but:GetList()
 		local prefix = "< " .. (possible[now] or "?") .. " >"
+		if hueta then
+			return text .. " - " .. prefix, ""
+		end
 		return text, prefix
 	end,
 	[TYPE_BUTTON] = function(but, text)
 		return text, ""
-	end
+	end,
+	[TYPE_TEXT] = function(but, text)
+		local val = but:GetValue()
+		if hueta then
+			return text .. " " .. val, ""
+		end
+		return text, val
+	end,
 }
 
 local function GetButtons()
 	local steps = PAGE.sub_folder
 	local buts = PAGE.buttons
 	for k,v in ipairs(steps) do
-		buts = buts[v][3]
+		buts = buts[v]:GetButtons()
 	end
 	return buts or {}
 end
@@ -126,14 +276,14 @@ end
 local function GetText(id)
 	local buts = GetButtons()
 	local but = buts[id]
-	local name, TYPE = but[1], but[2]
+	local name, TYPE = but:GetName(), but:GetType()
 	local func = to_text[TYPE]
 	if not func then
-		return t(name), "?"
+		return GL(name), "?"
 	end
 	local text, prefix = func(but, name)
 
-	return t(text), t(prefix)
+	return GL(text), prefix
 end
 
 function MENU.Update()
@@ -196,27 +346,37 @@ local function on_player_change(id)
 	MENU.Update()
 end
 
-local function deepcopy(orig)
-    local orig_type = type(orig)
-    local copy
-    if orig_type == 'table' then
-        copy = {}
-        for orig_key, orig_value in next, orig, nil do
-            copy[deepcopy(orig_key)] = deepcopy(orig_value)
-        end
-        setmetatable(copy, deepcopy(getmetatable(orig)))
-    else -- number, string, boolean, etc
-        copy = orig
-    end
-    return copy
+local ignore_keys = {
+	["__index"] = true,
+	["__newindex"] = true,
+	["page"] = true,
+}
+
+function deepcopy(orig, name)
+	local orig_type = type(orig)
+	local copy
+	if orig_type == "table" then
+		copy = {}
+		for orig_key, orig_value in next, orig, nil do
+			if ignore_keys[orig_key] then
+				copy[orig_key] = orig_value
+			else
+				copy[deepcopy(orig_key)] = deepcopy(orig_value)
+			end
+		end
+		setmetatable(copy, deepcopy(getmetatable(orig)))
+	else -- number, string, boolean, etc
+		copy = orig
+	end
+	return copy
 end
-
-
 
 local function add_player(ply, name, rid)
 	local next_id = #player_list + 1
 	players[next_id] = ply
-	player_list[next_id] = {name, TYPE_TAB, deepcopy(MENU.PlayerFeatures), function() PAGE.player_id = ply end}
+	local tab = MENU:Tab(name, deepcopy(MENU.PlayerFeatures))
+	tab:SetCallback(function() PAGE.player_id = ply end)
+	player_list[next_id] = tab
 	on_player_change(next_id)
 end
 
@@ -290,7 +450,7 @@ local scale = h / 1080
 local sizes = {
 	width = 272 * scale,
 	header_h = 67 * scale,
-	
+
 	button_h = 36 * scale
 }
 
@@ -312,14 +472,14 @@ local function DrawButton(x, y, text, active, right)
 
 	draw.set_color(0, 20, 20, 20, 220)
 	draw.rect_filled(x, y, x + sizes.width, y + sizes.button_h)
-	
+
 	draw.set_color(0, 255, 255, 255, 255)
 	draw.set_font(font)
 	draw.text(x + 5, y + sizes.button_h * .25, text)
 
 
 	draw.set_color(0, 125, 125, 125, 220)
-	
+
 	local size = draw.get_text_size(right)
 	draw.text(x + sizes.width - size.x, y + sizes.button_h * .25, right)
 end
@@ -339,7 +499,7 @@ function OnFrame()
 	for k, info in ipairs(MENU.Active) do
 		local text, active, right = info[1], info[2], info[3]
 		DrawButton(x, y, text, active, right)
-		
+
 		y = y + sizes.button_h
 	end
 
@@ -366,14 +526,6 @@ local function check(add)
 	MENU.Update(add)
 end
 
-local function callback(but)
-	local last = but[#but]
-	if type(last) == "function" then -- Я ебал везде ещё проверять позицию функции, такой метод - лучше всего.
-		local value = but[3] -- Значение всегда 3-е
-		last(value, but, PAGE.player_id)
-	end
-end
-
 local keys = {
 	[38] = function() -- Стрелка вверх
 		PAGE.selection = PAGE.selection - 1
@@ -390,23 +542,8 @@ local keys = {
 		if not but then
 			return
 		end
-		local TYPE = but[2]
-		local value = but[3]
-		if TYPE == TYPE_SLIDER then
-			but[3] = math.max(but[4], value - 1)
-		elseif TYPE == TYPE_SELECTION then
-			local avaible = but[4] or {}
-			if value - 1 < 1 then
-				value = #avaible
-			else
-				value = value - 1
-			end
-			but[3] = value
-		else
-			return
-		end
-		callback(but)
-		MENU.Update(add)
+		but:left()
+		MENU.Update()
 	end,
 	[39] = function()  -- Стрелка вправо
 		local now = PAGE.selection
@@ -415,21 +552,8 @@ local keys = {
 		if not but then
 			return
 		end
-		local TYPE = but[2]
-		local value = but[3]
-		if TYPE == TYPE_SLIDER then
-			but[3] = math.min(but[5], value + 1)
-		elseif TYPE == TYPE_SELECTION then
-			local avaible = but[4] or {}
-			if value + 1 > #avaible then
-				value = 0
-			end
-			but[3] = value + 1
-		else
-			return
-		end
-		callback(but)
-		MENU.Update(add)
+		but:right()
+		MENU.Update()
 	end,
 	[13] = function() -- Энтер
 		local now = PAGE.selection
@@ -438,25 +562,8 @@ local keys = {
 		if not but then
 			return
 		end
-		local TYPE = but[2]
-		if TYPE == TYPE_BUTTON then
-			local func = but[3]
-			if func then
-				func(but, PAGE.player_id)
-			end
-			MENU.Update()
-			return
-		elseif TYPE == TYPE_TOGGLE then
-			but[3] = not but[3]
-		elseif TYPE == TYPE_TAB then
-			local amount = #PAGE.sub_folder
-			PAGE.sub_folder[amount + 1] = PAGE.selection
-			PAGE.selection = 1
-		else
-			return
-		end
-		callback(but)
-		MENU.Update(add)
+		but:func(but:GetValue())
+		MENU.Update()
 	end,
 	[8] = function() -- Бэкспейс. Назад
 		local amount = #PAGE.sub_folder
@@ -493,7 +600,9 @@ keys[101] = keys[13] -- numpad 5 | Энтер
 keys[96] = keys[13] -- numpad 0 | Назад
 
 keys[103] = keys[33] -- numpad 7 | Пред страница
+keys[17] = keys[103] -- ctrl | Пред страница
 keys[105] = keys[34] -- numpad 9 | След страница
+keys[16] = keys[34] -- shift | След страница
 
 keys[106] = keys[115] -- numpad * | Меню
 
@@ -519,7 +628,6 @@ end
 	Load pages
 ]]
 
-local loaded
 local function LoadPages()
 	for _, file_name in ipairs(fs.get_files(lua_path .. "/menu/page/")) do
 		local extension = string.sub(file_name, -4)
@@ -544,6 +652,14 @@ local function LoadPlayerPages()
 			end
 		end
 	end
+end
+
+function MENU:LoadGlobals(file)
+	return require("menu/globals/" .. file)
+end
+
+function MENU:LoadStats(file)
+	return require("menu/stats/" .. file)
 end
 
 LoadPlayerPages()
@@ -573,8 +689,8 @@ function OnFeatureTick()
 		end
 	end
 	for k,v in ipairs(MENU.PlayerFeatures) do
-		if v[3].Think then
-			v[3].Think()
+		if v.buttons.Think then
+			v.buttons.Think()
 		end
 	end
 end
@@ -594,8 +710,8 @@ function OnPlayerJoin(ply, name, rid, ip, host_key)
 		end
 	end
 	for k,v in ipairs(MENU.PlayerFeatures) do
-		if v[3].OnPlayerJoin then
-			v[3].OnPlayerJoin(ply, name, rid, ip, host_key)
+		if v.buttons.OnPlayerJoin then
+			v.buttons.OnPlayerJoin(ply, name, rid, ip, host_key)
 		end
 	end
 end
@@ -607,8 +723,21 @@ function OnPlayerLeft(ply)
 		end
 	end
 	for k,v in ipairs(MENU.PlayerFeatures) do
-		if v[3].OnPlayerLeft then
-			v[3].OnPlayerLeft(ply)
+		if v.buttons.OnPlayerLeft then
+			v.buttons.OnPlayerLeft(ply)
+		end
+	end
+end
+
+function OnModderDetected(ply, reason)
+	for k,v in ipairs(PAGES) do
+		if v.OnModderDetected then
+			v.OnModderDetected(ply, reason)
+		end
+	end
+	for k,v in ipairs(MENU.PlayerFeatures) do
+		if v.buttons.OnModderDetected then
+			v.buttons.OnModderDetected(ply, reason)
 		end
 	end
 end

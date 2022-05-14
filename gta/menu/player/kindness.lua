@@ -22,17 +22,20 @@ local function BullyThem()
 end
 
 
+
+
 local player_features = {
 	name = "Kindness",
-	{
-		"CEO XP Loop", TYPE_TOGGLE, false, function(value, but, id)
-			bully[id] = value and "XP Loop" or nil
-			if value then
-				utils.notify("Note", "Player must be in your CEO", gui_icon.incognito, notify_type.warning)
-			end
-			print(player.get_name(id) .. " - " .. (bully[id] or "Disabled"))
+
+	MENU:Toggle("CEO XP Loop"):SetCallback(function(self, value)
+		local id = self.page.player_id
+		if not id then return end
+		bully[id] = value and "XP Loop" or nil
+		if value then
+			utils.notify("Note", "Player must be in your CEO", gui_icon.incognito, notify_type.warning)
 		end
-	},
+		print(player.get_name(id) .. " - " .. (bully[id] or "Disabled"))
+	end),
 
 	OnPlayerLeft = function(ply)
 		if bully[ply] then
