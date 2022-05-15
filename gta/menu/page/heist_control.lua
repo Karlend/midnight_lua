@@ -43,7 +43,7 @@ local function add_preset(v, sub)
 		end)
 		table.insert(sub, element)
 	elseif v.func then
-		local element = MENU:Toggle(v.name, function(self, val)
+		local element = MENU:Toggle(v.name):SetCallback(function(self, val)
 			v.func(val)
 		end)
 		table.insert(sub, element)
