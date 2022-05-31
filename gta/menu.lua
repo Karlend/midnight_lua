@@ -43,10 +43,15 @@ local option_meta = {
 		return
 	end,
 	GetName = function(self)
-		return GL(self.name)
-	end,
-	GetRaw = function(self)
 		return self.name
+	end,
+	SetRaw = function(self, name)
+		self.name = name
+		return self
+	end,
+	SetName = function(self, name)
+		self.name = GL(name)
+		return self
 	end,
 	GetType = function(self)
 		return self.type
@@ -126,7 +131,8 @@ function MENU.Add(info, path)
 end
 
 function MENU:Button(name, func)
-	local a = MO({name = name, func = func, type = TYPE_BUTTON, page = PAGE})
+	local a = MO({func = func, type = TYPE_BUTTON, page = PAGE})
+	a:SetName(name)
 	function a:func()
 		func(self, PAGE.player_id)
 	end
@@ -134,7 +140,8 @@ function MENU:Button(name, func)
 end
 
 function MENU:Toggle(name, func)
-	local a = MO({name = name, func = function(s) s:SetValue(not s:GetValue()) end, type = TYPE_TOGGLE, page = PAGE})
+	local a = MO({func = function(s) s:SetValue(not s:GetValue()) end, type = TYPE_TOGGLE, page = PAGE})
+	a:SetName(name)
 	function a:func()
 		local val = not self:GetValue()
 		self:SetValue(val)
@@ -144,7 +151,8 @@ function MENU:Toggle(name, func)
 end
 
 function MENU:Slider(name, min, max, func)
-	local a = MO({name = name, func = func, type = TYPE_SLIDER, min = min, max = max, page = PAGE})
+	local a = MO({func = func, type = TYPE_SLIDER, min = min, max = max, page = PAGE})
+	a:SetName(name)
 	function a:left()
 		local value = self:GetValue()
 		self:SetValue(math.max(self:GetMin(), value - 1))
@@ -157,7 +165,8 @@ function MENU:Slider(name, min, max, func)
 end
 
 function MENU:Selection(name, list)
-	local a = MO({name = name, type = TYPE_SELECTION, buttons = list, page = PAGE, value = 1})
+	local a = MO({type = TYPE_SELECTION, buttons = list, page = PAGE, value = 1})
+	a:SetName(name)
 	function a:left()
 		local value = self:GetValue()
 		local avaible = self:GetList()
@@ -180,7 +189,8 @@ function MENU:Selection(name, list)
 end
 
 function MENU:Tab(name, buttons)
-	local a = MO({name = name, buttons = buttons, type = TYPE_TAB, page = PAGE})
+	local a = MO({buttons = buttons, type = TYPE_TAB, page = PAGE})
+	a:SetName(name)
 	function a:func()
 		local amount = #PAGE.sub_folder
 		PAGE.sub_folder[amount + 1] = PAGE.selection
@@ -191,14 +201,33 @@ function MENU:Tab(name, buttons)
 end
 
 function MENU:Text(name, text)
-	local a = MO({name = name, value = text, type = TYPE_TEXT})
+	local a = MO({value = text or "", type = TYPE_TEXT})
+	a:SetName(name)
+	function a:func()
+		MENU:Input(self:GetName(), function(text)
+			self:SetValue(text)
+			self:callback(text)
+			MENU.Update()
+		end, self:GetValue())
+	end
 	return a
+end
+
+local input, input_text, input_func
+function MENU:Input(name, func, text)
+	text = text or ""
+	func = func or function() end
+
+	input = name
+	input_text = text
+	input_func = func
 end
 
 function MENU.AddPlayer(player_features, path)
 	local id = #MENU.PlayerFeatures + 1
 	local name = player_features.name or path
 	MENU.PlayerFeatures[id] = MENU:Tab(name, player_features)
+	MENU.PlayerFeatures[id]:SetRaw(name) -- in case of translation
 	print("[MENU LUA] Registering " .. name .. " player page")
 	return id
 end
@@ -298,7 +327,7 @@ function MENU.Update()
 		end
 	else
 		local start = now < CFG.Buttons
-		for i = start and 1 or now - CFG.Buttons + 2, start and CFG.Buttons or now + 1 do
+		for i = start and 1 or now - CFG.Buttons + 1, start and CFG.Buttons or now do
 			local info = buts[i]
 			if info then
 				local draw_text, right_text = GetText(i)
@@ -403,6 +432,7 @@ local function update_players()
 	for i = 0, 32 do
 		if player.is_valid(i) then
 			local ply, name, rid = i, player.get_name(i), player.get_rid(i)
+			print("Manually inserting " .. name .. " (" .. rid .. ")")
 			add_player(ply, name, rid)
 		end
 	end
@@ -454,7 +484,23 @@ local sizes = {
 	button_h = 36 * scale
 }
 
-local font --= draw.create_font(CFG.Font, sizes.button_h) -- Спасибо Контеру за фикс шрифтов, который крашит гта
+local font-- = draw.create_font(CFG.Font, sizes.button_h) -- Спасибо Контеру за фикс шрифтов, который крашит гта
+
+local function DrawInput()
+	draw.set_color(0, 20, 20, 20, 220)
+	draw.rect_filled(w * .25, h * .4, w * .75, h * .6)
+
+
+	draw.set_color(0, 255, 255, 255, 255)
+	draw.set_font(font)
+	local size = draw.get_text_size(input)
+	draw.text((w - size.x) * .5, h * .4, input)
+
+	draw.set_color(0, 255, 255, 255, 255)
+	draw.set_font(font)
+	draw.text(w * .25 + 5, h * .5, input_text)
+end
+
 
 local function DrawButton(x, y, text, active, right)
 	if active then
@@ -484,10 +530,259 @@ local function DrawButton(x, y, text, active, right)
 	draw.text(x + sizes.width - size.x, y + sizes.button_h * .25, right)
 end
 
+local function check(add)
+	local buts = #GetButtons()
+	if PAGE.selection > buts then
+		PAGE.selection = 1
+	elseif PAGE.selection < 1 then
+		PAGE.selection = buts
+	end
+	MENU.Update(add)
+end
+
+local next_scroll = {}
+local Scroll = {
+	Up = function()
+		PAGE.selection = PAGE.selection - 1
+		check()
+	end,
+	Down = function()
+		PAGE.selection = PAGE.selection + 1
+		check(true)
+	end,
+	Left = function()
+		local now = PAGE.selection
+		local buts = GetButtons()
+		local but = buts[now]
+		if not but then
+			return
+		end
+		but:left()
+		MENU.Update()
+	end,
+	Right = function()
+		local now = PAGE.selection
+		local buts = GetButtons()
+		local but = buts[now]
+		if not but then
+			return
+		end
+		but:right()
+		MENU.Update()
+	end
+}
+local function FinishInput()
+	local text = input_text or ""
+	input_func(text)
+	input_text = nil
+	input_func = nil
+	input = nil
+end
+
+local hold = {}
+
+local UP, DOWN, LEFT, RIGHT, ENTER, BACK = 38, 40, 37, 39, 13, 8
+local MENU_KEY = 115
+local keys = {
+	[UP] = function()
+		next_scroll[UP] = system.ticks() + 500
+		Scroll.Up()
+	end, -- Стрелка вверх
+	[DOWN] = function()
+		next_scroll[DOWN] = system.ticks() + 500
+		Scroll.Down()
+	end, -- Стрелка вниз
+	[LEFT] = function()
+		next_scroll[LEFT] = system.ticks() + 500
+		Scroll.Left()
+	end, -- Стрелка влево
+	[RIGHT] = function()
+		next_scroll[RIGHT] = system.ticks() + 500
+		Scroll.Right()
+	end, -- Стрелка вправо
+	[ENTER] = function() -- Энтер
+		local now = PAGE.selection
+		local buts = GetButtons()
+		local but = buts[now]
+		if not but then
+			return
+		end
+		but:func(but:GetValue())
+		MENU.Update()
+	end,
+	[BACK] = function() -- Бэкспейс. Назад
+		local amount = #PAGE.sub_folder
+		if amount > 0 then
+			PAGE.selection = PAGE.sub_folder[amount]
+			table.remove(PAGE.sub_folder, amount)
+		end
+		MENU.Update()
+	end,
+	[33] = function() -- PageUP. Пред страница
+		local now = MENU.Page
+		local set = PAGES[now - 1] and now - 1 or #PAGES
+		MENU.SetPage(set)
+	end,
+	[34] = function() -- PageDown. След страница
+		local now = MENU.Page
+		local set = PAGES[now + 1] and now + 1 or 1
+		MENU.SetPage(set)
+	end,
+	[115] = function() -- F4. Скрытие меню
+		MENU.Show = not MENU.Show
+	end,
+}
+
+local translate = {
+	[104] = UP, -- numpad 8 | Вверх
+	[98] = DOWN, -- numpad 2 | Вниз
+	[100] = LEFT, -- numpad 4 | Лево
+	[102] = RIGHT, -- numpad 6 | Право
+	[101] = ENTER, -- numpad 5 | Энтер
+	[96] = BACK,  -- numpad 0 | Назад
+	[103] = 33, -- numpad 7 | Пред страница
+	[17] = 33, -- ctrl | Пред страница
+	[105] = 34, -- numpad 9 | След страница
+	[16] = 34,  -- shift | След страница
+	[106] = MENU_KEY,  -- numpad * | Меню
+}
+
+local id_to_key = {
+	[32] = " ",
+
+	[65] = "a",
+	[66] = "b",
+	[67] = "c",
+	[68] = "d",
+	[69] = "e",
+	[70] = "f",
+	[71] = "g",
+	[72] = "h",
+	[73] = "i",
+	[74] = "j",
+	[75] = "k",
+	[76] = "l",
+	[77] = "m",
+	[78] = "n",
+	[79] = "o",
+	[80] = "p",
+	[81] = "q",
+	[82] = "r",
+	[83] = "s",
+	[84] = "t",
+	[85] = "u",
+	[86] = "v",
+	[87] = "w",
+	[88] = "x",
+	[89] = "y",
+	[90] = "z",
+
+	[48] = "0",
+	[49] = "1",
+	[50] = "2",
+	[51] = "3",
+	[52] = "4",
+	[53] = "5",
+	[54] = "6",
+	[55] = "7",
+	[56] = "8",
+	[57] = "9",
+
+	[189] = "-",
+	[187] = "=",
+}
+
+local to_upper = {
+	["-"] = "_",
+	["="] = "+",
+	["1"] = "!",
+	["2"] = "@",
+	["3"] = "#",
+	["4"] = "$",
+	["5"] = "%",
+	["6"] = "^",
+	["7"] = "&",
+	["8"] = "*",
+	["9"] = "(",
+	["0"] = ")",
+}
+
+local caps = false
+local function HandleInput(key, down)
+	if key == 16 then
+		caps = down
+	end
+	if not down then
+		return
+	end
+	if key == 27 then
+		input_text = nil
+		input_func = nil
+		input = nil
+		return
+	end
+	if key == ENTER then
+		FinishInput()
+		return
+	end
+	if key == 8 then
+		input_text = input_text:sub(1, -2)
+		return
+	end
+	local char = id_to_key[key]
+	if not char then
+		return
+	end
+	if caps then
+		char = to_upper[char] or char:upper()
+	end
+	input_text = input_text .. char
+end
+
+function OnKeyPressed(key, down)
+	if input then
+		HandleInput(key, down)
+		return
+	end
+	key = translate[key] or key
+	hold[key] = down and true or nil
+	if not down then return end
+	local func = keys[key]
+	if not func then return end
+	if key ~= MENU_KEY and not MENU.Show then return end
+	func()
+end
+
+local scroll_wait = 100
+local function handle_scroll()
+	local now = system.ticks()
+	if hold[UP] and now > next_scroll[UP] then
+		Scroll.Up()
+		next_scroll[UP] = now + scroll_wait
+	end
+	if hold[DOWN] and now > next_scroll[DOWN] then
+		Scroll.Down()
+		next_scroll[DOWN] = now + scroll_wait
+	end
+	if hold[LEFT] and now > next_scroll[LEFT] then
+		Scroll.Left()
+		next_scroll[LEFT] = now + scroll_wait
+	end
+	if hold[RIGHT] and now > next_scroll[RIGHT] then
+		Scroll.Right()
+		next_scroll[RIGHT] = now + scroll_wait
+	end
+end
+
 function OnFrame()
+	if input then
+		DrawInput()
+		return
+	end
 	if not MENU.Show then
 		return
 	end
+	handle_scroll()
 
 	local x, y = 100, 100
 	-- header
@@ -514,105 +809,6 @@ function OnFrame()
 	draw.set_color(0, 255, 255, 255, 220)
 	draw.set_font(font)
 	draw.text(x + 5, y + sizes.button_h * .25, PAGE.footer or "Midnight uff ya")
-end
-
-local function check(add)
-	local buts = #GetButtons()
-	if PAGE.selection > buts then
-		PAGE.selection = 1
-	elseif PAGE.selection < 1 then
-		PAGE.selection = buts
-	end
-	MENU.Update(add)
-end
-
-local keys = {
-	[38] = function() -- Стрелка вверх
-		PAGE.selection = PAGE.selection - 1
-		check()
-	end,
-	[40] = function() -- Стрелка вниз
-		PAGE.selection = PAGE.selection + 1
-		check(true)
-	end,
-	[37] = function()  -- Стрелка влево
-		local now = PAGE.selection
-		local buts = GetButtons()
-		local but = buts[now]
-		if not but then
-			return
-		end
-		but:left()
-		MENU.Update()
-	end,
-	[39] = function()  -- Стрелка вправо
-		local now = PAGE.selection
-		local buts = GetButtons()
-		local but = buts[now]
-		if not but then
-			return
-		end
-		but:right()
-		MENU.Update()
-	end,
-	[13] = function() -- Энтер
-		local now = PAGE.selection
-		local buts = GetButtons()
-		local but = buts[now]
-		if not but then
-			return
-		end
-		but:func(but:GetValue())
-		MENU.Update()
-	end,
-	[8] = function() -- Бэкспейс. Назад
-		local amount = #PAGE.sub_folder
-		if amount > 0 then
-			PAGE.selection = PAGE.sub_folder[amount]
-			table.remove(PAGE.sub_folder, amount)
-		end
-		MENU.Update()
-	end,
-	[33] = function() -- PageUP. Пред страница
-		local now = MENU.Page
-		local set = PAGES[now - 1] and now - 1 or #PAGES
-		MENU.SetPage(set)
-	end,
-	[34] = function() -- PageDown. След страница
-		local now = MENU.Page
-		local set = PAGES[now + 1] and now + 1 or 1
-		MENU.SetPage(set)
-	end,
-	[115] = function() -- F4. Скрытие меню
-		MENU.Show = not MENU.Show
-	end,
-}
-
-keys[104] = keys[38] -- numpad 8 | Вверх
-keys[98] = keys[40] -- numpad 2 | Вниз
-
-keys[100] = keys[34] -- numpad 4 | Лево
-keys[102] = keys[37] -- numpad 6 | Право
-
-keys[101] = keys[13] -- numpad 5 | Энтер
---keys[13] = keys[13] -- numpad enter | Энтер
-
-keys[96] = keys[13] -- numpad 0 | Назад
-
-keys[103] = keys[33] -- numpad 7 | Пред страница
-keys[17] = keys[103] -- ctrl | Пред страница
-keys[105] = keys[34] -- numpad 9 | След страница
-keys[16] = keys[34] -- shift | След страница
-
-keys[106] = keys[115] -- numpad * | Меню
-
-
-function OnKeyPressed(key, down)
-	if not down then return end
-	local func = keys[key]
-	if not func then return end
-	if (key ~= 115 and key ~= 106) and not MENU.Show then return end
-	func()
 end
 
 function OnDone()
@@ -652,6 +848,7 @@ local function LoadPlayerPages()
 			end
 		end
 	end
+	update_players()
 end
 
 function MENU:LoadGlobals(file)
@@ -662,25 +859,26 @@ function MENU:LoadStats(file)
 	return require("menu/stats/" .. file)
 end
 
-LoadPlayerPages()
 if player.is_valid(player.index()) then
 	LoadPages()
+	LoadPlayerPages()
 else
 	local loaded
 	function OnSessionJoin()
 		if not loaded then
 			LoadPages()
+			LoadPlayerPages()
 		end
 		loaded = true
 	end
 	function OnFirstSingleplayerJoin()
 		if not loaded then
 			LoadPages()
+			LoadPlayerPages()
 		end
 		loaded = true
 	end
 end
-
 
 function OnFeatureTick()
 	for k,v in ipairs(PAGES) do
@@ -695,10 +893,46 @@ function OnFeatureTick()
 	end
 end
 
-function OnChatMsg(ply, text)
+function OnChatMsg(...)
 	for k,v in ipairs(PAGES) do
 		if v.OnChatMsg then
-			v.OnChatMsg(ply, text)
+			local res = v.OnChatMsg(...)
+			if res ~= nil then
+				return res
+			end
+		end
+	end
+end
+
+function OnSMS(...)
+	for k,v in ipairs(PAGES) do
+		if v.OnSMS then
+			local res = v.OnSMS(...)
+			if res ~= nil then
+				return res
+			end
+		end
+	end
+end
+
+function OnNetworkEvent(...)
+	for k,v in ipairs(PAGES) do
+		if v.OnNetworkEvent then
+			local res = v.OnNetworkEvent(...)
+			if res ~= nil then
+				return res
+			end
+		end
+	end
+end
+
+function OnScriptEvent(...)
+	for k,v in ipairs(PAGES) do
+		if v.OnScriptEvent then
+			local res = v.OnScriptEvent(...)
+			if res ~= nil then
+				return res
+			end
 		end
 	end
 end
@@ -742,4 +976,6 @@ function OnModderDetected(ply, reason)
 	end
 end
 
-update_players()
+function OnPlayerActive(ply)
+	print("OnPlayerActive - " .. ply)
+end

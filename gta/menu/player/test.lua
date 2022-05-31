@@ -180,14 +180,6 @@ local hashes = {
 }
 
 local bully_funcs = {
-	["Explode anon"] = function(ply)
-		local pos = Vector3()
-		if not player.get_coordinates(ply, pos) then
-			return
-		end
-		FIRE.ADD_EXPLOSION(pos.x, pos.y, pos.z + 5, 30, 10.0, true, false, 1.0, false)
-		return 1000
-	end,
 	["EMP vehicle"] = function(ply)
 		if not player.is_in_vehicle(ply) then
 			return 1000
@@ -231,39 +223,30 @@ end
 local player_features = {
 	name = "Base",
 
-	MENU:Button("Send to Warehouse", function(but)
+	MENU:Button("Save outfit", function(but)
 		local id = but.page.player_id
-		local first = script_global:new(262145):at(16397):get_int64()
-		local magic_ceo = script_global:new(1893548):at(id * 600):at(511):get_int64()
-		local magic_f = script_global:new(1921036):at(9):get_int64()
-		local magic_s = script_global:new(1921036):at(10):get_int64()
-		script.send(id, 1890277845, 15000, -1292453789, 0, magic_ceo, magic_f, magic_s)
+		MENU:Input("Outfit name", function(name)
+			if name == "" then
+				utils.notify("Outfit", "Invalid name", gui_icon.players, notify_type.fatal)
+				return
+			end
+			player.outfit_save(id, name)
+			utils.notify("Outfit", "Saved as " .. name, gui_icon.players, notify_type.default)
+		end, player.get_name(id))
 	end),
 	MENU:Toggle("EMP vehicle"):SetCallback(function(but, value)
 		local id = but.page.player_id
 		bully[id] = value and "EMP vehicle" or nil
 		print(player.get_name(id) .. " - " .. (bully[id] or "Disabled"))
 	end),
-	MENU:Toggle("Explode loop"):SetCallback(function(but, value)
-		local id = but.page.player_id
-		bully[id] = value and "Explode anon" or nil
-		print(player.get_name(id) .. " - " .. (bully[id] or "Disabled"))
-	end),
-	MENU:Button("Send to Warehouse", function(but)
-		local id = but.page.player_id
-		script.send(id, -446275082, 1, 1, 8)
-	end),
 	MENU:Button("Air warning", function(but)
 		local id = but.page.player_id
 		script.send(id, -290218924, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 	end),
-	MENU:Button("Change MC role", function(but)
+	MENU:Selection("Change MC role", {"Vice-President", "Captain", "Sergeant", "Thug"}):SetFunc(function(but)
 		local id = but.page.player_id
-		script.send(id, 907247199, math.random(0, 3), id)
-	end),
-	MENU:Button("Indirrect crash", function(but)
-		local id = but.page.player_id
-		script.send(id, 522189882, 1, 0)
+		local role = but:GetValue() - 1
+		script.send(id, 907247199, role, id)
 	end),
 	MENU:Toggle("Notify spam"):SetCallback(function(but, value)
 		local id = but.page.player_id

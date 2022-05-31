@@ -57,7 +57,11 @@ local localization = {
 	["UI_CC_ARCADE"] = "Arcade",
 	["UI_CC_MODDED_ARCADE_INCOME"] = "Modded arcade income",
 	-- Player manager
+	["UI_PM_OPTIONS"] = "Options",
 	["UI_PM_UPDATE_PLAYERS"] = "Update players",
+	["UI_PM_FOLDERS"] = "Folders",
+	["UI_PM_FOLDER"] = "Folder: ",
+	["UI_PM_ADD_PLAYER"] = "Add player",
 	["UI_PM_NAME"] = "Name:",
 	["UI_PM_RID"] = "RID:",
 	["UI_PM_NOTE"] = "Note:",
@@ -67,7 +71,6 @@ local localization = {
 	["UI_PM_SEEN_LAST"] = "Last seen:",
 	["UI_PM_MODDER"] = "Modder",
 	["UI_PM_UPDATE_ONLINE"] = "Update online",
-	["UI_PM_UPDATE_ONLINE._SOON"] = "Update online. SOON",
 	--Join reactions
 	["UI_PM_JOIN_REACTIONS"] = "Join reactions",
 	["UI_PM_REACTION_NOTIFY"] = "Notify",
@@ -143,6 +146,9 @@ local localization = {
 	["UI_HC_PRESETS_PREP_THE_BALLAS"] = "The Ballas (Prep)",
 	["UI_HC_PRESETS_MISSION_AGENCY_STUDIO"] = "Agency Studio (Mission)",
 	["UI_HC_PRESETS_FINAL_CONTRACT"] = "Final Contract: Don't Fuck with Dre",
+	-- Outfits
+	["UI_OUTFITS_UPDATE"] = "Update",
+	["UI_OUTFITS_SAVE"] = "Save current",
 }
 
 return localization
