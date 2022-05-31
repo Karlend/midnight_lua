@@ -6,7 +6,7 @@ local mats = {
 	avatar = draw.create_texture_from_file(path .. "/nl/avatar.png")
 }
 
-local text_font = draw.create_font("impact", 18)
+local text_font-- = draw.create_font("impact", 18)
 
 local function ToCol(col)
 	return math.floor(col.x * 255), math.floor(col.y * 255), math.floor(col.z * 255), math.floor(col.w * 255)
