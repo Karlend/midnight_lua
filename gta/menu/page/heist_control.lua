@@ -237,7 +237,9 @@ table.insert(cayo,
 			for _, ent in ipairs(objects) do
 				local model = ENTITY.GET_ENTITY_MODEL(ent)
 				if model == drainage then
+					print("Native " .. tostring(ent))
 					ENTITY.SET_ENTITY_AS_MISSION_ENTITY(ent, true, true)
+					print("Delete entity " .. tostring(ent))
 					entity.delete(ent)
 				end
 			end
@@ -272,8 +274,8 @@ table.insert(casino,
 	MENU:Toggle("UI_HC_INSTANT_VAULT_DOOR_LASER"):SetCallback(function(self, val)
 		AddOrRemove("casino vault door", val, function()
 			if script.exists("fm_mission_controller") then
-				local need = script_global:new("fm_mission_controller", global.casino.vault_door.need):get_int64()
-				script_global:new("fm_mission_controller", global.casino.vault_door.cur):set_int64(need)
+				local need = script_local:new("fm_mission_controller", global.casino.vault_door.need):get_int64()
+				script_local:new("fm_mission_controller", global.casino.vault_door.cur):set_int64(need)
 			end
 		end)
 	end)
@@ -282,7 +284,7 @@ table.insert(casino,
 table.insert(casino,
 	MENU:Toggle("UI_HC_INSTANT_FINGERPRINT_CRACK"):SetCallback(function(self, val)
 		AddOrRemove("casino fingerprint", val, function()
-			local scr = script_global:new("fm_mission_controller", global.casino.fingerprint)
+			local scr = script_local:new("fm_mission_controller", global.casino.fingerprint)
 			local now = scr:get_int64()
 			if now == 1 then
 				return
@@ -295,12 +297,12 @@ table.insert(casino,
 table.insert(casino,
 	MENU:Toggle("UI_HC_INSTANT_DOOR_CRACK"):SetCallback(function(self, val)
 		AddOrRemove("casino doors", val, function()
-			local scr = script_global:new("fm_mission_controller", global.casino.doors)
+			local scr = script_local:new("fm_mission_controller", global.casino.doors)
 			local now = scr:get_int64()
 			if now == 1 then
 				return
 			end
-			scr:set_int64(n5)
+			scr:set_int64(5)
 		end)
 	end)
 )

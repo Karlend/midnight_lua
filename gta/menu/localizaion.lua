@@ -71,9 +71,9 @@ local localization = {
 	["UI_PM_SEEN_LAST"] = "Last seen:",
 	["UI_PM_MODDER"] = "Modder",
 	["UI_PM_UPDATE_ONLINE"] = "Update online",
+	["UI_PM_UPDATE_NOTIFY"] = "Notify",
 	--Join reactions
 	["UI_PM_JOIN_REACTIONS"] = "Join reactions",
-	["UI_PM_REACTION_NOTIFY"] = "Notify",
 	["UI_PM_REACTION_BLOCK_CHAT"] = "Block chat",
 	["UI_PM_REACTION_BLOCK_JOINS"] = "Block joins",
 	["UI_PM_REACTION_BLOCK_SCRIPTS"] = "Block scripts",

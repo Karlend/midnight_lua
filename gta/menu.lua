@@ -641,9 +641,9 @@ local translate = {
 	[101] = ENTER, -- numpad 5 | Энтер
 	[96] = BACK,  -- numpad 0 | Назад
 	[103] = 33, -- numpad 7 | Пред страница
-	[17] = 33, -- ctrl | Пред страница
+	[163] = 33, -- ctrl | Пред страница
 	[105] = 34, -- numpad 9 | След страница
-	[16] = 34,  -- shift | След страница
+	[161] = 34,  -- shift | След страница
 	[106] = MENU_KEY,  -- numpad * | Меню
 }
 
@@ -977,5 +977,14 @@ function OnModderDetected(ply, reason)
 end
 
 function OnPlayerActive(ply)
-	print("OnPlayerActive - " .. ply)
+	for k,v in ipairs(PAGES) do
+		if v.OnPlayerActive then
+			v.OnPlayerActive(ply)
+		end
+	end
+	for k,v in ipairs(MENU.PlayerFeatures) do
+		if v.buttons.OnPlayerActive then
+			v.buttons.OnPlayerActive(ply)
+		end
+	end
 end

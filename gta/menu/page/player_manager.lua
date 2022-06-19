@@ -40,6 +40,7 @@ local function ProccessFetch()
 		fetch_next = now + fetch_update_cooldown
 		return
 	end
+	local folder_name = current_folder:GetName()
 	local current_players = current_folder.buttons
 	local current_player = current_players[fetch_player]
 	if not current_player then
@@ -49,7 +50,8 @@ local function ProccessFetch()
 		return
 	end
 	local current_buttons = current_player.buttons
-	local update_online = current_buttons[6].value
+	local update_online = current_buttons[6]:GetValue()
+	local online_notify = current_buttons[7]:GetValue()
 	if not update_online then
 		fetch_player = fetch_player + 1
 		return
@@ -57,24 +59,24 @@ local function ProccessFetch()
 	local current_rid = tonumber(current_buttons[2].value) or 1
 	local name = current_buttons[1].value
 	fetch_next = now + 60
-	print("Checking online for " .. name .. " (" .. current_rid .. ")")
-	player.is_player_online(current_rid, function(rid, status)
+	--print("Checking online for " .. name .. " (" .. current_rid .. ")")
+	social.is_player_online(current_rid, function(rid, status)
 		fetch_next = os.time() + 1
-		print("Received online status for " .. name .. " (" .. rid .. ") - " .. tostring(status))
+		--print("Received online status for " .. name .. " (" .. rid .. ") - " .. tostring(status))
 		if status then
 			if not current_player.online then
 				current_player.online = true
 				current_player.name = "[O] " .. name
-				if true then
-					notify(name .. " became online")
+				if online_notify then
+					notify(name .. " became online | " .. folder_name)
 				end
 			end
 		else
 			if current_player.online then
 				current_player.online = nil
 				current_player.name = name
-				if true then
-					notify(name .. " became offline")
+				if online_notify then
+					notify(name .. " became offline | " .. folder_name)
 				end
 			end
 		end
@@ -116,7 +118,6 @@ local function PlayerButton(folder_name, rid, player_info)
 		MENU:Text("UI_PM_RID", rid):SetFunc(function() utils.set_clipboard(rid) notify("Copied player rid") end),
 		MENU:Text("UI_PM_NOTE", note):SetCallback(function(self, val) UpdatePlayer(folder_name, rid, "note", val) end),
 		MENU:Tab("UI_PM_JOIN_REACTIONS", {
-			MENU:Toggle("UI_PM_REACTION_NOTIFY"):SetValue(player_info.notify):SetCallback(function(self, val) UpdatePlayer(folder_name, rid, "notify", val) end),
 			MENU:Toggle("UI_PM_REACTION_BLOCK_CHAT"):SetValue(player_info.block_chat):SetCallback(function(self, val) UpdatePlayer(folder_name, rid, "block_chat", val) end),
 			MENU:Toggle("UI_PM_REACTION_BLOCK_JOINS"):SetValue(player_info.block_joins):SetCallback(function(self, val) UpdatePlayer(folder_name, rid, "block_joins", val) end),
 			MENU:Toggle("UI_PM_REACTION_BLOCK_SCRIPTS"):SetValue(player_info.block_script_events):SetCallback(function(self, val) UpdatePlayer(folder_name, rid, "block_script_events", val) end),
@@ -128,6 +129,7 @@ local function PlayerButton(folder_name, rid, player_info)
 		}),
 		MENU:Toggle("UI_PM_MODDER"):SetValue(player_info.modder):SetCallback(function(self, val) UpdatePlayer(folder_name, rid, "modder", val) end),
 		MENU:Toggle("UI_PM_UPDATE_ONLINE"):SetValue(player_info.update_online):SetCallback(function(self, val) UpdatePlayer(folder_name, rid, "update_online", val) end),
+		MENU:Toggle("UI_PM_UPDATE_NOTIFY"):SetValue(player_info.notify):SetCallback(function(self, val) UpdatePlayer(folder_name, rid, "notify", val) end),
 		MENU:Selection("UI_PM_JOIN", {"Ninja", "Friend"}):SetFunc(function(self, val) lobby.join_by_rid(tonumber(rid), val == 2) end),
 		MENU:Text("UI_PM_IP", ip):SetFunc(function() utils.set_clipboard(ip) notify("Copied player ip") end),
 		MENU:Text("UI_PM_SEEN_FIRST", player_info.first_seen):SetFunc(function() end),
@@ -199,8 +201,8 @@ local function UpdatePlayers()
 				MENU:Text("UI_PM_NOTE"),
 				MENU:Toggle("UI_PM_MODDER", false),
 				MENU:Toggle("UI_PM_UPDATE_ONLINE", false),
+				MENU:Toggle("UI_PM_UPDATE_NOTIFY"),
 				MENU:Tab("UI_PM_JOIN_REACTIONS", {
-					MENU:Toggle("UI_PM_REACTION_NOTIFY"),
 					MENU:Toggle("UI_PM_REACTION_BLOCK_CHAT"),
 					MENU:Toggle("UI_PM_REACTION_BLOCK_JOINS"),
 					MENU:Toggle("UI_PM_REACTION_BLOCK_SCRIPTS"),
@@ -240,16 +242,16 @@ local function UpdatePlayers()
 		local modder = add_tab[5]:GetValue()
 		local update_online = add_tab[6]:GetValue()
 
-		local join_reactions = add_tab[7].buttons
-		local notify_join = join_reactions[1]:GetValue()
-		local block_chat = join_reactions[2]:GetValue()
-		local block_joins = join_reactions[3]:GetValue()
-		local block_scripts = join_reactions[4]:GetValue()
-		local block_sync = join_reactions[5]:GetValue()
-		local crash = join_reactions[6]:GetValue()
-		local explode = join_reactions[7]:GetValue()
-		local freeze = join_reactions[8]:GetValue()
-		local kick = join_reactions[9]:GetValue()
+		local notify_online = add_tab[7]:GetValue()
+		local join_reactions = add_tab[8].buttons
+		local block_chat = join_reactions[1]:GetValue()
+		local block_joins = join_reactions[2]:GetValue()
+		local block_scripts = join_reactions[3]:GetValue()
+		local block_sync = join_reactions[4]:GetValue()
+		local crash = join_reactions[5]:GetValue()
+		local explode = join_reactions[6]:GetValue()
+		local freeze = join_reactions[7]:GetValue()
+		local kick = join_reactions[8]:GetValue()
 
 		AddPlayer(folder, rid, {
 			block_chat = block_chat,
@@ -266,7 +268,7 @@ local function UpdatePlayers()
 			modder = modder,
 			name = name,
 			note = note,
-			notify = notify_join,
+			notify = notify_online,
 			update_online = update_online,
 		})
 		notify("Player added")
@@ -292,28 +294,28 @@ local ignores = {
 }
 
 local reactions = {
-	["notify"] = function(ply, name, rid, ip)
-		notify("Player from PM -  " .. name .. " joined")
+	["notify"] = function(ply, name, rid, ip, folder)
+		notify("Player from PM - " .. name .. " joined | " .. folder)
 	end,
-	["kick"] = function(ply, name, rid, ip)
-		notify("Using kick on " .. name .. " because of join reaction")
+	["kick"] = function(ply, name, rid, ip, folder)
+		notify("Using kick on " .. name .. " because of join reaction | " .. folder)
 		player.kick(ply)
 	end,
-	["block_join"] = function(ply, name, rid, ip)
-		notify("Using block join on " .. name .. " because of join reaction")
+	["block_joins"] = function(ply, name, rid, ip, folder)
+		notify("Using block join on " .. name .. " because of join reaction | " .. folder)
 		player.kick_idm(ply)
 	end,
-	["crash"] = function(ply, name, rid, ip)
+	["crash"] = function(ply, name, rid, ip, folder)
 		notify("Using crash on " .. name .. " because of join reaction")
 		player.crash_izuku_start(ply)
 	end,
-	["block_sync"] = function(ply, name, rid, ip)
+	["block_sync"] = function(ply, name, rid, ip, folder)
 		notify("Using block sync on " .. name .. " because of join reaction")
 		player.ban(ply, 0, "Join reaction")
 	end,
-	["modder"] = function(ply, name, rid, ip)
-		notify("Restoring modder flag for " .. name)
-		player.set_modder_flag(ply, 5)
+	["modder"] = function(ply, name, rid, ip, folder)
+		notify("Restoring modder flag for " .. name, folder)
+		player.set_modder_flag(ply, 1 << 5)
 	end,
 	["block_script_events"] = function(ply, name, rid, ip)
 		ignores.se[ply] = true
@@ -323,28 +325,41 @@ local reactions = {
 	end,
 }
 
-local function ApplyReaction(ply, info, name, rid, ip)
+local function ApplyReaction(ply, info, name, rid, ip, folder)
 	for k, v in pairs(info) do
 		if reactions[k] and v then
-			reactions[k](ply, name, rid, ip)
+			reactions[k](ply, name, rid, ip, folder)
 		end
 	end
 end
 
 local deep_scan = true
 PAGE.OnPlayerJoin = function(ply, name, rid, ip, host_key)
+	return
+end
+
+local function GetRealIP(ply)
+	local ip = player.get_resolved_ip_string(ply)
+	return ip == "0.0.0.0" and player.get_ip_string(ply) or ip
+end
+
+PAGE.OnPlayerActive = function(ply)
+	local name = player.get_name(ply)
+	local rid = tostring(player.get_rid(ply))
+	local ip = GetRealIP(ply)
+	local now = os.date("%Y/%m/%d %H:%M:%S", os.time())
+
 	for folder_name, folder_players in pairs(players) do
 		local info = folder_players[rid]
 		if info then
-			ApplyReaction(ply, info, name, rid, ip)
-			local now = os.date("%Y/%m/%d %H:%M:%S", os.time())
+			ApplyReaction(ply, info, name, rid, ip, folder_name)
 			local buttons = ref[folder_name][rid].buttons
 			UpdatePlayer(folder_name, rid, "last_seen", now)
-			buttons[10]:SetValue(now)
+			buttons[11]:SetValue(now)
 			UpdatePlayer(folder_name, rid, "last_ip", ip)
-			buttons[8]:SetValue(ip)
+			buttons[9]:SetValue(ip)
 			if info.first_seen == "" or info.first_seen == "Never" then
-				buttons[9]:SetValue(now)
+				buttons[10]:SetValue(now)
 				UpdatePlayer(folder_name, rid, "first_seen", now)
 			end
 		end
@@ -358,15 +373,6 @@ PAGE.OnPlayerJoin = function(ply, name, rid, ip, host_key)
 	end
 end
 
-PAGE.OnPlayerActive = function(...)
-	local args = {...}
-	print("OnPlayerActive")
-	for k, v in ipairs(args) do
-		print(k .. " - " .. v)
-	end
-	print("OnPlayerActiveEnd")
-end
-
 PAGE.OnPlayerLeft = function(ply)
 	ignores.se[ply] = nil
 	ignores.chat[ply] = nil
@@ -378,21 +384,70 @@ PAGE.OnScriptEvent = function(ply, text)
 	end
 end
 
-PAGE.OnChatMsg = function(ply, text)
-	if ignores.chat[ply] then
-		return false
+local patterns = {
+	"gta%d*%.%a+", -- gtaNUMS.DOMAIN
+	"gta.*%.%a+", -- gtaLETERS.DOMAIN
+	"【", -- Impossible to use
+	"】", -- Impossible to use
+	"淘宝店铺",
+	"\n", -- must be kidding
+	"\t", -- must be kidding
+	"GTA%d+.*%d+W", -- 刷金微GTA5788科技解锁送2500W
+	"q群.*%d+", -- Q群:56789
+	"QQ%d+", -- QQNUMBERS
+	"money,rp,unlocks", -- en shit
+	"gtavkrutka", -- russian shit
+	"gta5%a%a", -- gta5xz and another. Prob will give fakes
+	"★", -- srly?
+	"www%.%w+%.%a+" -- www.SITE.DOMAIN
+}
+
+local function CheckMessage(ply, text, is_sms)
+	if ply == player.index() then
+		return
+	end
+	if is_sms and string.len(text) > 20 * 3 then -- china symbbols = 3 ANSI
+		return true
+	end
+	text = text:lower()
+	for id, pattern in ipairs(patterns) do
+		if text:match(pattern) then
+			return true
+		end
 	end
 end
 
+local bot_sms = {block_chat = true, block_joins = true, kick = true, modder = true, name = name, note = "Bot. SMS"}
+local bot_chat = {block_chat = true, block_joins = true, kick = true, modder = true, name = name, note = "Bot. Chat"}
 PAGE.OnSMS = function(ply, text)
+	local bot = CheckMessage(ply, text, true)
+	local rid, name = player.get_rid(ply), player.get_name(ply)
+	if bot and (not players["Bots"] or not players["Bots"][tostring(rid)]) then
+		local ip = GetRealIP(ply)
+		AddPlayer("Bots", rid, bot_sms)
+		ApplyReaction(ply, bot_sms, name, rid, ip, "Bots")
+		notify("Added bot - " .. name)
+		return false
+	end
 	if ignores.chat[ply] then
 		return false
 	end
 end
 
-local function GetRealIP(ply)
-	local ip = player.get_resolved_ip_string(ply)
-	return ip == "0.0.0.0" and player.get_ip_string(ply) or ip
+
+PAGE.OnChatMsg = function(ply, text)
+	local bot = CheckMessage(ply, text)
+	local rid, name = player.get_rid(ply), player.get_name(ply)
+	if bot and (not players["Bots"] or not players["Bots"][tostring(rid)]) then
+		local ip = GetRealIP(ply)
+		AddPlayer("Bots", rid, bot_chat)
+		ApplyReaction(ply, bot_chat, name, rid, ip, "Bots")
+		notify("Added bot - " .. name)
+		return false
+	end
+	if ignores.chat[ply] then
+		return false
+	end
 end
 
 local modder_reasons = {
@@ -413,15 +468,17 @@ PAGE.OnModderDetected = function(ply, reason)
 	local rid = player.get_rid(ply)
 	local s_rid = tostring(rid)
 	if players["Modders"][s_rid] then
+		print("Detected rid is already in modder list | " .. s_rid)
 		return
 	end
 	local name = player.get_name(ply)
 	local now = os.date("%Y/%m/%d %H:%M:%S", os.time())
 	local detect_reason = modder_reasons[reason] or "Modder detection - " .. tostring(reason)
-	print("Detected " .. name .. " for " .. detect_reason)
 	if detect_reason == "Censor bypass" or detect_reason == "Malformed script" then -- Фейки
+		print("Ignoring " .. name .. " for " .. detect_reason)
 		return
 	end
+	print("Detected " .. name .. " for " .. detect_reason)
 	local info = {
 		name = name,
 		modder = true,
