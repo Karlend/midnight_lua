@@ -295,7 +295,7 @@ local ignores = {
 
 local reactions = {
 	["notify"] = function(ply, name, rid, ip, folder)
-		notify("Player from PM - " .. name .. " joined | " .. folder)
+		notify("Player from PM - " .. name .. " joined | " .. (folder or "unknown"))
 	end,
 	["kick"] = function(ply, name, rid, ip, folder)
 		notify("Using kick on " .. name .. " because of join reaction | " .. folder)

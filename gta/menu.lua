@@ -10,6 +10,7 @@ local json = require("lib/json")
 local CFG = {}
 CFG.Buttons = 10 -- кол-во кнопок в меню
 CFG.Font = "Georgia"
+local font
 
 local PAGES = {}
 local PAGE = {}
@@ -481,10 +482,12 @@ local sizes = {
 	width = 272 * scale,
 	header_h = 67 * scale,
 
-	button_h = 36 * scale
+	button_h = 34 * scale
 }
 
-local font-- = draw.create_font(CFG.Font, sizes.button_h) -- Спасибо Контеру за фикс шрифтов, который крашит гта
+draw.create_font(CFG.Font, sizes.button_h * .5, function(f)
+	font = f
+end)
 
 local function DrawInput()
 	draw.set_color(0, 20, 20, 20, 220)
