@@ -8,14 +8,14 @@ local enables = {
 	{
 		"UI_UNSAFE_MONEYLOOP_750k",
 		function(val)
-			script_global:new(1964179):set_int64(2)
+			script_global:new(1963962):set_int64(2)
 			return 25000
 		end
 	},
 	{
 		"UI_UNSAFE_MONEYLOOP_500k",
 		function(val)
-			script_global:new(1964179):set_int64(1)
+			script_global:new(1963962):set_int64(1)
 			return 25000
 		end
 	},
